@@ -1,6 +1,6 @@
 # CLI Validation Run
 
-- timestamp: 2026-04-25T12:01:52.617183+00:00
+- timestamp: 2026-04-25T12:19:27.242775+00:00
 - repository_root: `.`
 - overall_status: passed
 
@@ -57,6 +57,16 @@
 - `evals/cases/case_002_meeting_to_design_update.md`
 - `evals/cases/case_003_evidence_to_decision_loop.md`
 - `evals/cases/case_004_second_synthetic_scenario.md`
+- `evals/cases/case_005_workflow_scaffold_generator.md`
+
+## Generator Assets
+
+- `scripts/generate_workflow_scaffold.py`
+- `docs/workflow_scaffold_generator.md`
+- `generated/scenario_003/evidence-to-decision/README.md`
+- `generated/scenario_003/evidence-to-decision/design_decision_packet.md`
+- `generated/scenario_003/evidence-to-decision/design_reflection_request.md`
+- `generated/scenario_003/evidence-to-decision/information_gap_request.md`
 
 ## Validation Command Results
 
@@ -73,6 +83,10 @@ Status: passed
 Status: passed
 
 ### Eval cases
+
+Status: passed
+
+### Generator assets
 
 Status: passed
 

@@ -8,7 +8,7 @@ This is not an automatic network design system.
 
 ## Quick Start
 
-v0.1 is a Markdown-first prototype. Review the documents, samples, templates, and workflow files directly, then run the lightweight validation checks:
+This repository is a Markdown-first workflow prototype with lightweight CLI validation and scaffold generation. Review the documents, samples, templates, and workflow files directly, then run the checks:
 
 ```bash
 python3 scripts/check_sensitive_identifiers.py
@@ -16,6 +16,9 @@ python3 scripts/validate_output_schema.py
 python3 scripts/check_unresolved_assertions.py
 python3 scripts/compare_expected_outputs.py
 python3 scripts/run_sample_workflow.py --write-report
+python3 scripts/generate_workflow_scaffold.py --list-workflows
+python3 scripts/generate_workflow_scaffold.py --scenario-id scenario_003 --workflow evidence-to-decision --output-dir generated/scenario_003 --force
+python3 scripts/run_sample_workflow.py --check-only
 ```
 
 Passing validation means the sample artifacts meet the current v0.1 checks. It does not mean the repository is approved for publication or production use.
@@ -74,6 +77,10 @@ v0.4 adds a lightweight CLI runner that validates repository structure, samples,
 
 v0.5 adds a second synthetic scenario focused on data center resilience, operations monitoring, DR failover alerting, and communication matrix impact. This helps show that the workflow is not tied to a single ExampleCorp branch-connectivity sample.
 
+## v0.6 Direction: Minimal Workflow Scaffold Generator
+
+v0.6 adds a minimal scaffold generator that creates empty workflow artifact sets for `meeting-to-design` and `evidence-to-decision`. It does not call an LLM, generate approved design decisions, or update production artifacts. It prepares the project for future workflow generation, API layers, and SaaS execution while keeping human approval visible.
+
 ## Repository Structure
 
 - `agents/`: Agent role definitions for lifecycle support.
@@ -82,6 +89,7 @@ v0.5 adds a second synthetic scenario focused on data center resilience, operati
 - `templates/`: Reusable public-safe artifact templates.
 - `samples/`: Synthetic input and output examples.
 - `evals/`: Small evaluation cases and expected outputs.
+- `generated/`: Committed example workflow scaffolds.
 - `scripts/`: Minimal validation and safety-check scripts.
 - `state/`: Lightweight project state logs for decisions, issues, deltas, and approvals.
 - `docs/`: Public-facing summary and talk-track documents.
@@ -105,4 +113,4 @@ LLMs may structure information, surface contradictions, propose review questions
 
 ## Current Status
 
-`v0.1 Markdown-first prototype`
+`v0.6 Minimal workflow scaffold generator`

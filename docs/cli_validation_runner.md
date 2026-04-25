@@ -12,6 +12,8 @@ v0.1 through v0.3 established the repository structure, meeting-to-design workfl
 
 v0.5 extends the runner coverage to include a second synthetic scenario so the checks are not limited to one sample case.
 
+v0.6 extends the runner coverage to include the workflow scaffold generator and a committed evidence-to-decision scaffold.
+
 ## What The Runner Checks
 
 - Required top-level files.
@@ -19,6 +21,8 @@ v0.5 extends the runner coverage to include a second synthetic scenario so the c
 - v0.1, v0.2, and v0.3 sample outputs.
 - Scenario 002 synthetic outputs.
 - Eval cases.
+- Workflow scaffold generator assets.
+- Committed generated scaffold files.
 - Existing validation scripts.
 - Working-file public-safe scan excluding `.git`.
 

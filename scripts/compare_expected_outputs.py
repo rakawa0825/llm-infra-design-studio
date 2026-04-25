@@ -75,6 +75,27 @@ def main() -> int:
                 "not approved",
             ],
         },
+        {
+            "expected": ROOT / "evals" / "expected" / "case_005_expected.md",
+            "outputs": [
+                ROOT / "generated" / "scenario_003" / "evidence-to-decision" / "README.md",
+                ROOT / "generated" / "scenario_003" / "evidence-to-decision" / "source_manifest.md",
+                ROOT / "generated" / "scenario_003" / "evidence-to-decision" / "official_source_reconciliation.md",
+                ROOT / "generated" / "scenario_003" / "evidence-to-decision" / "information_gap_request.md",
+                ROOT / "generated" / "scenario_003" / "evidence-to-decision" / "design_decision_packet.md",
+                ROOT / "generated" / "scenario_003" / "evidence-to-decision" / "design_reflection_request.md",
+                ROOT / "generated" / "scenario_003" / "evidence-to-decision" / "human_approval_checklist.md",
+            ],
+            "tokens": [
+                "scenario_003",
+                "evidence-to-decision",
+                "draft",
+                "human_approval_required",
+                "This scaffold is not an approved design update.",
+                "Human review and approval are required",
+                "Do not mark generated scaffold content as `approved`.",
+            ],
+        },
     ]
 
     failures: list[str] = []

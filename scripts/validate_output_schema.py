@@ -313,6 +313,60 @@ REQUIRED_CSV_COLUMNS = {
     ],
 }
 
+GENERATED_REQUIRED = {
+    "generated/scenario_003/evidence-to-decision/README.md": [
+        "# Evidence-To-Decision Scaffold",
+        "## Metadata",
+        "## Scaffold Warning",
+        "## Status Constraints",
+    ],
+    "generated/scenario_003/evidence-to-decision/source_manifest.md": [
+        "# Source Manifest",
+        "## Metadata",
+        "## Source Inventory",
+        "## Missing Sources",
+    ],
+    "generated/scenario_003/evidence-to-decision/official_source_reconciliation.md": [
+        "# Official Source Reconciliation",
+        "## Metadata",
+        "## Source Claims",
+        "## Required Actions",
+    ],
+    "generated/scenario_003/evidence-to-decision/information_gap_request.md": [
+        "# Information Gap Request",
+        "## Metadata",
+        "## Gap Table",
+        "## Status Allowed Values",
+    ],
+    "generated/scenario_003/evidence-to-decision/design_decision_packet.md": [
+        "# Design Decision Packet",
+        "## Metadata",
+        "## Confirmed Facts",
+        "## Human Decisions Required",
+        "## Do Not Reflect Yet",
+    ],
+    "generated/scenario_003/evidence-to-decision/design_reflection_request.md": [
+        "# Design Reflection Request",
+        "## Metadata",
+        "## Target Artifacts",
+        "## Approval Required",
+    ],
+    "generated/scenario_003/evidence-to-decision/human_approval_checklist.md": [
+        "# Human Approval Checklist",
+        "## Metadata",
+        "## Approval Items",
+        "## Decision Status",
+    ],
+}
+
+GENERATED_REQUIRED_COLUMNS = [
+    "Item ID",
+    "Status",
+    "Source References",
+    "Human Approval Required",
+    "Notes",
+]
+
 
 def markdown_table_headers(text: str) -> list[list[str]]:
     headers: list[list[str]] = []
@@ -364,6 +418,24 @@ def main() -> int:
             header = next(reader, [])
         for column in missing_columns(header, required_columns):
             failures.append(f"{path.relative_to(ROOT)} missing CSV column: {column}")
+
+    for relative_path, headings in GENERATED_REQUIRED.items():
+        path = ROOT / relative_path
+        if not path.exists():
+            failures.append(f"missing file: {relative_path}")
+            continue
+        text = path.read_text(encoding="utf-8")
+        for heading in headings:
+            if heading not in text:
+                failures.append(f"{relative_path} missing heading: {heading}")
+        if "status: `draft`" not in text:
+            failures.append(f"{relative_path} missing draft status")
+        if "human_approval_required: `true`" not in text:
+            failures.append(f"{relative_path} missing human approval metadata")
+        headers = markdown_table_headers(text)
+        if not has_required_columns(headers, GENERATED_REQUIRED_COLUMNS):
+            for column in GENERATED_REQUIRED_COLUMNS:
+                failures.append(f"{relative_path} missing table column: {column}")
 
     if failures:
         print("Output schema validation failed:")

@@ -66,6 +66,16 @@ REQUIRED_EVAL_CASES = [
     "case_002_meeting_to_design_update.md",
     "case_003_evidence_to_decision_loop.md",
     "case_004_second_synthetic_scenario.md",
+    "case_005_workflow_scaffold_generator.md",
+]
+
+REQUIRED_GENERATOR_ASSETS = [
+    "scripts/generate_workflow_scaffold.py",
+    "docs/workflow_scaffold_generator.md",
+    "generated/scenario_003/evidence-to-decision/README.md",
+    "generated/scenario_003/evidence-to-decision/design_decision_packet.md",
+    "generated/scenario_003/evidence-to-decision/design_reflection_request.md",
+    "generated/scenario_003/evidence-to-decision/information_gap_request.md",
 ]
 
 VALIDATION_SCRIPTS = [
@@ -159,6 +169,7 @@ def build_results() -> list[CheckResult]:
         check_paths("Required directories", [ROOT / path for path in REQUIRED_DIRECTORIES], expect_dir=True),
         check_paths("Sample outputs", [ROOT / "samples" / "output" / path for path in REQUIRED_SAMPLE_OUTPUTS]),
         check_paths("Eval cases", [ROOT / "evals" / "cases" / path for path in REQUIRED_EVAL_CASES]),
+        check_paths("Generator assets", [ROOT / path for path in REQUIRED_GENERATOR_ASSETS]),
     ]
     results.extend(run_validation_script(script) for script in VALIDATION_SCRIPTS)
     results.append(public_safe_scan())
@@ -181,6 +192,7 @@ def print_summary(results: list[CheckResult]) -> None:
     print(f"Required directories: {status_text(by_name['Required directories'].passed)}")
     print(f"Sample outputs: {status_text(by_name['Sample outputs'].passed)}")
     print(f"Eval cases: {status_text(by_name['Eval cases'].passed)}")
+    print(f"Generator assets: {status_text(by_name['Generator assets'].passed)}")
     print(f"Validation scripts: {status_text(validation_passed)}")
     for detail in script_details:
         print(f"  - {detail}")
@@ -211,6 +223,9 @@ def report_lines(results: list[CheckResult]) -> list[str]:
     lines.extend(["", "## Eval Cases", ""])
     for path in REQUIRED_EVAL_CASES:
         lines.append(f"- `evals/cases/{path}`")
+    lines.extend(["", "## Generator Assets", ""])
+    for path in REQUIRED_GENERATOR_ASSETS:
+        lines.append(f"- `{path}`")
 
     lines.extend(["", "## Validation Command Results", ""])
     for result in results:

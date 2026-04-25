@@ -15,6 +15,12 @@ Use at the start of every design cycle or when new inputs arrive.
 - Date received
 - Source type
 
+## Example Inputs
+
+- `samples/input/sample_meeting_transcript.md`
+- `samples/input/sample_existing_design_excerpt.md`
+- `samples/input/sample_vendor_answer.md`
+
 ## Process
 
 1. Assign a stable source ID.
@@ -25,6 +31,10 @@ Use at the start of every design cycle or when new inputs arrive.
 ## Outputs
 
 - Source manifest table
+
+## Example Outputs
+
+- `samples/output/sample_source_manifest.md`
 
 ## Quality Checks
 

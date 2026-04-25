@@ -14,6 +14,12 @@ Use after requirement extraction and before verification.
 - Communication matrix
 - Review comments
 
+## Example Inputs
+
+- `samples/output/sample_requirements_table.md`
+- `samples/output/sample_communication_matrix.csv`
+- `samples/input/sample_review_comments.md`
+
 ## Process
 
 1. Check each requirement against target architecture.
@@ -25,6 +31,11 @@ Use after requirement extraction and before verification.
 
 - Design logic review notes
 - Handoff item list
+
+## Example Outputs
+
+- `templates/detail_design_handoff_template.md`
+- `samples/output/sample_unresolved_issues.md`
 
 ## Quality Checks
 

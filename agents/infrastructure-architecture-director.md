@@ -4,6 +4,10 @@
 
 Reviews infrastructure architecture logic and design consistency.
 
+## Ownership Boundary
+
+Owns end-to-end architecture consistency across infrastructure domains, dependency alignment, and high-level target model review. Does not own detailed routing mechanics, approval governance, or final verification gates.
+
 ## Responsibilities
 
 - Identify architectural gaps and dependencies.

@@ -4,6 +4,22 @@
 
 Describe what is ready for detailed design.
 
+## Approval Metadata
+
+| Approval ID | Decision Scope | Approver Role | Decision Date | Decision Status | Rationale | Source Reference |
+| --- | --- | --- | --- | --- | --- | --- |
+| AP-001 | Detailed design handoff | Engineering lead | YYYY-MM-DD | human_approval_required | Handoff requires review | SRC-001 |
+
+Required fields:
+
+- approval_id
+- decision_scope
+- approver_role
+- decision_date
+- decision_status
+- rationale
+- source_reference
+
 ## Confirmed Inputs
 
 | Item | Source ID | Notes |
@@ -25,3 +41,13 @@ Describe what is ready for detailed design.
 ## Human Approval
 
 Handoff requires explicit approval from the engineering lead.
+
+## Status Allowed Values
+
+- confirmed
+- assumption
+- unresolved
+- customer_confirmation_required
+- vendor_confirmation_required
+- detailed_design_handoff
+- human_approval_required

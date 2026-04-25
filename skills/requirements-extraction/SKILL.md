@@ -14,6 +14,12 @@ Use after source normalization.
 - Normalized source notes
 - Communication requirements
 
+## Example Inputs
+
+- `samples/output/sample_source_manifest.md`
+- `samples/input/sample_meeting_transcript.md`
+- `samples/input/sample_communication_requirements.csv`
+
 ## Process
 
 1. Extract candidate requirements.
@@ -25,6 +31,11 @@ Use after source normalization.
 
 - Requirements table
 - Confirmation items
+
+## Example Outputs
+
+- `samples/output/sample_requirements_table.md`
+- `samples/output/sample_unresolved_issues.md`
 
 ## Quality Checks
 

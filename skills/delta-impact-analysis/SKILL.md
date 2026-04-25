@@ -14,6 +14,12 @@ Use when new review comments, vendor answers, or requirements arrive.
 - New sources
 - Current source manifest
 
+## Example Inputs
+
+- `samples/output/sample_requirements_table.md`
+- `samples/input/sample_review_comments.md`
+- `samples/output/sample_source_manifest.md`
+
 ## Process
 
 1. Compare meaning, not just wording.
@@ -25,6 +31,11 @@ Use when new review comments, vendor answers, or requirements arrive.
 
 - Delta report
 - Update proposal
+
+## Example Outputs
+
+- `samples/output/sample_delta_report.md`
+- `templates/design_update_proposal_template.md`
 
 ## Quality Checks
 

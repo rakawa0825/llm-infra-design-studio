@@ -14,6 +14,12 @@ Use after verification and human merge decisions.
 - Delta report
 - Templates
 
+## Example Inputs
+
+- `samples/output/sample_requirements_table.md`
+- `samples/output/sample_delta_report.md`
+- `templates/design_update_proposal_template.md`
+
 ## Process
 
 1. Select the target template.
@@ -24,6 +30,11 @@ Use after verification and human merge decisions.
 ## Outputs
 
 - Updated artifact draft
+
+## Example Outputs
+
+- `templates/design_update_proposal_template.md`
+- `templates/detail_design_handoff_template.md`
 
 ## Quality Checks
 

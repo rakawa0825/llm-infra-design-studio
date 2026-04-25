@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Validate required headings in sample Markdown outputs."""
+"""Validate required headings and simple table columns in sample outputs."""
 
 from __future__ import annotations
 
+import csv
 import sys
 from pathlib import Path
 
@@ -22,6 +23,86 @@ REQUIRED = {
     "sample_human_approval_checklist.md": ["# Sample Human Approval Checklist", "## Approval Rules"],
 }
 
+REQUIRED_TABLE_COLUMNS = {
+    "sample_source_manifest.md": [
+        "Source ID",
+        "Title",
+        "Type",
+        "Owner",
+        "Date",
+        "Summary",
+        "Sample-Safety Status",
+        "Downstream Use",
+    ],
+    "sample_requirements_table.md": [
+        "Requirement ID",
+        "Requirement",
+        "Status",
+        "Source ID",
+        "Confidence",
+        "Confirmation Owner",
+        "Notes",
+    ],
+    "sample_unresolved_issues.md": [
+        "Issue ID",
+        "Issue",
+        "Category",
+        "Owner",
+        "Source ID",
+        "Impact",
+        "Next Action",
+        "Approval Needed",
+    ],
+    "sample_delta_report.md": [
+        "Delta ID",
+        "New Source",
+        "Previous Understanding",
+        "New Information",
+        "Impacted Artifact",
+        "Impact",
+        "Recommendation",
+        "Human Decision",
+    ],
+    "sample_human_approval_checklist.md": [
+        "Approval ID",
+        "Item",
+        "Approval Type",
+        "Required Approver",
+        "Status",
+        "Residual Risk",
+        "Notes",
+    ],
+}
+
+REQUIRED_CSV_COLUMNS = {
+    "sample_communication_matrix.csv": [
+        "source_zone",
+        "source_component",
+        "destination_zone",
+        "destination_component",
+        "protocol",
+        "port",
+        "direction",
+        "status",
+        "source_id",
+        "notes",
+    ],
+}
+
+
+def first_markdown_table_header(text: str) -> list[str]:
+    for line in text.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("|") and stripped.endswith("|"):
+            cells = [cell.strip() for cell in stripped.strip("|").split("|")]
+            if cells and not all(set(cell) <= {"-", " "} for cell in cells):
+                return cells
+    return []
+
+
+def missing_columns(actual: list[str], required: list[str]) -> list[str]:
+    return [column for column in required if column not in actual]
+
 
 def main() -> int:
     output_dir = ROOT / "samples" / "output"
@@ -36,6 +117,23 @@ def main() -> int:
         for heading in headings:
             if heading not in text:
                 failures.append(f"{path.relative_to(ROOT)} missing heading: {heading}")
+
+        required_columns = REQUIRED_TABLE_COLUMNS.get(filename, [])
+        if required_columns:
+            header = first_markdown_table_header(text)
+            for column in missing_columns(header, required_columns):
+                failures.append(f"{path.relative_to(ROOT)} missing table column: {column}")
+
+    for filename, required_columns in REQUIRED_CSV_COLUMNS.items():
+        path = output_dir / filename
+        if not path.exists():
+            failures.append(f"missing file: {path.relative_to(ROOT)}")
+            continue
+        with path.open(newline="", encoding="utf-8") as handle:
+            reader = csv.reader(handle)
+            header = next(reader, [])
+        for column in missing_columns(header, required_columns):
+            failures.append(f"{path.relative_to(ROOT)} missing CSV column: {column}")
 
     if failures:
         print("Output schema validation failed:")

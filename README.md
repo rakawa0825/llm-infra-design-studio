@@ -6,9 +6,32 @@ It helps teams transform fragmented infrastructure design information - meeting 
 
 This is not an automatic network design system.
 
+## Quick Start
+
+v0.1 is a Markdown-first prototype. Review the documents, samples, templates, and workflow files directly, then run the lightweight validation checks:
+
+```bash
+python3 scripts/check_sensitive_identifiers.py
+python3 scripts/validate_output_schema.py
+python3 scripts/check_unresolved_assertions.py
+python3 scripts/compare_expected_outputs.py
+```
+
+Passing validation means the sample artifacts meet the current v0.1 checks. It does not mean the repository is approved for publication or production use.
+
 ## Problem
 
 Enterprise infrastructure design work often depends on scattered inputs, repeated review cycles, and decisions that must remain traceable over time. This repository provides a Markdown-first structure for organizing those inputs and producing artifacts that engineers can review, challenge, approve, and reuse.
+
+## Intended Users
+
+- Enterprise network engineers.
+- Infrastructure architects.
+- Technical success and deployment teams.
+- SI and infrastructure design teams.
+- Reviewers who need structured design evidence.
+
+The repository supports review structure, workflow discipline, source traceability, and reusable artifact formats. It does not make automatic design decisions.
 
 ## What This Is
 
@@ -49,6 +72,15 @@ All examples in this repository are synthetic. Use fictional names such as Examp
 ## Human-In-The-Loop Principle
 
 LLMs may structure information, surface contradictions, propose review questions, and draft artifacts. Humans must approve design decisions, scope commitments, customer-facing statements, risk acceptance, unresolved issue closure, detailed design handoff, and production-impacting decisions.
+
+## Known Limitations of v0.1
+
+- Validation scripts are minimal and intentionally easy to inspect.
+- Samples are synthetic and do not represent a production network.
+- There is no production network integration.
+- There is no SaaS UI yet.
+- There is no automatic design decisioning.
+- Human approval remains required for design decisions, scope commitments, risk acceptance, handoff, publication, and production-impacting actions.
 
 ## Current Status
 

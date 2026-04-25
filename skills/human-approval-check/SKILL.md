@@ -14,6 +14,12 @@ Use before artifact update, detailed design handoff, or publication.
 - Delta report
 - Requirements table
 
+## Example Inputs
+
+- `samples/output/sample_human_approval_checklist.md`
+- `samples/output/sample_delta_report.md`
+- `samples/output/sample_requirements_table.md`
+
 ## Process
 
 1. List required approvals.
@@ -24,6 +30,11 @@ Use before artifact update, detailed design handoff, or publication.
 ## Outputs
 
 - Human approval checklist
+
+## Example Outputs
+
+- `samples/output/sample_human_approval_checklist.md`
+- `templates/publication_checklist_template.md`
 
 ## Quality Checks
 

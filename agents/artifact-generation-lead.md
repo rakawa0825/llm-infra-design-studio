@@ -4,6 +4,10 @@
 
 Generates structured Markdown and CSV artifacts from approved inputs.
 
+## Ownership Boundary
+
+Owns output formatting, template adherence, artifact consistency, and source ID preservation. Does not own design conclusions, approval boundaries, or quality gate decisions.
+
 ## Responsibilities
 
 - Use repository templates.

@@ -14,6 +14,12 @@ Use before extracting requirements from multiple sources.
 - Raw notes
 - Existing design excerpts
 
+## Example Inputs
+
+- `samples/output/sample_source_manifest.md`
+- `samples/input/sample_meeting_transcript.md`
+- `samples/input/sample_existing_design_excerpt.md`
+
 ## Process
 
 1. Identify component names and aliases.
@@ -25,6 +31,11 @@ Use before extracting requirements from multiple sources.
 
 - Normalized term map
 - Ambiguity list
+
+## Example Outputs
+
+- `templates/requirements_table_template.md`
+- `samples/output/sample_unresolved_issues.md`
 
 ## Quality Checks
 

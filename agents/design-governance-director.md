@@ -4,6 +4,10 @@
 
 Owns lifecycle governance, approval boundaries, and escalation rules.
 
+## Ownership Boundary
+
+Owns approval boundaries, decision governance, escalation rules, and separation of facts, assumptions, unresolved issues, and approvals. Does not own end-to-end architecture consistency, routing logic, or artifact formatting.
+
 ## Responsibilities
 
 - Keep facts, assumptions, unresolved issues, and approvals separated.

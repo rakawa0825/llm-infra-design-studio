@@ -15,6 +15,7 @@ python3 scripts/check_sensitive_identifiers.py
 python3 scripts/validate_output_schema.py
 python3 scripts/check_unresolved_assertions.py
 python3 scripts/compare_expected_outputs.py
+python3 scripts/run_sample_workflow.py --write-report
 ```
 
 Passing validation means the sample artifacts meet the current v0.1 checks. It does not mean the repository is approved for publication or production use.
@@ -64,6 +65,10 @@ The goal is to show how enterprise design review moves from conversation to trac
 The next loop combines meeting evidence, official source excerpts, and an existing design baseline into a decision packet for human review. It generates information gap requests and design reflection requests, but does not automatically approve or update design documents.
 
 The goal is to prepare source-backed decisions while keeping missing information, baseline impact, and human approval visible.
+
+## v0.4 Direction: CLI Validation Runner
+
+v0.4 adds a lightweight CLI runner that validates repository structure, samples, evals, validation scripts, and public-safety checks. It does not generate final design decisions; it prepares the project for future CLI, API, and SaaS evolution by making the workflow assets reproducible.
 
 ## Repository Structure
 

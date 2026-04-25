@@ -1,0 +1,103 @@
+# CLI Validation Run
+
+- timestamp: 2026-04-25T11:52:07.432497+00:00
+- repository_root: `.`
+- overall_status: passed
+
+## Checked Files
+
+- `README.md`
+- `AGENTS.md`
+- `SERVICE_BLUEPRINT.md`
+- `LIFECYCLE.md`
+- `HUMAN_GOVERNANCE.md`
+
+## Checked Directories
+
+- `docs`
+- `workflows`
+- `agents`
+- `skills`
+- `templates`
+- `samples/input`
+- `samples/output`
+- `evals/cases`
+- `evals/expected`
+- `evals/reports`
+- `scripts`
+- `reports`
+
+## Sample Outputs
+
+- `samples/output/sample_source_manifest.md`
+- `samples/output/sample_requirements_table.md`
+- `samples/output/sample_delta_report.md`
+- `samples/output/sample_human_approval_checklist.md`
+- `samples/output/sample_issue_register.md`
+- `samples/output/sample_decision_log.md`
+- `samples/output/sample_stakeholder_questions.md`
+- `samples/output/sample_design_update_proposal.md`
+- `samples/output/sample_official_source_reconciliation.md`
+- `samples/output/sample_information_gap_request.md`
+- `samples/output/sample_design_decision_packet.md`
+- `samples/output/sample_design_reflection_request.md`
+
+## Eval Cases
+
+- `evals/cases/case_001_basic_delta.md`
+- `evals/cases/case_002_meeting_to_design_update.md`
+- `evals/cases/case_003_evidence_to_decision_loop.md`
+
+## Validation Command Results
+
+### Required files
+
+Status: passed
+
+### Required directories
+
+Status: passed
+
+### Sample outputs
+
+Status: passed
+
+### Eval cases
+
+Status: passed
+
+### scripts/check_sensitive_identifiers.py
+
+Status: passed
+
+- Sensitive identifier scan passed.
+
+### scripts/validate_output_schema.py
+
+Status: passed
+
+- Output schema validation passed.
+
+### scripts/check_unresolved_assertions.py
+
+Status: passed
+
+- Unresolved assertion check passed.
+
+### scripts/compare_expected_outputs.py
+
+Status: passed
+
+- Expected output comparison passed.
+
+### Public-safe scan
+
+Status: passed
+
+## Public-Safe Scan Result
+
+Status: passed
+
+## Next Recommended Action
+
+Review the generated report and commit only if the workflow state is intended.

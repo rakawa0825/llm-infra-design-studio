@@ -70,6 +70,10 @@ The goal is to prepare source-backed decisions while keeping missing information
 
 v0.4 adds a lightweight CLI runner that validates repository structure, samples, evals, validation scripts, and public-safety checks. It does not generate final design decisions; it prepares the project for future CLI, API, and SaaS evolution by making the workflow assets reproducible.
 
+## v0.5 Direction: Multiple Synthetic Scenarios
+
+v0.5 adds a second synthetic scenario focused on data center resilience, operations monitoring, DR failover alerting, and communication matrix impact. This helps show that the workflow is not tied to a single ExampleCorp branch-connectivity sample.
+
 ## Repository Structure
 
 - `agents/`: Agent role definitions for lifecycle support.

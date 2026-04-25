@@ -1,6 +1,6 @@
 # CLI Validation Run
 
-- timestamp: 2026-04-25T11:52:07.432497+00:00
+- timestamp: 2026-04-25T12:01:52.617183+00:00
 - repository_root: `.`
 - overall_status: passed
 
@@ -41,12 +41,22 @@
 - `samples/output/sample_information_gap_request.md`
 - `samples/output/sample_design_decision_packet.md`
 - `samples/output/sample_design_reflection_request.md`
+- `samples/output/scenario_002_source_manifest.md`
+- `samples/output/scenario_002_requirements_table.md`
+- `samples/output/scenario_002_issue_register.md`
+- `samples/output/scenario_002_decision_log.md`
+- `samples/output/scenario_002_delta_report.md`
+- `samples/output/scenario_002_design_decision_packet.md`
+- `samples/output/scenario_002_information_gap_request.md`
+- `samples/output/scenario_002_design_reflection_request.md`
+- `samples/output/scenario_002_human_approval_checklist.md`
 
 ## Eval Cases
 
 - `evals/cases/case_001_basic_delta.md`
 - `evals/cases/case_002_meeting_to_design_update.md`
 - `evals/cases/case_003_evidence_to_decision_loop.md`
+- `evals/cases/case_004_second_synthetic_scenario.md`
 
 ## Validation Command Results
 

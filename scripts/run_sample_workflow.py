@@ -50,12 +50,22 @@ REQUIRED_SAMPLE_OUTPUTS = [
     "sample_information_gap_request.md",
     "sample_design_decision_packet.md",
     "sample_design_reflection_request.md",
+    "scenario_002_source_manifest.md",
+    "scenario_002_requirements_table.md",
+    "scenario_002_issue_register.md",
+    "scenario_002_decision_log.md",
+    "scenario_002_delta_report.md",
+    "scenario_002_design_decision_packet.md",
+    "scenario_002_information_gap_request.md",
+    "scenario_002_design_reflection_request.md",
+    "scenario_002_human_approval_checklist.md",
 ]
 
 REQUIRED_EVAL_CASES = [
     "case_001_basic_delta.md",
     "case_002_meeting_to_design_update.md",
     "case_003_evidence_to_decision_loop.md",
+    "case_004_second_synthetic_scenario.md",
 ]
 
 VALIDATION_SCRIPTS = [

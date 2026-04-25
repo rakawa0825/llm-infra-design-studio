@@ -52,6 +52,29 @@ def main() -> int:
                 "needs_more_information",
             ],
         },
+        {
+            "expected": ROOT / "evals" / "expected" / "case_004_expected.md",
+            "outputs": [
+                ROOT / "samples" / "output" / "scenario_002_source_manifest.md",
+                ROOT / "samples" / "output" / "scenario_002_requirements_table.md",
+                ROOT / "samples" / "output" / "scenario_002_issue_register.md",
+                ROOT / "samples" / "output" / "scenario_002_decision_log.md",
+                ROOT / "samples" / "output" / "scenario_002_delta_report.md",
+                ROOT / "samples" / "output" / "scenario_002_design_decision_packet.md",
+                ROOT / "samples" / "output" / "scenario_002_information_gap_request.md",
+                ROOT / "samples" / "output" / "scenario_002_design_reflection_request.md",
+                ROOT / "samples" / "output" / "scenario_002_human_approval_checklist.md",
+            ],
+            "tokens": [
+                "Northstar Manufacturing",
+                "internal_review",
+                "vendor_confirmation_required",
+                "customer_confirmation_required",
+                "Communication matrix",
+                "Approval Required",
+                "not approved",
+            ],
+        },
     ]
 
     failures: list[str] = []

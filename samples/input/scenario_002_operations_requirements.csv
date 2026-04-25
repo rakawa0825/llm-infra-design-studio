@@ -1,0 +1,6 @@
+requirement_id,domain,item,status,owner,notes
+OPS-201,monitoring,Primary-DC availability alerting,confirmed,Operations lead,Synthetic requirement
+OPS-202,monitoring,DR-DC failover alerting,assumption,Operations lead,Ownership requires confirmation
+OPS-203,communication,Branch-to-DR management traffic,customer_confirmation_required,Customer owner,Scope not approved
+OPS-204,monitoring,Event retention period,vendor_confirmation_required,Vendor owner,Depends on configuration
+OPS-205,handoff,Alert severity mapping,detailed_design_handoff,Detailed design owner,Define during detailed design

@@ -10,11 +10,14 @@ The CLI runner makes the Markdown-first workflow prototype reproducible without 
 
 v0.1 through v0.3 established the repository structure, meeting-to-design workflow slice, and evidence-to-decision loop. v0.4 adds a minimal executable layer so reviewers can verify that the repository still has required files, sample outputs, eval cases, validation scripts, and public-safe content.
 
+v0.5 extends the runner coverage to include a second synthetic scenario so the checks are not limited to one sample case.
+
 ## What The Runner Checks
 
 - Required top-level files.
 - Required directories.
 - v0.1, v0.2, and v0.3 sample outputs.
+- Scenario 002 synthetic outputs.
 - Eval cases.
 - Existing validation scripts.
 - Working-file public-safe scan excluding `.git`.

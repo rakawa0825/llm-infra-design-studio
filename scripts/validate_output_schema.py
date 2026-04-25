@@ -21,6 +21,16 @@ REQUIRED = {
     "sample_unresolved_issues.md": ["# Sample Unresolved Issues", "## Human Approval Points"],
     "sample_delta_report.md": ["# Sample Delta Report", "## Assumptions", "## Human Approval Points"],
     "sample_human_approval_checklist.md": ["# Sample Human Approval Checklist", "## Approval Rules"],
+    "sample_issue_register.md": ["# Sample Issue Register", "## Human Approval Points"],
+    "sample_decision_log.md": ["# Sample Decision Log", "## Decision Rules"],
+    "sample_stakeholder_questions.md": ["# Sample Stakeholder Questions", "## Human Review Required"],
+    "sample_design_update_proposal.md": [
+        "# Sample Design Update Proposal",
+        "## Proposal Summary",
+        "## Source Evidence",
+        "## Proposed Artifact Updates",
+        "## Human Approval Points",
+    ],
 }
 
 REQUIRED_TABLE_COLUMNS = {
@@ -72,6 +82,47 @@ REQUIRED_TABLE_COLUMNS = {
         "Residual Risk",
         "Notes",
     ],
+    "sample_issue_register.md": [
+        "Issue ID",
+        "Issue",
+        "Category",
+        "Owner Role",
+        "Status",
+        "Impact",
+        "Next Action",
+        "Source Reference",
+        "Approval Required",
+    ],
+    "sample_decision_log.md": [
+        "Decision ID",
+        "Decision Statement",
+        "Decision Status",
+        "Decision Scope",
+        "Owner Role",
+        "Approver Role",
+        "Decision Date",
+        "Source Reference",
+        "Rationale",
+        "Follow-Up",
+    ],
+    "sample_stakeholder_questions.md": [
+        "Question ID",
+        "Target Stakeholder",
+        "Question",
+        "Reason",
+        "Design Impact",
+        "Status",
+        "Source Reference",
+        "Needed Before",
+    ],
+    "sample_design_update_proposal.md": [
+        "Proposal ID",
+        "Impacted Artifact",
+        "Proposed Update",
+        "Status",
+        "Source Reference",
+        "Human Approval Required",
+    ],
 }
 
 REQUIRED_CSV_COLUMNS = {
@@ -90,18 +141,23 @@ REQUIRED_CSV_COLUMNS = {
 }
 
 
-def first_markdown_table_header(text: str) -> list[str]:
+def markdown_table_headers(text: str) -> list[list[str]]:
+    headers: list[list[str]] = []
     for line in text.splitlines():
         stripped = line.strip()
         if stripped.startswith("|") and stripped.endswith("|"):
             cells = [cell.strip() for cell in stripped.strip("|").split("|")]
             if cells and not all(set(cell) <= {"-", " "} for cell in cells):
-                return cells
-    return []
+                headers.append(cells)
+    return headers
 
 
 def missing_columns(actual: list[str], required: list[str]) -> list[str]:
     return [column for column in required if column not in actual]
+
+
+def has_required_columns(headers: list[list[str]], required: list[str]) -> bool:
+    return any(not missing_columns(header, required) for header in headers)
 
 
 def main() -> int:
@@ -120,9 +176,10 @@ def main() -> int:
 
         required_columns = REQUIRED_TABLE_COLUMNS.get(filename, [])
         if required_columns:
-            header = first_markdown_table_header(text)
-            for column in missing_columns(header, required_columns):
-                failures.append(f"{path.relative_to(ROOT)} missing table column: {column}")
+            headers = markdown_table_headers(text)
+            if not has_required_columns(headers, required_columns):
+                for column in required_columns:
+                    failures.append(f"{path.relative_to(ROOT)} missing table column: {column}")
 
     for filename, required_columns in REQUIRED_CSV_COLUMNS.items():
         path = output_dir / filename

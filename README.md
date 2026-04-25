@@ -53,6 +53,12 @@ The core loop is:
 
 Source Intake -> Source Manifest -> Normalization -> Requirement Extraction -> Design Logic Review -> Verification -> Delta Impact Analysis -> Artifact Update -> Human Approval -> Decision Storage -> Reuse in Next Cycle
 
+## v0.2 Direction: Meeting-to-Design Workflow
+
+The next workflow slice treats meeting intake as the entry point, not the final product. A design meeting or hearing should lead to requirement extraction, issue and decision management, design delta analysis, artifact update proposals, and human approval checkpoints.
+
+The goal is to show how enterprise design review moves from conversation to traceable design artifacts while preserving unresolved items and approval boundaries.
+
 ## Repository Structure
 
 - `agents/`: Agent role definitions for lifecycle support.

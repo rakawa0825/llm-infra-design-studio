@@ -1,0 +1,77 @@
+{
+  "title": "LLM Output Contract",
+  "contract_version": "0.1",
+  "type": "object",
+  "required": [
+    "contract_version",
+    "package_id",
+    "workflow",
+    "scenario_id",
+    "result_status",
+    "confirmed_facts",
+    "assumptions",
+    "unresolved_items",
+    "information_gaps",
+    "design_impacts",
+    "proposed_artifact_updates",
+    "human_approval_points",
+    "do_not_reflect_yet",
+    "failure_metadata"
+  ],
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "0.1"
+    },
+    "package_id": {
+      "type": "string"
+    },
+    "workflow": {
+      "type": "string",
+      "enum": [
+        "meeting-to-design",
+        "evidence-to-decision"
+      ]
+    },
+    "scenario_id": {
+      "type": "string"
+    },
+    "result_status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "review_required",
+        "needs_more_information",
+        "rejected",
+        "failed"
+      ]
+    },
+    "confirmed_facts": {
+      "type": "array"
+    },
+    "assumptions": {
+      "type": "array"
+    },
+    "unresolved_items": {
+      "type": "array"
+    },
+    "information_gaps": {
+      "type": "array"
+    },
+    "design_impacts": {
+      "type": "array"
+    },
+    "proposed_artifact_updates": {
+      "type": "array"
+    },
+    "human_approval_points": {
+      "type": "array"
+    },
+    "do_not_reflect_yet": {
+      "type": "array"
+    },
+    "failure_metadata": {
+      "type": "object"
+    }
+  }
+}

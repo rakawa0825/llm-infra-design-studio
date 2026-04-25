@@ -1,6 +1,6 @@
 # CLI Validation Run
 
-- timestamp: 2026-04-25T12:19:27.242775+00:00
+- timestamp: 2026-04-25T12:30:26.736658+00:00
 - repository_root: `.`
 - overall_status: passed
 
@@ -26,6 +26,7 @@
 - `evals/reports`
 - `scripts`
 - `reports`
+- `schemas`
 
 ## Sample Outputs
 
@@ -58,6 +59,7 @@
 - `evals/cases/case_003_evidence_to_decision_loop.md`
 - `evals/cases/case_004_second_synthetic_scenario.md`
 - `evals/cases/case_005_workflow_scaffold_generator.md`
+- `evals/cases/case_006_llm_contract_layer.md`
 
 ## Generator Assets
 
@@ -67,6 +69,18 @@
 - `generated/scenario_003/evidence-to-decision/design_decision_packet.md`
 - `generated/scenario_003/evidence-to-decision/design_reflection_request.md`
 - `generated/scenario_003/evidence-to-decision/information_gap_request.md`
+
+## LLM Contract Assets
+
+- `docs/llm_contract_layer.md`
+- `docs/llm_state_model.md`
+- `schemas/llm_input_contract.schema.json`
+- `schemas/llm_output_contract.schema.json`
+- `templates/llm_input_package_template.json`
+- `templates/llm_output_package_template.json`
+- `samples/input/sample_llm_input_package.json`
+- `samples/output/sample_llm_output_package.json`
+- `scripts/validate_llm_contracts.py`
 
 ## Validation Command Results
 
@@ -87,6 +101,10 @@ Status: passed
 Status: passed
 
 ### Generator assets
+
+Status: passed
+
+### LLM contract assets
 
 Status: passed
 
@@ -113,6 +131,17 @@ Status: passed
 Status: passed
 
 - Expected output comparison passed.
+
+### scripts/validate_llm_contracts.py
+
+Status: passed
+
+- LLM contract validation passed.
+- - schema files found
+- - templates parsed
+- - samples parsed
+- - constraints enforce uncertainty and approval boundaries
+- - output requires human approval and do-not-reflect-yet items
 
 ### Public-safe scan
 

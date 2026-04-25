@@ -1,0 +1,106 @@
+{
+  "contract_version": "0.1",
+  "package_id": "pkg-sample-001",
+  "workflow": "evidence-to-decision",
+  "scenario_id": "scenario_llm_contract_sample",
+  "result_status": "review_required",
+  "confirmed_facts": [
+    {
+      "fact_id": "FACT-LLM-001",
+      "statement": "The current baseline does not define cloud security failover alert ownership.",
+      "source_references": [
+        "SRC-LLM-003"
+      ]
+    }
+  ],
+  "assumptions": [
+    {
+      "assumption_id": "ASM-LLM-001",
+      "statement": "Selected branch traffic may be eligible for cloud security inspection.",
+      "source_references": [
+        "SRC-LLM-001",
+        "SRC-LLM-002"
+      ],
+      "status": "assumption"
+    }
+  ],
+  "unresolved_items": [
+    {
+      "item_id": "UNR-LLM-001",
+      "statement": "Inspection scope is not confirmed.",
+      "source_references": [
+        "SRC-LLM-001"
+      ],
+      "status": "needs_more_information"
+    }
+  ],
+  "information_gaps": [
+    {
+      "gap_id": "GAP-LLM-001",
+      "question": "Which traffic classes require cloud security inspection?",
+      "owner_role": "customer_security_reviewer",
+      "source_references": [
+        "SRC-LLM-001",
+        "SRC-LLM-002"
+      ],
+      "status": "open"
+    },
+    {
+      "gap_id": "GAP-LLM-002",
+      "question": "Who owns failover alert review during operations?",
+      "owner_role": "operations_lead",
+      "source_references": [
+        "SRC-LLM-003"
+      ],
+      "status": "open"
+    }
+  ],
+  "design_impacts": [
+    {
+      "impact_id": "IMP-LLM-001",
+      "artifact": "communication_matrix",
+      "impact": "Potential update may be needed for cloud security traffic paths.",
+      "source_references": [
+        "SRC-LLM-001",
+        "SRC-LLM-002"
+      ],
+      "status": "review_required"
+    }
+  ],
+  "proposed_artifact_updates": [
+    {
+      "update_id": "UPD-LLM-001",
+      "artifact": "communication_matrix",
+      "proposal": "Add a draft row for selected branch internet traffic toward the cloud security service after inspection scope is confirmed.",
+      "source_references": [
+        "SRC-LLM-001",
+        "SRC-LLM-002"
+      ],
+      "status": "review_required"
+    }
+  ],
+  "human_approval_points": [
+    {
+      "approval_id": "APP-LLM-001",
+      "decision_scope": "Approve whether the communication matrix should include cloud security traffic paths.",
+      "approver_role": "architecture_reviewer",
+      "source_references": [
+        "SRC-LLM-001",
+        "SRC-LLM-002",
+        "SRC-LLM-003"
+      ],
+      "status": "review_required"
+    }
+  ],
+  "do_not_reflect_yet": [
+    {
+      "item_id": "DNR-LLM-001",
+      "reason": "Inspection scope and failover alert ownership are unresolved.",
+      "source_references": [
+        "SRC-LLM-001",
+        "SRC-LLM-003"
+      ]
+    }
+  ],
+  "failure_metadata": {}
+}

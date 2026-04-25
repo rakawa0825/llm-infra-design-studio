@@ -1,0 +1,34 @@
+{
+  "contract_version": "0.1",
+  "package_id": "pkg-template-001",
+  "workflow": "evidence-to-decision",
+  "scenario_id": "scenario_template",
+  "result_status": "review_required",
+  "confirmed_facts": [],
+  "assumptions": [],
+  "unresolved_items": [],
+  "information_gaps": [],
+  "design_impacts": [],
+  "proposed_artifact_updates": [],
+  "human_approval_points": [
+    {
+      "approval_id": "APP-TEMPLATE-001",
+      "decision_scope": "Placeholder decision scope.",
+      "approver_role": "human_approver",
+      "source_references": [
+        "SRC-TEMPLATE-001"
+      ],
+      "status": "review_required"
+    }
+  ],
+  "do_not_reflect_yet": [
+    {
+      "item_id": "DNR-TEMPLATE-001",
+      "reason": "Generated content is a placeholder and is not approved.",
+      "source_references": [
+        "SRC-TEMPLATE-001"
+      ]
+    }
+  ],
+  "failure_metadata": {}
+}

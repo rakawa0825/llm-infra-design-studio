@@ -1,0 +1,59 @@
+{
+  "contract_version": "0.1",
+  "package_id": "pkg-sample-001",
+  "workflow": "evidence-to-decision",
+  "scenario_id": "scenario_llm_contract_sample",
+  "source_bundle": [
+    {
+      "source_id": "SRC-LLM-001",
+      "source_type": "meeting_excerpt",
+      "source_summary": "Synthetic meeting excerpt about branch traffic and cloud security review.",
+      "source_text": "The review team said branch internet traffic may use a cloud security path, but inspection scope and failover behavior still need confirmation.",
+      "source_status": "draft"
+    },
+    {
+      "source_id": "SRC-LLM-002",
+      "source_type": "official_source_excerpt",
+      "source_summary": "Synthetic source excerpt describing traffic steering and monitoring dependencies.",
+      "source_text": "The cloud security service can inspect selected traffic classes when policy and routing are configured. Failover and logging behavior depend on implementation scope.",
+      "source_status": "reference"
+    },
+    {
+      "source_id": "SRC-LLM-003",
+      "source_type": "existing_baseline",
+      "source_summary": "Synthetic baseline summary for ExampleCorp branch design.",
+      "source_text": "The current baseline assumes direct internet breakout for branch user traffic and does not define cloud security failover alert ownership.",
+      "source_status": "baseline"
+    }
+  ],
+  "existing_baseline": {
+    "baseline_id": "BASE-LLM-001",
+    "summary": "Direct internet breakout is assumed. Cloud security steering and alert ownership are unresolved.",
+    "status": "draft"
+  },
+  "task_request": {
+    "task_id": "TASK-LLM-001",
+    "goal": "Prepare an evidence-to-decision output package for human review.",
+    "requested_outputs": [
+      "confirmed_facts",
+      "assumptions",
+      "unresolved_items",
+      "information_gaps",
+      "design_impacts",
+      "proposed_artifact_updates",
+      "human_approval_points",
+      "do_not_reflect_yet"
+    ]
+  },
+  "constraints": {
+    "do_not_invent_requirements": true,
+    "do_not_mark_as_approved": true,
+    "preserve_uncertainty": true,
+    "require_source_references": true
+  },
+  "human_approval_policy": {
+    "approval_required_for_design_decisions": true,
+    "approval_required_for_risk_acceptance": true,
+    "approval_required_for_artifact_updates": true
+  }
+}

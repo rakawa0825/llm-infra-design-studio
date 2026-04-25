@@ -35,6 +35,7 @@ REQUIRED_DIRECTORIES = [
     "evals/reports",
     "scripts",
     "reports",
+    "schemas",
 ]
 
 REQUIRED_SAMPLE_OUTPUTS = [
@@ -67,6 +68,7 @@ REQUIRED_EVAL_CASES = [
     "case_003_evidence_to_decision_loop.md",
     "case_004_second_synthetic_scenario.md",
     "case_005_workflow_scaffold_generator.md",
+    "case_006_llm_contract_layer.md",
 ]
 
 REQUIRED_GENERATOR_ASSETS = [
@@ -78,14 +80,27 @@ REQUIRED_GENERATOR_ASSETS = [
     "generated/scenario_003/evidence-to-decision/information_gap_request.md",
 ]
 
+REQUIRED_LLM_CONTRACT_ASSETS = [
+    "docs/llm_contract_layer.md",
+    "docs/llm_state_model.md",
+    "schemas/llm_input_contract.schema.json",
+    "schemas/llm_output_contract.schema.json",
+    "templates/llm_input_package_template.json",
+    "templates/llm_output_package_template.json",
+    "samples/input/sample_llm_input_package.json",
+    "samples/output/sample_llm_output_package.json",
+    "scripts/validate_llm_contracts.py",
+]
+
 VALIDATION_SCRIPTS = [
     "scripts/check_sensitive_identifiers.py",
     "scripts/validate_output_schema.py",
     "scripts/check_unresolved_assertions.py",
     "scripts/compare_expected_outputs.py",
+    "scripts/validate_llm_contracts.py",
 ]
 
-TEXT_SUFFIXES = {".md", ".csv", ".py", ".txt", ".gitignore", ".yml", ".yaml", ".html", ".css"}
+TEXT_SUFFIXES = {".md", ".csv", ".py", ".txt", ".json", ".gitignore", ".yml", ".yaml", ".html", ".css"}
 SKIP_DIRS = {".git", "__pycache__", ".venv", "venv", "node_modules", "tmp", "work", "private"}
 RISKY_TERMS = [
     "ORI" + "X",
@@ -170,6 +185,7 @@ def build_results() -> list[CheckResult]:
         check_paths("Sample outputs", [ROOT / "samples" / "output" / path for path in REQUIRED_SAMPLE_OUTPUTS]),
         check_paths("Eval cases", [ROOT / "evals" / "cases" / path for path in REQUIRED_EVAL_CASES]),
         check_paths("Generator assets", [ROOT / path for path in REQUIRED_GENERATOR_ASSETS]),
+        check_paths("LLM contract assets", [ROOT / path for path in REQUIRED_LLM_CONTRACT_ASSETS]),
     ]
     results.extend(run_validation_script(script) for script in VALIDATION_SCRIPTS)
     results.append(public_safe_scan())
@@ -193,6 +209,7 @@ def print_summary(results: list[CheckResult]) -> None:
     print(f"Sample outputs: {status_text(by_name['Sample outputs'].passed)}")
     print(f"Eval cases: {status_text(by_name['Eval cases'].passed)}")
     print(f"Generator assets: {status_text(by_name['Generator assets'].passed)}")
+    print(f"LLM contract assets: {status_text(by_name['LLM contract assets'].passed)}")
     print(f"Validation scripts: {status_text(validation_passed)}")
     for detail in script_details:
         print(f"  - {detail}")
@@ -225,6 +242,9 @@ def report_lines(results: list[CheckResult]) -> list[str]:
         lines.append(f"- `evals/cases/{path}`")
     lines.extend(["", "## Generator Assets", ""])
     for path in REQUIRED_GENERATOR_ASSETS:
+        lines.append(f"- `{path}`")
+    lines.extend(["", "## LLM Contract Assets", ""])
+    for path in REQUIRED_LLM_CONTRACT_ASSETS:
         lines.append(f"- `{path}`")
 
     lines.extend(["", "## Validation Command Results", ""])

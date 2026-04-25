@@ -1,0 +1,71 @@
+{
+  "title": "LLM Input Contract",
+  "contract_version": "0.1",
+  "type": "object",
+  "required": [
+    "contract_version",
+    "package_id",
+    "workflow",
+    "scenario_id",
+    "source_bundle",
+    "existing_baseline",
+    "task_request",
+    "constraints",
+    "human_approval_policy"
+  ],
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "0.1"
+    },
+    "package_id": {
+      "type": "string"
+    },
+    "workflow": {
+      "type": "string",
+      "enum": [
+        "meeting-to-design",
+        "evidence-to-decision"
+      ]
+    },
+    "scenario_id": {
+      "type": "string"
+    },
+    "source_bundle": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_id",
+          "source_type",
+          "source_summary",
+          "source_text",
+          "source_status"
+        ]
+      }
+    },
+    "existing_baseline": {
+      "type": "object"
+    },
+    "task_request": {
+      "type": "object"
+    },
+    "constraints": {
+      "type": "object",
+      "required": [
+        "do_not_invent_requirements",
+        "do_not_mark_as_approved",
+        "preserve_uncertainty",
+        "require_source_references"
+      ]
+    },
+    "human_approval_policy": {
+      "type": "object",
+      "required": [
+        "approval_required_for_design_decisions",
+        "approval_required_for_risk_acceptance",
+        "approval_required_for_artifact_updates"
+      ]
+    }
+  }
+}

@@ -15,13 +15,14 @@ python3 scripts/check_sensitive_identifiers.py
 python3 scripts/validate_output_schema.py
 python3 scripts/check_unresolved_assertions.py
 python3 scripts/compare_expected_outputs.py
+python3 scripts/validate_llm_contracts.py
 python3 scripts/run_sample_workflow.py --write-report
 python3 scripts/generate_workflow_scaffold.py --list-workflows
 python3 scripts/generate_workflow_scaffold.py --scenario-id scenario_003 --workflow evidence-to-decision --output-dir generated/scenario_003 --force
 python3 scripts/run_sample_workflow.py --check-only
 ```
 
-Passing validation means the sample artifacts meet the current v0.1 checks. It does not mean the repository is approved for publication or production use.
+Passing validation means the sample artifacts, generated scaffolds, and LLM contract samples meet the current local checks. It does not mean the repository is approved for publication or production use.
 
 ## Problem
 
@@ -81,12 +82,17 @@ v0.5 adds a second synthetic scenario focused on data center resilience, operati
 
 v0.6 adds a minimal scaffold generator that creates empty workflow artifact sets for `meeting-to-design` and `evidence-to-decision`. It does not call an LLM, generate approved design decisions, or update production artifacts. It prepares the project for future workflow generation, API layers, and SaaS execution while keeping human approval visible.
 
+## v0.7 Direction: LLM-Ready Contract Layer
+
+v0.7 defines input and output contracts for future LLM-assisted workflow steps. It does not call an LLM, and it prevents LLM output from becoming approved design decisions. The contract preserves uncertainty, source traceability, and human approval boundaries while preparing the project for future offline mock generation or optional LLM integration.
+
 ## Repository Structure
 
 - `agents/`: Agent role definitions for lifecycle support.
 - `skills/`: Markdown-first skill definitions.
 - `workflows/`: Step-by-step process files.
 - `templates/`: Reusable public-safe artifact templates.
+- `schemas/`: JSON contract documentation for future LLM-assisted workflow packages.
 - `samples/`: Synthetic input and output examples.
 - `evals/`: Small evaluation cases and expected outputs.
 - `generated/`: Committed example workflow scaffolds.
@@ -113,4 +119,4 @@ LLMs may structure information, surface contradictions, propose review questions
 
 ## Current Status
 
-`v0.6 Minimal workflow scaffold generator`
+`v0.7 LLM-ready contract layer`

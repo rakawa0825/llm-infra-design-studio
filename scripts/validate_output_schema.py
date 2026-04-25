@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import csv
+import json
 import sys
 from pathlib import Path
 
@@ -313,6 +314,33 @@ REQUIRED_CSV_COLUMNS = {
     ],
 }
 
+REQUIRED_JSON_OBJECTS = {
+    "samples/input/sample_llm_input_package.json": [
+        "contract_version",
+        "package_id",
+        "workflow",
+        "scenario_id",
+        "source_bundle",
+        "constraints",
+        "human_approval_policy",
+    ],
+    "samples/output/sample_llm_output_package.json": [
+        "contract_version",
+        "package_id",
+        "workflow",
+        "scenario_id",
+        "result_status",
+        "confirmed_facts",
+        "assumptions",
+        "unresolved_items",
+        "information_gaps",
+        "design_impacts",
+        "proposed_artifact_updates",
+        "human_approval_points",
+        "do_not_reflect_yet",
+    ],
+}
+
 GENERATED_REQUIRED = {
     "generated/scenario_003/evidence-to-decision/README.md": [
         "# Evidence-To-Decision Scaffold",
@@ -418,6 +446,23 @@ def main() -> int:
             header = next(reader, [])
         for column in missing_columns(header, required_columns):
             failures.append(f"{path.relative_to(ROOT)} missing CSV column: {column}")
+
+    for relative_path, required_fields in REQUIRED_JSON_OBJECTS.items():
+        path = ROOT / relative_path
+        if not path.exists():
+            failures.append(f"missing file: {relative_path}")
+            continue
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            failures.append(f"{relative_path} invalid JSON: {exc}")
+            continue
+        if not isinstance(data, dict):
+            failures.append(f"{relative_path} must contain a JSON object")
+            continue
+        for field in required_fields:
+            if field not in data:
+                failures.append(f"{relative_path} missing JSON field: {field}")
 
     for relative_path, headings in GENERATED_REQUIRED.items():
         path = ROOT / relative_path

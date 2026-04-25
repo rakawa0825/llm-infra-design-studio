@@ -23,7 +23,7 @@ RISKY_MARKERS = [
 ]
 
 SKIP_DIRS = {".git", "__pycache__", ".venv", "venv", "node_modules", "tmp", "work", "private"}
-TEXT_SUFFIXES = {".md", ".csv", ".py", ".txt", ".gitignore"}
+TEXT_SUFFIXES = {".md", ".csv", ".py", ".txt", ".json", ".gitignore"}
 IPV4_RE = re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b")
 
 

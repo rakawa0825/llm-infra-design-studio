@@ -96,6 +96,29 @@ def main() -> int:
                 "Do not mark generated scaffold content as `approved`.",
             ],
         },
+        {
+            "expected": ROOT / "evals" / "expected" / "case_006_expected.md",
+            "outputs": [
+                ROOT / "docs" / "llm_contract_layer.md",
+                ROOT / "docs" / "llm_state_model.md",
+                ROOT / "templates" / "llm_input_package_template.json",
+                ROOT / "templates" / "llm_output_package_template.json",
+                ROOT / "samples" / "input" / "sample_llm_input_package.json",
+                ROOT / "samples" / "output" / "sample_llm_output_package.json",
+            ],
+            "tokens": [
+                "contract_version",
+                "evidence-to-decision",
+                "do_not_invent_requirements",
+                "do_not_mark_as_approved",
+                "preserve_uncertainty",
+                "require_source_references",
+                "review_required",
+                "human_approval_points",
+                "do_not_reflect_yet",
+                "needs_more_information",
+            ],
+        },
     ]
 
     failures: list[str] = []

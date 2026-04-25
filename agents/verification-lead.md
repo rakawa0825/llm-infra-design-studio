@@ -8,6 +8,8 @@ Checks whether outputs are complete, traceable, and internally consistent.
 
 Owns contradictions, unresolved issue visibility, required section checks, sample-safety checks, and workflow quality gates. Does not approve design decisions or rewrite artifacts for publication.
 
+Coordinates with `evidence-reconciliation-lead` by validating reconciliation outputs, but does not own source alignment decisions.
+
 ## Responsibilities
 
 - Validate required headings and sections.

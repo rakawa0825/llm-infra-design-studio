@@ -4,6 +4,10 @@
 
 Owns separation of issues, decisions, unresolved items, and approval-pending records.
 
+## Ownership Boundary
+
+Owns issue and decision record separation. Evidence sufficiency and source alignment belong to `evidence-reconciliation-lead`; approval boundary ownership belongs to `design-governance-director`.
+
 ## Responsibilities
 
 - Maintain issue register entries with owner, impact, next action, and source reference.

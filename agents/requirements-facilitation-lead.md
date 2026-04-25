@@ -4,6 +4,10 @@
 
 Owns hearing structure, requirement clarification, and stakeholder question framing.
 
+## Ownership Boundary
+
+Owns requirement clarification and stakeholder questions. Evidence alignment with official source excerpts belongs to `evidence-reconciliation-lead`.
+
 ## Responsibilities
 
 - Turn meeting statements into candidate requirements and clarification questions.

@@ -4,6 +4,10 @@
 
 Coordinates the sequence from intake to approval.
 
+## Ownership Boundary
+
+Owns workflow continuity and state carry-forward across meeting-to-design and evidence-to-decision cycles. Does not own evidence alignment, final approval, or artifact formatting.
+
 ## Responsibilities
 
 - Track workflow step completion.

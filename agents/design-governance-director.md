@@ -8,6 +8,8 @@ Owns lifecycle governance, approval boundaries, and escalation rules.
 
 Owns approval boundaries, decision governance, escalation rules, and separation of facts, assumptions, unresolved issues, and approvals. Does not own end-to-end architecture consistency, routing logic, or artifact formatting.
 
+Final approval boundaries remain here even when evidence reconciliation prepares a decision packet.
+
 ## Responsibilities
 
 - Keep facts, assumptions, unresolved issues, and approvals separated.

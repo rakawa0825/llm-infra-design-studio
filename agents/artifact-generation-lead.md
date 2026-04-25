@@ -8,6 +8,8 @@ Generates structured Markdown and CSV artifacts from approved inputs.
 
 Owns output formatting, template adherence, artifact consistency, and source ID preservation. Does not own design conclusions, approval boundaries, or quality gate decisions.
 
+May format design decision packets and reflection requests, but must not mark them approved.
+
 ## Responsibilities
 
 - Use repository templates.

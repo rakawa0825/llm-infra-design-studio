@@ -35,6 +35,23 @@ def main() -> int:
                 "human_approval_required",
             ],
         },
+        {
+            "expected": ROOT / "evals" / "expected" / "case_003_expected.md",
+            "outputs": [
+                ROOT / "samples" / "output" / "sample_official_source_reconciliation.md",
+                ROOT / "samples" / "output" / "sample_information_gap_request.md",
+                ROOT / "samples" / "output" / "sample_design_decision_packet.md",
+                ROOT / "samples" / "output" / "sample_design_reflection_request.md",
+            ],
+            "tokens": [
+                "partially_aligned",
+                "BASE-001",
+                "customer_confirmation",
+                "detailed-design handoff",
+                "review_required",
+                "needs_more_information",
+            ],
+        },
     ]
 
     failures: list[str] = []

@@ -31,6 +31,27 @@ REQUIRED = {
         "## Proposed Artifact Updates",
         "## Human Approval Points",
     ],
+    "sample_official_source_reconciliation.md": [
+        "# Sample Official Source Reconciliation",
+        "## Human Review Required",
+    ],
+    "sample_information_gap_request.md": [
+        "# Sample Information Gap Request",
+        "## Status Allowed Values",
+    ],
+    "sample_design_decision_packet.md": [
+        "# Sample Design Decision Packet",
+        "## Metadata",
+        "## Confirmed Facts",
+        "## Assumptions",
+        "## Human Decisions Required",
+        "## Do Not Reflect Yet",
+    ],
+    "sample_design_reflection_request.md": [
+        "# Sample Design Reflection Request",
+        "## Human Approval Points",
+        "## Reflection Status Allowed Values",
+    ],
 }
 
 REQUIRED_TABLE_COLUMNS = {
@@ -122,6 +143,42 @@ REQUIRED_TABLE_COLUMNS = {
         "Status",
         "Source Reference",
         "Human Approval Required",
+    ],
+    "sample_official_source_reconciliation.md": [
+        "Source ID",
+        "Source Type",
+        "Source Date Or Version",
+        "Extracted Claim",
+        "Related Meeting Statement",
+        "Alignment Status",
+        "Conflict Or Gap",
+        "Required Action",
+    ],
+    "sample_information_gap_request.md": [
+        "Gap ID",
+        "Gap Type",
+        "Related Source",
+        "Affected Artifact",
+        "Question",
+        "Owner Role",
+        "Required Before",
+        "Status",
+    ],
+    "sample_design_decision_packet.md": [
+        "Decision ID",
+        "Decision",
+        "Decision Status",
+        "Approver Role",
+    ],
+    "sample_design_reflection_request.md": [
+        "Request ID",
+        "Target Artifact",
+        "Target Section",
+        "Proposed Change",
+        "Evidence",
+        "Assumptions",
+        "Approval Required",
+        "Reflection Status",
     ],
 }
 

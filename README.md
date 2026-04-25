@@ -59,6 +59,12 @@ The next workflow slice treats meeting intake as the entry point, not the final 
 
 The goal is to show how enterprise design review moves from conversation to traceable design artifacts while preserving unresolved items and approval boundaries.
 
+## v0.3 Direction: Evidence-to-Decision Loop
+
+The next loop combines meeting evidence, official source excerpts, and an existing design baseline into a decision packet for human review. It generates information gap requests and design reflection requests, but does not automatically approve or update design documents.
+
+The goal is to prepare source-backed decisions while keeping missing information, baseline impact, and human approval visible.
+
 ## Repository Structure
 
 - `agents/`: Agent role definitions for lifecycle support.

@@ -1,6 +1,6 @@
 # CLI Validation Run
 
-- timestamp: 2026-04-25T12:30:26.736658+00:00
+- timestamp: 2026-04-25T12:39:13.987588+00:00
 - repository_root: `.`
 - overall_status: passed
 
@@ -23,6 +23,7 @@
 - `samples/output`
 - `evals/cases`
 - `evals/expected`
+- `evals/fixtures/llm_contract`
 - `evals/reports`
 - `scripts`
 - `reports`
@@ -60,6 +61,7 @@
 - `evals/cases/case_004_second_synthetic_scenario.md`
 - `evals/cases/case_005_workflow_scaffold_generator.md`
 - `evals/cases/case_006_llm_contract_layer.md`
+- `evals/cases/case_007_contract_failure_modes.md`
 
 ## Generator Assets
 
@@ -81,6 +83,16 @@
 - `samples/input/sample_llm_input_package.json`
 - `samples/output/sample_llm_output_package.json`
 - `scripts/validate_llm_contracts.py`
+- `docs/contract_failure_modes.md`
+- `docs/review_required_policy.md`
+- `evals/fixtures/llm_contract/valid_review_required_output.json`
+- `evals/fixtures/llm_contract/valid_needs_more_information_output.json`
+- `evals/fixtures/llm_contract/invalid_approved_by_human_output.json`
+- `evals/fixtures/llm_contract/invalid_missing_source_references_output.json`
+- `evals/fixtures/llm_contract/invalid_empty_human_approval_points_output.json`
+- `evals/fixtures/llm_contract/invalid_assumption_promoted_to_fact_output.json`
+- `evals/fixtures/llm_contract/invalid_design_update_marked_approved_output.json`
+- `evals/fixtures/llm_contract/invalid_unresolved_item_closed_output.json`
 
 ## Validation Command Results
 
@@ -132,16 +144,21 @@ Status: passed
 
 - Expected output comparison passed.
 
-### scripts/validate_llm_contracts.py
+### scripts/validate_llm_contracts.py --include-negative
 
 Status: passed
 
-- LLM contract validation passed.
-- - schema files found
-- - templates parsed
-- - samples parsed
-- - constraints enforce uncertainty and approval boundaries
-- - output requires human approval and do-not-reflect-yet items
+- LLM Contract Validation
+- Positive sample: passed
+- Review-required fixture: passed
+- Needs-more-information fixture: passed
+- Invalid approved_by_human fixture: rejected as expected
+- Invalid missing source references fixture: rejected as expected
+- Invalid empty human approval points fixture: rejected as expected
+- Invalid assumption promoted to fact fixture: rejected as expected
+- Invalid design update marked approved fixture: rejected as expected
+- Invalid unresolved item closed fixture: rejected as expected
+- Overall result: passed
 
 ### Public-safe scan
 

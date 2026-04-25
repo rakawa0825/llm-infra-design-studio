@@ -1,0 +1,44 @@
+{
+  "contract_version": "0.1",
+  "package_id": "fixture-invalid-approved-update-001",
+  "workflow": "evidence-to-decision",
+  "scenario_id": "fixture_invalid_design_update_approved",
+  "result_status": "review_required",
+  "confirmed_facts": [],
+  "assumptions": [],
+  "unresolved_items": [],
+  "information_gaps": [],
+  "design_impacts": [],
+  "proposed_artifact_updates": [
+    {
+      "update_id": "UPD-INV-001",
+      "artifact": "communication_matrix",
+      "proposal": "Add final_design communication matrix update.",
+      "source_references": [
+        "SRC-INV-005"
+      ],
+      "status": "approved_for_update"
+    }
+  ],
+  "human_approval_points": [
+    {
+      "approval_id": "APP-INV-005",
+      "decision_scope": "Review approval-like artifact update language.",
+      "approver_role": "architecture_reviewer",
+      "source_references": [
+        "SRC-INV-005"
+      ],
+      "status": "review_required"
+    }
+  ],
+  "do_not_reflect_yet": [
+    {
+      "item_id": "DNR-INV-005",
+      "reason": "Proposed update contains approval-like language.",
+      "source_references": [
+        "SRC-INV-005"
+      ]
+    }
+  ],
+  "failure_metadata": {}
+}

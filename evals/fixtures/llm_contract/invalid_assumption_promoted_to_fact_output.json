@@ -1,0 +1,43 @@
+{
+  "contract_version": "0.1",
+  "package_id": "fixture-invalid-assumption-fact-001",
+  "workflow": "evidence-to-decision",
+  "scenario_id": "fixture_invalid_assumption_promoted",
+  "result_status": "review_required",
+  "confirmed_facts": [
+    {
+      "fact_id": "FACT-INV-002",
+      "statement": "The branch traffic may require monitoring changes.",
+      "source_references": [
+        "SRC-INV-004"
+      ],
+      "status": "assumption"
+    }
+  ],
+  "assumptions": [],
+  "unresolved_items": [],
+  "information_gaps": [],
+  "design_impacts": [],
+  "proposed_artifact_updates": [],
+  "human_approval_points": [
+    {
+      "approval_id": "APP-INV-004",
+      "decision_scope": "Review assumption promoted into facts.",
+      "approver_role": "architecture_reviewer",
+      "source_references": [
+        "SRC-INV-004"
+      ],
+      "status": "review_required"
+    }
+  ],
+  "do_not_reflect_yet": [
+    {
+      "item_id": "DNR-INV-004",
+      "reason": "Assumption-like claim must not be treated as confirmed.",
+      "source_references": [
+        "SRC-INV-004"
+      ]
+    }
+  ],
+  "failure_metadata": {}
+}

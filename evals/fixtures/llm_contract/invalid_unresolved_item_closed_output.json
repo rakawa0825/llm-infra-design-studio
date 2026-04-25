@@ -1,0 +1,43 @@
+{
+  "contract_version": "0.1",
+  "package_id": "fixture-invalid-closed-unresolved-001",
+  "workflow": "evidence-to-decision",
+  "scenario_id": "fixture_invalid_unresolved_closed",
+  "result_status": "review_required",
+  "confirmed_facts": [],
+  "assumptions": [],
+  "unresolved_items": [
+    {
+      "item_id": "UNR-INV-001",
+      "statement": "Alert ownership was closed without human approval.",
+      "source_references": [
+        "SRC-INV-006"
+      ],
+      "status": "closed"
+    }
+  ],
+  "information_gaps": [],
+  "design_impacts": [],
+  "proposed_artifact_updates": [],
+  "human_approval_points": [
+    {
+      "approval_id": "APP-INV-006",
+      "decision_scope": "Review unresolved item closure.",
+      "approver_role": "architecture_reviewer",
+      "source_references": [
+        "SRC-INV-006"
+      ],
+      "status": "review_required"
+    }
+  ],
+  "do_not_reflect_yet": [
+    {
+      "item_id": "DNR-INV-006",
+      "reason": "Unresolved item closure requires human approval.",
+      "source_references": [
+        "SRC-INV-006"
+      ]
+    }
+  ],
+  "failure_metadata": {}
+}

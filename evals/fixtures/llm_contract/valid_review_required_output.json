@@ -1,0 +1,90 @@
+{
+  "contract_version": "0.1",
+  "package_id": "fixture-valid-review-001",
+  "workflow": "evidence-to-decision",
+  "scenario_id": "fixture_review_required",
+  "result_status": "review_required",
+  "confirmed_facts": [
+    {
+      "fact_id": "FACT-FIX-001",
+      "statement": "The current baseline does not define monitoring ownership for the proposed operations path.",
+      "source_references": [
+        "SRC-FIX-001"
+      ]
+    }
+  ],
+  "assumptions": [
+    {
+      "assumption_id": "ASM-FIX-001",
+      "statement": "Monitoring changes may affect the operations runbook.",
+      "source_references": [
+        "SRC-FIX-001",
+        "SRC-FIX-002"
+      ],
+      "status": "assumption"
+    }
+  ],
+  "unresolved_items": [
+    {
+      "item_id": "UNR-FIX-001",
+      "statement": "Alert ownership is unresolved.",
+      "source_references": [
+        "SRC-FIX-001"
+      ],
+      "status": "open"
+    }
+  ],
+  "information_gaps": [
+    {
+      "gap_id": "GAP-FIX-001",
+      "question": "Who owns failover alert review?",
+      "source_references": [
+        "SRC-FIX-001"
+      ],
+      "status": "open"
+    }
+  ],
+  "design_impacts": [
+    {
+      "impact_id": "IMP-FIX-001",
+      "artifact": "operations_monitoring_matrix",
+      "impact": "A review may be needed for alert ownership.",
+      "source_references": [
+        "SRC-FIX-001"
+      ],
+      "status": "review_required"
+    }
+  ],
+  "proposed_artifact_updates": [
+    {
+      "update_id": "UPD-FIX-001",
+      "artifact": "operations_monitoring_matrix",
+      "proposal": "Draft a proposed alert ownership row after review.",
+      "source_references": [
+        "SRC-FIX-001"
+      ],
+      "status": "review_required"
+    }
+  ],
+  "human_approval_points": [
+    {
+      "approval_id": "APP-FIX-001",
+      "decision_scope": "Confirm monitoring ownership.",
+      "approver_role": "operations_reviewer",
+      "source_references": [
+        "SRC-FIX-001"
+      ],
+      "status": "review_required"
+    }
+  ],
+  "do_not_reflect_yet": [
+    {
+      "item_id": "DNR-FIX-001",
+      "reason": "Monitoring ownership is unresolved.",
+      "source_references": [
+        "SRC-FIX-001"
+      ]
+    }
+  ],
+  "failure_metadata": {}
+}

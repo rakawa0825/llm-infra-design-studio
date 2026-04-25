@@ -1,0 +1,24 @@
+{
+  "contract_version": "0.1",
+  "package_id": "fixture-invalid-empty-approval-001",
+  "workflow": "evidence-to-decision",
+  "scenario_id": "fixture_invalid_empty_human_approval",
+  "result_status": "review_required",
+  "confirmed_facts": [],
+  "assumptions": [],
+  "unresolved_items": [],
+  "information_gaps": [],
+  "design_impacts": [],
+  "proposed_artifact_updates": [],
+  "human_approval_points": [],
+  "do_not_reflect_yet": [
+    {
+      "item_id": "DNR-INV-003",
+      "reason": "Human approval points are missing.",
+      "source_references": [
+        "SRC-INV-003"
+      ]
+    }
+  ],
+  "failure_metadata": {}
+}

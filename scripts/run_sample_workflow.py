@@ -32,6 +32,7 @@ REQUIRED_DIRECTORIES = [
     "samples/output",
     "evals/cases",
     "evals/expected",
+    "evals/fixtures/llm_contract",
     "evals/reports",
     "scripts",
     "reports",
@@ -69,6 +70,7 @@ REQUIRED_EVAL_CASES = [
     "case_004_second_synthetic_scenario.md",
     "case_005_workflow_scaffold_generator.md",
     "case_006_llm_contract_layer.md",
+    "case_007_contract_failure_modes.md",
 ]
 
 REQUIRED_GENERATOR_ASSETS = [
@@ -90,6 +92,16 @@ REQUIRED_LLM_CONTRACT_ASSETS = [
     "samples/input/sample_llm_input_package.json",
     "samples/output/sample_llm_output_package.json",
     "scripts/validate_llm_contracts.py",
+    "docs/contract_failure_modes.md",
+    "docs/review_required_policy.md",
+    "evals/fixtures/llm_contract/valid_review_required_output.json",
+    "evals/fixtures/llm_contract/valid_needs_more_information_output.json",
+    "evals/fixtures/llm_contract/invalid_approved_by_human_output.json",
+    "evals/fixtures/llm_contract/invalid_missing_source_references_output.json",
+    "evals/fixtures/llm_contract/invalid_empty_human_approval_points_output.json",
+    "evals/fixtures/llm_contract/invalid_assumption_promoted_to_fact_output.json",
+    "evals/fixtures/llm_contract/invalid_design_update_marked_approved_output.json",
+    "evals/fixtures/llm_contract/invalid_unresolved_item_closed_output.json",
 ]
 
 VALIDATION_SCRIPTS = [
@@ -97,7 +109,7 @@ VALIDATION_SCRIPTS = [
     "scripts/validate_output_schema.py",
     "scripts/check_unresolved_assertions.py",
     "scripts/compare_expected_outputs.py",
-    "scripts/validate_llm_contracts.py",
+    "scripts/validate_llm_contracts.py --include-negative",
 ]
 
 TEXT_SUFFIXES = {".md", ".csv", ".py", ".txt", ".json", ".gitignore", ".yml", ".yaml", ".html", ".css"}
@@ -139,7 +151,8 @@ def check_paths(name: str, paths: list[Path], expect_dir: bool = False) -> Check
 
 
 def run_validation_script(script: str) -> CheckResult:
-    command = [sys.executable, str(ROOT / script)]
+    parts = script.split()
+    command = [sys.executable, str(ROOT / parts[0]), *parts[1:]]
     completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, check=False)
     details = []
     if completed.stdout.strip():

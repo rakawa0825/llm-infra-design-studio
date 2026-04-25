@@ -1,0 +1,61 @@
+{
+  "contract_version": "0.1",
+  "package_id": "fixture-valid-more-info-001",
+  "workflow": "evidence-to-decision",
+  "scenario_id": "fixture_needs_more_information",
+  "result_status": "needs_more_information",
+  "confirmed_facts": [],
+  "assumptions": [
+    {
+      "assumption_id": "ASM-FIX-002",
+      "statement": "The design may require monitoring changes, but evidence is insufficient.",
+      "source_references": [
+        "SRC-FIX-003"
+      ],
+      "status": "assumption"
+    }
+  ],
+  "unresolved_items": [
+    {
+      "item_id": "UNR-FIX-002",
+      "statement": "Official monitoring requirements are missing.",
+      "source_references": [
+        "SRC-FIX-003"
+      ],
+      "status": "open"
+    }
+  ],
+  "information_gaps": [
+    {
+      "gap_id": "GAP-FIX-002",
+      "question": "Provide the official monitoring requirement source.",
+      "source_references": [
+        "SRC-FIX-003"
+      ],
+      "status": "open"
+    }
+  ],
+  "design_impacts": [],
+  "proposed_artifact_updates": [],
+  "human_approval_points": [
+    {
+      "approval_id": "APP-FIX-002",
+      "decision_scope": "Decide whether more source evidence is required before design reflection.",
+      "approver_role": "architecture_reviewer",
+      "source_references": [
+        "SRC-FIX-003"
+      ],
+      "status": "needs_more_information"
+    }
+  ],
+  "do_not_reflect_yet": [
+    {
+      "item_id": "DNR-FIX-002",
+      "reason": "Official monitoring source is missing.",
+      "source_references": [
+        "SRC-FIX-003"
+      ]
+    }
+  ],
+  "failure_metadata": {}
+}

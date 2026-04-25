@@ -1,0 +1,45 @@
+{
+  "contract_version": "0.1",
+  "package_id": "fixture-invalid-missing-source-001",
+  "workflow": "evidence-to-decision",
+  "scenario_id": "fixture_invalid_missing_source_references",
+  "result_status": "review_required",
+  "confirmed_facts": [
+    {
+      "fact_id": "FACT-INV-001",
+      "statement": "A monitoring change is required."
+    }
+  ],
+  "assumptions": [],
+  "unresolved_items": [],
+  "information_gaps": [],
+  "design_impacts": [
+    {
+      "impact_id": "IMP-INV-001",
+      "artifact": "monitoring_matrix",
+      "impact": "Matrix update proposed without evidence."
+    }
+  ],
+  "proposed_artifact_updates": [],
+  "human_approval_points": [
+    {
+      "approval_id": "APP-INV-002",
+      "decision_scope": "Review missing source references.",
+      "approver_role": "architecture_reviewer",
+      "source_references": [
+        "SRC-INV-002"
+      ],
+      "status": "review_required"
+    }
+  ],
+  "do_not_reflect_yet": [
+    {
+      "item_id": "DNR-INV-002",
+      "reason": "Source references are missing.",
+      "source_references": [
+        "SRC-INV-002"
+      ]
+    }
+  ],
+  "failure_metadata": {}
+}

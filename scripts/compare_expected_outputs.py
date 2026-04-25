@@ -149,6 +149,38 @@ def main() -> int:
                 "needs_more_information",
             ],
         },
+        {
+            "expected": ROOT / "evals" / "expected" / "case_008_expected.md",
+            "outputs": [
+                ROOT / "docs" / "network_design_domain_model.md",
+                ROOT / "docs" / "communication_matrix_model.md",
+                ROOT / "docs" / "routing_sdwan_impact_model.md",
+                ROOT / "docs" / "security_sse_boundary_model.md",
+                ROOT / "docs" / "monitoring_logging_requirement_model.md",
+                ROOT / "docs" / "dr_failover_review_model.md",
+                ROOT / "samples" / "input" / "scenario_003_network_domain_meeting.md",
+                ROOT / "samples" / "output" / "scenario_003_network_domain_review_packet.md",
+                ROOT / "samples" / "output" / "scenario_003_routing_impact_analysis.md",
+                ROOT / "samples" / "output" / "scenario_003_security_boundary_review.md",
+                ROOT / "samples" / "output" / "scenario_003_monitoring_logging_review.md",
+                ROOT / "samples" / "output" / "scenario_003_dr_failover_review.md",
+            ],
+            "tokens": [
+                "Atlas Retail",
+                "Communication Matrix",
+                "Routing / SD-WAN",
+                "Security / SSE",
+                "Monitoring / Logging",
+                "DR / Failover",
+                "Cloud-Security-Service",
+                "SD-WAN-Edge-01",
+                "Monitoring-System",
+                "human_approval_required",
+                "review_required",
+                "needs_more_information",
+                "Do Not Reflect Yet",
+            ],
+        },
     ]
 
     failures: list[str] = []

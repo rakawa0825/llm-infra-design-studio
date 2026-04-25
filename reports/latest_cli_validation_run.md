@@ -1,6 +1,6 @@
 # CLI Validation Run
 
-- timestamp: 2026-04-25T12:39:13.987588+00:00
+- timestamp: 2026-04-25T12:49:10.169617+00:00
 - repository_root: `.`
 - overall_status: passed
 
@@ -52,6 +52,11 @@
 - `samples/output/scenario_002_information_gap_request.md`
 - `samples/output/scenario_002_design_reflection_request.md`
 - `samples/output/scenario_002_human_approval_checklist.md`
+- `samples/output/scenario_003_network_domain_review_packet.md`
+- `samples/output/scenario_003_routing_impact_analysis.md`
+- `samples/output/scenario_003_security_boundary_review.md`
+- `samples/output/scenario_003_monitoring_logging_review.md`
+- `samples/output/scenario_003_dr_failover_review.md`
 
 ## Eval Cases
 
@@ -62,6 +67,33 @@
 - `evals/cases/case_005_workflow_scaffold_generator.md`
 - `evals/cases/case_006_llm_contract_layer.md`
 - `evals/cases/case_007_contract_failure_modes.md`
+- `evals/cases/case_008_network_domain_pack.md`
+
+## Network Domain Assets
+
+- `docs/network_design_domain_model.md`
+- `docs/communication_matrix_model.md`
+- `docs/routing_sdwan_impact_model.md`
+- `docs/security_sse_boundary_model.md`
+- `docs/monitoring_logging_requirement_model.md`
+- `docs/dr_failover_review_model.md`
+- `templates/network_domain_review_packet_template.md`
+- `templates/routing_impact_analysis_template.md`
+- `templates/security_boundary_review_template.md`
+- `templates/monitoring_logging_requirement_template.md`
+- `templates/dr_failover_review_template.md`
+- `skills/network-domain-classification/SKILL.md`
+- `skills/communication-matrix-review/SKILL.md`
+- `skills/routing-sdwan-impact-review/SKILL.md`
+- `skills/security-boundary-review/SKILL.md`
+- `skills/monitoring-logging-review/SKILL.md`
+- `skills/dr-failover-review/SKILL.md`
+- `agents/network-domain-review-lead.md`
+- `workflows/11_network_domain_review.md`
+- `samples/input/scenario_003_network_domain_meeting.md`
+- `samples/input/scenario_003_network_baseline.md`
+- `samples/input/scenario_003_network_requirements.csv`
+- `samples/input/scenario_003_synthetic_vendor_note.md`
 
 ## Generator Assets
 
@@ -109,6 +141,10 @@ Status: passed
 Status: passed
 
 ### Eval cases
+
+Status: passed
+
+### Network domain assets
 
 Status: passed
 

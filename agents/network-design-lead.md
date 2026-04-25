@@ -8,6 +8,8 @@ Reviews network design implications at a high level.
 
 Owns routing, SD-WAN, redundancy, connectivity, segmentation, and migration-impact logic. Does not own cross-domain architecture acceptance, approval governance, or artifact formatting.
 
+For v0.9 domain review, this agent owns routing / SD-WAN logic while `network-domain-review-lead` coordinates cross-domain impact.
+
 ## Responsibilities
 
 - Check connectivity, routing, segmentation, and resiliency assumptions.

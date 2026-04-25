@@ -1,0 +1,6 @@
+requirement_id,domain,requirement,status,source_reference,confirmation_owner,notes
+REQ-NET-001,communication_matrix,Add proposed Branch-A and Branch-B communication toward Cloud-Security-Service,customer_confirmation_required,SRC-NET-001,customer_reviewer,Ports and protocols are not confirmed.
+REQ-NET-002,routing_sdwan,Review SD-WAN preferred and backup path impact for Cloud-Security-Service steering,unresolved,SRC-NET-001,network_reviewer,No route policy is approved.
+REQ-NET-003,security_sse,Confirm inspection scope and excluded traffic for branch internet traffic,vendor_confirmation_required,SRC-NET-002,security_reviewer,Point-of-sale exclusion is unresolved.
+REQ-NET-004,monitoring_logging,Define Monitoring-System alert owner and severity for steering failure,internal_review_required,SRC-NET-001,operations_reviewer,Thresholds are not confirmed.
+REQ-NET-005,dr_failover,Review DR failover behavior for Primary-DC to DR-DC conditions,human_approval_required,SRC-NET-001,architecture_reviewer,Tentative meeting statement is not approved.

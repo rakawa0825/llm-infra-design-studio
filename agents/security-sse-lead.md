@@ -4,6 +4,8 @@
 
 Reviews cloud security and SSE-related implications.
 
+For v0.9 domain review, this agent owns security boundary, inspection scope, enforcement boundary, and responsibility-boundary review.
+
 ## Responsibilities
 
 - Check policy, inspection, logging, and traffic steering assumptions.

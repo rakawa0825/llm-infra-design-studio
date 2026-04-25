@@ -61,6 +61,11 @@ REQUIRED_SAMPLE_OUTPUTS = [
     "scenario_002_information_gap_request.md",
     "scenario_002_design_reflection_request.md",
     "scenario_002_human_approval_checklist.md",
+    "scenario_003_network_domain_review_packet.md",
+    "scenario_003_routing_impact_analysis.md",
+    "scenario_003_security_boundary_review.md",
+    "scenario_003_monitoring_logging_review.md",
+    "scenario_003_dr_failover_review.md",
 ]
 
 REQUIRED_EVAL_CASES = [
@@ -71,6 +76,33 @@ REQUIRED_EVAL_CASES = [
     "case_005_workflow_scaffold_generator.md",
     "case_006_llm_contract_layer.md",
     "case_007_contract_failure_modes.md",
+    "case_008_network_domain_pack.md",
+]
+
+REQUIRED_NETWORK_DOMAIN_ASSETS = [
+    "docs/network_design_domain_model.md",
+    "docs/communication_matrix_model.md",
+    "docs/routing_sdwan_impact_model.md",
+    "docs/security_sse_boundary_model.md",
+    "docs/monitoring_logging_requirement_model.md",
+    "docs/dr_failover_review_model.md",
+    "templates/network_domain_review_packet_template.md",
+    "templates/routing_impact_analysis_template.md",
+    "templates/security_boundary_review_template.md",
+    "templates/monitoring_logging_requirement_template.md",
+    "templates/dr_failover_review_template.md",
+    "skills/network-domain-classification/SKILL.md",
+    "skills/communication-matrix-review/SKILL.md",
+    "skills/routing-sdwan-impact-review/SKILL.md",
+    "skills/security-boundary-review/SKILL.md",
+    "skills/monitoring-logging-review/SKILL.md",
+    "skills/dr-failover-review/SKILL.md",
+    "agents/network-domain-review-lead.md",
+    "workflows/11_network_domain_review.md",
+    "samples/input/scenario_003_network_domain_meeting.md",
+    "samples/input/scenario_003_network_baseline.md",
+    "samples/input/scenario_003_network_requirements.csv",
+    "samples/input/scenario_003_synthetic_vendor_note.md",
 ]
 
 REQUIRED_GENERATOR_ASSETS = [
@@ -197,6 +229,7 @@ def build_results() -> list[CheckResult]:
         check_paths("Required directories", [ROOT / path for path in REQUIRED_DIRECTORIES], expect_dir=True),
         check_paths("Sample outputs", [ROOT / "samples" / "output" / path for path in REQUIRED_SAMPLE_OUTPUTS]),
         check_paths("Eval cases", [ROOT / "evals" / "cases" / path for path in REQUIRED_EVAL_CASES]),
+        check_paths("Network domain assets", [ROOT / path for path in REQUIRED_NETWORK_DOMAIN_ASSETS]),
         check_paths("Generator assets", [ROOT / path for path in REQUIRED_GENERATOR_ASSETS]),
         check_paths("LLM contract assets", [ROOT / path for path in REQUIRED_LLM_CONTRACT_ASSETS]),
     ]
@@ -221,6 +254,7 @@ def print_summary(results: list[CheckResult]) -> None:
     print(f"Required directories: {status_text(by_name['Required directories'].passed)}")
     print(f"Sample outputs: {status_text(by_name['Sample outputs'].passed)}")
     print(f"Eval cases: {status_text(by_name['Eval cases'].passed)}")
+    print(f"Network domain assets: {status_text(by_name['Network domain assets'].passed)}")
     print(f"Generator assets: {status_text(by_name['Generator assets'].passed)}")
     print(f"LLM contract assets: {status_text(by_name['LLM contract assets'].passed)}")
     print(f"Validation scripts: {status_text(validation_passed)}")
@@ -253,6 +287,9 @@ def report_lines(results: list[CheckResult]) -> list[str]:
     lines.extend(["", "## Eval Cases", ""])
     for path in REQUIRED_EVAL_CASES:
         lines.append(f"- `evals/cases/{path}`")
+    lines.extend(["", "## Network Domain Assets", ""])
+    for path in REQUIRED_NETWORK_DOMAIN_ASSETS:
+        lines.append(f"- `{path}`")
     lines.extend(["", "## Generator Assets", ""])
     for path in REQUIRED_GENERATOR_ASSETS:
         lines.append(f"- `{path}`")

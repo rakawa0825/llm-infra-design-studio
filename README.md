@@ -91,6 +91,10 @@ v0.7 defines input and output contracts for future LLM-assisted workflow steps. 
 
 v0.8 adds failure-mode fixtures that test invalid LLM outputs before real LLM integration. It distinguishes failed, `review_required`, and `needs_more_information` states, and verifies that LLM outputs cannot approve design decisions. This prepares the project for safer future mock generation or optional LLM integration.
 
+## v0.9 Direction: Network Design Domain Pack
+
+v0.9 adds network-specific review domains: communication matrix, routing / SD-WAN impact, security / SSE boundary, monitoring / logging, and DR / failover. The domain pack identifies network design impact areas but does not approve design decisions.
+
 ## Repository Structure
 
 - `agents/`: Agent role definitions for lifecycle support.
@@ -124,4 +128,4 @@ LLMs may structure information, surface contradictions, propose review questions
 
 ## Current Status
 
-`v0.7 LLM-ready contract layer`
+`v0.9 Network design domain pack`

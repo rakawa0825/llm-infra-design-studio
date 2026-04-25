@@ -79,6 +79,33 @@ REQUIRED = {
         "# Scenario 002 Human Approval Checklist",
         "## Approval Rules",
     ],
+    "scenario_003_network_domain_review_packet.md": [
+        "# Scenario 003 Network Domain Review Packet",
+        "## Domain Coverage",
+        "## Communication Matrix Impact",
+        "## Routing / SD-WAN Impact",
+        "## Security / SSE Boundary Impact",
+        "## Monitoring / Logging Impact",
+        "## DR / Failover Impact",
+        "## Human Approval Points",
+        "## Do Not Reflect Yet",
+    ],
+    "scenario_003_routing_impact_analysis.md": [
+        "# Scenario 003 Routing Impact Analysis",
+        "## Human Approval Points",
+    ],
+    "scenario_003_security_boundary_review.md": [
+        "# Scenario 003 Security Boundary Review",
+        "## Human Approval Points",
+    ],
+    "scenario_003_monitoring_logging_review.md": [
+        "# Scenario 003 Monitoring Logging Review",
+        "## Human Approval Points",
+    ],
+    "scenario_003_dr_failover_review.md": [
+        "# Scenario 003 DR Failover Review",
+        "## Human Approval Points",
+    ],
 }
 
 REQUIRED_TABLE_COLUMNS = {
@@ -297,6 +324,55 @@ REQUIRED_TABLE_COLUMNS = {
         "Residual Risk",
         "Notes",
     ],
+    "scenario_003_network_domain_review_packet.md": [
+        "Domain",
+        "Coverage Status",
+        "Source Reference",
+        "Notes",
+    ],
+    "scenario_003_routing_impact_analysis.md": [
+        "route_domain",
+        "affected_site",
+        "normal_path",
+        "backup_path",
+        "traffic_steering_assumption",
+        "dependency",
+        "risk",
+        "required_confirmation",
+        "approval_status",
+    ],
+    "scenario_003_security_boundary_review.md": [
+        "boundary_id",
+        "traffic_scope",
+        "inspection_scope",
+        "enforcement_point",
+        "excluded_traffic",
+        "responsibility_owner",
+        "confirmation_required",
+        "approval_status",
+    ],
+    "scenario_003_monitoring_logging_review.md": [
+        "monitoring_item_id",
+        "monitored_component",
+        "event_or_metric",
+        "log_source",
+        "alert_owner",
+        "threshold_status",
+        "retention_status",
+        "detailed_design_handoff",
+        "approval_status",
+    ],
+    "scenario_003_dr_failover_review.md": [
+        "dr_item_id",
+        "normal_state",
+        "failover_trigger",
+        "failover_path",
+        "restoration_path",
+        "monitoring_impact",
+        "communication_matrix_impact",
+        "security_boundary_impact",
+        "approval_status",
+    ],
 }
 
 REQUIRED_CSV_COLUMNS = {
@@ -310,6 +386,15 @@ REQUIRED_CSV_COLUMNS = {
         "direction",
         "status",
         "source_id",
+        "notes",
+    ],
+    "samples/input/scenario_003_network_requirements.csv": [
+        "requirement_id",
+        "domain",
+        "requirement",
+        "status",
+        "source_reference",
+        "confirmation_owner",
         "notes",
     ],
 }
@@ -437,7 +522,7 @@ def main() -> int:
                     failures.append(f"{path.relative_to(ROOT)} missing table column: {column}")
 
     for filename, required_columns in REQUIRED_CSV_COLUMNS.items():
-        path = output_dir / filename
+        path = ROOT / filename if "/" in filename else output_dir / filename
         if not path.exists():
             failures.append(f"missing file: {path.relative_to(ROOT)}")
             continue

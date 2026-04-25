@@ -4,6 +4,8 @@
 
 Reviews operational monitoring and support-readiness implications.
 
+For v0.9 domain review, this agent owns monitoring/logging requirements, alert ownership, and operational handoff review.
+
 ## Responsibilities
 
 - Identify monitoring, alerting, ownership, and handover needs.

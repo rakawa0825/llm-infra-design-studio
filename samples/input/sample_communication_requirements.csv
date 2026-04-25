@@ -1,0 +1,7 @@
+requirement_id,source,destination,protocol,port,direction,status,notes
+COM-001,Branch-A,Cloud-Security-Service,HTTPS,443,branch-to-cloud,confirmed-fact,Internet-bound traffic steering target
+COM-002,Branch-B,Cloud-Security-Service,HTTPS,443,branch-to-cloud,assumption,Pending customer confirmation for migration exception
+COM-003,Branch-A,Primary-DC,HTTPS,443,branch-to-dc,confirmed-fact,Application reachability during migration
+COM-004,Branch-B,DR-DC,HTTPS,443,branch-to-dc,confirmed-fact,Continuity reachability during migration
+COM-005,SD-WAN-Edge-01,Monitoring-System,SNMP,161,edge-to-monitoring,handoff,Exact polling and alert thresholds deferred
+COM-006,SD-WAN-Edge-02,Monitoring-System,Syslog,514,edge-to-monitoring,handoff,Export format requires detailed design confirmation

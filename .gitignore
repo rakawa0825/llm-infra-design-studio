@@ -1,0 +1,12 @@
+.DS_Store
+.env
+.env.*
+__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+tmp/
+work/
+private/
+*.log

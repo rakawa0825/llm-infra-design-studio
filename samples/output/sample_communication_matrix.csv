@@ -1,0 +1,7 @@
+source_zone,source_component,destination_zone,destination_component,protocol,port,direction,status,source_id,notes
+Branch,Branch-A,Cloud,Cloud-Security-Service,HTTPS,443,branch-to-cloud,confirmed-fact,SRC-005,Internet-bound traffic steering target
+Branch,Branch-B,Cloud,Cloud-Security-Service,HTTPS,443,branch-to-cloud,assumption,SRC-005,Pending customer confirmation for migration exception
+Branch,Branch-A,Data Center,Primary-DC,HTTPS,443,branch-to-dc,confirmed-fact,SRC-005,Application reachability during migration
+Branch,Branch-B,Data Center,DR-DC,HTTPS,443,branch-to-dc,confirmed-fact,SRC-005,Continuity reachability during migration
+Edge,SD-WAN-Edge-01,Operations,Monitoring-System,SNMP,161,edge-to-monitoring,handoff,SRC-005,Exact polling and alert thresholds deferred
+Edge,SD-WAN-Edge-02,Operations,Monitoring-System,Syslog,514,edge-to-monitoring,handoff,SRC-005,Export format requires detailed design confirmation

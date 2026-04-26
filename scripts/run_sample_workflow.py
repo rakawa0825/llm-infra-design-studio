@@ -66,6 +66,8 @@ REQUIRED_SAMPLE_OUTPUTS = [
     "scenario_003_security_boundary_review.md",
     "scenario_003_monitoring_logging_review.md",
     "scenario_003_dr_failover_review.md",
+    "sample_source_registry.md",
+    "sample_artifact_map.md",
 ]
 
 REQUIRED_EVAL_CASES = [
@@ -77,6 +79,15 @@ REQUIRED_EVAL_CASES = [
     "case_006_llm_contract_layer.md",
     "case_007_contract_failure_modes.md",
     "case_008_network_domain_pack.md",
+    "case_009_source_registry_artifact_map.md",
+]
+
+REQUIRED_SOURCE_REGISTRY_ASSETS = [
+    "docs/source_registry_model.md",
+    "docs/artifact_map_model.md",
+    "templates/source_registry_template.md",
+    "templates/artifact_map_template.md",
+    "scripts/validate_source_registry.py",
 ]
 
 REQUIRED_NETWORK_DOMAIN_ASSETS = [
@@ -142,6 +153,7 @@ VALIDATION_SCRIPTS = [
     "scripts/check_unresolved_assertions.py",
     "scripts/compare_expected_outputs.py",
     "scripts/validate_llm_contracts.py --include-negative",
+    "scripts/validate_source_registry.py",
 ]
 
 TEXT_SUFFIXES = {".md", ".csv", ".py", ".txt", ".json", ".gitignore", ".yml", ".yaml", ".html", ".css"}
@@ -229,6 +241,7 @@ def build_results() -> list[CheckResult]:
         check_paths("Required directories", [ROOT / path for path in REQUIRED_DIRECTORIES], expect_dir=True),
         check_paths("Sample outputs", [ROOT / "samples" / "output" / path for path in REQUIRED_SAMPLE_OUTPUTS]),
         check_paths("Eval cases", [ROOT / "evals" / "cases" / path for path in REQUIRED_EVAL_CASES]),
+        check_paths("Source registry assets", [ROOT / path for path in REQUIRED_SOURCE_REGISTRY_ASSETS]),
         check_paths("Network domain assets", [ROOT / path for path in REQUIRED_NETWORK_DOMAIN_ASSETS]),
         check_paths("Generator assets", [ROOT / path for path in REQUIRED_GENERATOR_ASSETS]),
         check_paths("LLM contract assets", [ROOT / path for path in REQUIRED_LLM_CONTRACT_ASSETS]),
@@ -254,6 +267,7 @@ def print_summary(results: list[CheckResult]) -> None:
     print(f"Required directories: {status_text(by_name['Required directories'].passed)}")
     print(f"Sample outputs: {status_text(by_name['Sample outputs'].passed)}")
     print(f"Eval cases: {status_text(by_name['Eval cases'].passed)}")
+    print(f"Source registry assets: {status_text(by_name['Source registry assets'].passed)}")
     print(f"Network domain assets: {status_text(by_name['Network domain assets'].passed)}")
     print(f"Generator assets: {status_text(by_name['Generator assets'].passed)}")
     print(f"LLM contract assets: {status_text(by_name['LLM contract assets'].passed)}")
@@ -287,6 +301,9 @@ def report_lines(results: list[CheckResult]) -> list[str]:
     lines.extend(["", "## Eval Cases", ""])
     for path in REQUIRED_EVAL_CASES:
         lines.append(f"- `evals/cases/{path}`")
+    lines.extend(["", "## Source Registry Assets", ""])
+    for path in REQUIRED_SOURCE_REGISTRY_ASSETS:
+        lines.append(f"- `{path}`")
     lines.extend(["", "## Network Domain Assets", ""])
     for path in REQUIRED_NETWORK_DOMAIN_ASSETS:
         lines.append(f"- `{path}`")

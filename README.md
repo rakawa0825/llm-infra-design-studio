@@ -77,6 +77,10 @@ v0.9 adds a network design domain pack covering:
 
 The domain pack identifies network design impact areas. It does not approve or finalize network design decisions.
 
+## v1.1 Direction: Source Registry and Artifact Map
+
+Next planned work focuses on a Source Registry and Artifact Map. These define source-to-artifact traceability for future RAG/MCP-ready workflows without implementing RAG, MCP, or LLM API integration. Human approval remains required before artifact reflection.
+
 ## Human Governance
 
 LLMs may structure information, surface contradictions, propose review questions, and draft review artifacts. Humans must approve design decisions, scope commitments, customer-facing statements, risk acceptance, unresolved issue closure, detailed design handoff, publication, and production-impacting actions.

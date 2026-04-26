@@ -181,6 +181,32 @@ def main() -> int:
                 "Do Not Reflect Yet",
             ],
         },
+        {
+            "expected": ROOT / "evals" / "expected" / "case_009_expected.md",
+            "outputs": [
+                ROOT / "docs" / "source_registry_model.md",
+                ROOT / "docs" / "artifact_map_model.md",
+                ROOT / "templates" / "source_registry_template.md",
+                ROOT / "templates" / "artifact_map_template.md",
+                ROOT / "samples" / "output" / "sample_source_registry.md",
+                ROOT / "samples" / "output" / "sample_artifact_map.md",
+                ROOT / "evals" / "reports" / "case_009_report.md",
+            ],
+            "tokens": [
+                "Source Registry",
+                "Artifact Map",
+                "source-to-artifact",
+                "communication_matrix",
+                "network_domain_review_packet",
+                "design_decision_packet",
+                "design_reflection_request",
+                "human_approval_checklist",
+                "RAG",
+                "MCP",
+                "approved_by_human can only be set by humans",
+                "Proposed updates are review artifacts, not final design",
+            ],
+        },
     ]
 
     failures: list[str] = []

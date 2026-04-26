@@ -101,6 +101,6 @@ All examples are synthetic. Fictional names include ExampleCorp, Northstar Manuf
 
 ## Current Status
 
-`v1.0 private preview preparation`
+v1.0 private preview. Next planned work is tracked through local issue drafts and focuses on Source Registry and Artifact Map before any LLM API integration.
 
 See [ROADMAP.md](ROADMAP.md) for version history and planned next steps.

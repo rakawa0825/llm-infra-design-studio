@@ -1,0 +1,158 @@
+artifacts:
+  - artifact_id: "ART-REQ-001"
+    artifact_type: "requirement_definition_draft"
+    lifecycle_phase: "requirement_definition"
+    template_path: "templates/artifacts/requirement_definition_draft.md"
+    output_path: "samples/lifecycle_minimal/output/requirement_definition_draft.md"
+    input_sources:
+      - "SRC-001"
+      - "SRC-002"
+      - "SRC-004"
+      - "SRC-005"
+    intermediate_dependencies:
+      - "samples/lifecycle_minimal/intermediate/requirement_candidates.yaml"
+      - "samples/lifecycle_minimal/intermediate/unresolved_items.yaml"
+      - "samples/lifecycle_minimal/intermediate/missing_inputs.yaml"
+    approval_gate: "requirement_approval"
+    review_state: "REVIEW_REQUIRED"
+    allowed_claims:
+      - "source-backed requirement candidates may be drafted"
+      - "unresolved items may be listed"
+      - "missing inputs may be identified"
+    forbidden_claims:
+      - "final customer-approved requirements"
+      - "production-ready design"
+      - "complete requirement closure"
+    validation_checks:
+      - "source_ids_present"
+      - "approval_boundary_present"
+      - "unresolved_items_preserved"
+      - "missing_inputs_preserved"
+
+  - artifact_id: "ART-HLD-001"
+    artifact_type: "high_level_design_patch"
+    lifecycle_phase: "high_level_design"
+    template_path: "templates/artifacts/high_level_design_patch.md"
+    output_path: "samples/lifecycle_minimal/output/high_level_design_patch.md"
+    input_sources:
+      - "SRC-001"
+      - "SRC-002"
+      - "SRC-003"
+      - "SRC-004"
+      - "SRC-005"
+    intermediate_dependencies:
+      - "samples/lifecycle_minimal/intermediate/design_issue_log.yaml"
+      - "samples/lifecycle_minimal/intermediate/requirement_candidates.yaml"
+      - "samples/lifecycle_minimal/intermediate/unresolved_items.yaml"
+    approval_gate: "high_level_design_patch_approval"
+    review_state: "REVIEW_REQUIRED"
+    allowed_claims:
+      - "current design gap may be described"
+      - "source-backed draft design text may be proposed"
+      - "detailed-design handoff markers may be listed"
+    forbidden_claims:
+      - "final routing parameters"
+      - "final customer approval"
+      - "production-ready design"
+    validation_checks:
+      - "source_ids_present"
+      - "design_issue_ids_present"
+      - "detailed_design_handoff_present"
+      - "approval_boundary_present"
+
+  - artifact_id: "ART-DDH-001"
+    artifact_type: "detailed_design_handoff"
+    lifecycle_phase: "detailed_design_handoff"
+    template_path: "templates/artifacts/detailed_design_handoff.md"
+    output_path: "samples/lifecycle_minimal/output/detailed_design_handoff.md"
+    input_sources:
+      - "SRC-001"
+      - "SRC-002"
+      - "SRC-004"
+      - "SRC-005"
+    intermediate_dependencies:
+      - "samples/lifecycle_minimal/intermediate/unresolved_items.yaml"
+      - "samples/lifecycle_minimal/intermediate/missing_inputs.yaml"
+      - "samples/lifecycle_minimal/intermediate/design_issue_log.yaml"
+    approval_gate: "detailed_design_handoff_approval"
+    review_state: "REVIEW_REQUIRED"
+    allowed_claims:
+      - "handoff items may be separated from high-level design"
+      - "owner roles may be proposed"
+      - "parameter or policy questions may be listed"
+    forbidden_claims:
+      - "detailed-design items are resolved"
+      - "routing behavior is approved"
+      - "monitoring behavior is approved"
+    validation_checks:
+      - "unresolved_items_present"
+      - "source_ids_present"
+      - "approval_boundary_present"
+      - "handoff_boundary_present"
+
+  - artifact_id: "ART-RR-001"
+    artifact_type: "review_response_draft"
+    lifecycle_phase: "review_response"
+    template_path: "templates/artifacts/review_response_draft.md"
+    output_path: "samples/lifecycle_minimal/output/review_response_draft.md"
+    input_sources:
+      - "SRC-001"
+      - "SRC-002"
+      - "SRC-003"
+      - "SRC-004"
+      - "SRC-005"
+    intermediate_dependencies:
+      - "samples/lifecycle_minimal/input/review_comments.yaml"
+      - "samples/lifecycle_minimal/intermediate/design_issue_log.yaml"
+      - "samples/lifecycle_minimal/intermediate/unresolved_items.yaml"
+    approval_gate: "review_response_approval"
+    review_state: "REVIEW_REQUIRED"
+    allowed_claims:
+      - "draft responses may be proposed"
+      - "next actions may be listed"
+      - "closure blockers may be described"
+    forbidden_claims:
+      - "review comments are closed by default"
+      - "unresolved items are resolved"
+      - "final design response is approved"
+    validation_checks:
+      - "review_comment_ids_present"
+      - "source_ids_present"
+      - "closure_not_allowed_by_default"
+      - "approval_boundary_present"
+
+  - artifact_id: "ART-HAC-001"
+    artifact_type: "human_approval_checklist"
+    lifecycle_phase: "human_approval"
+    template_path: "templates/artifacts/human_approval_checklist.md"
+    output_path: "samples/lifecycle_minimal/output/human_approval_checklist.md"
+    input_sources:
+      - "SRC-001"
+      - "SRC-002"
+      - "SRC-003"
+      - "SRC-004"
+      - "SRC-005"
+    intermediate_dependencies:
+      - "samples/lifecycle_minimal/intermediate/requirement_candidates.yaml"
+      - "samples/lifecycle_minimal/intermediate/unresolved_items.yaml"
+      - "samples/lifecycle_minimal/intermediate/missing_inputs.yaml"
+      - "samples/lifecycle_minimal/intermediate/design_issue_log.yaml"
+      - "samples/lifecycle_minimal/output/requirement_definition_draft.md"
+      - "samples/lifecycle_minimal/output/high_level_design_patch.md"
+      - "samples/lifecycle_minimal/output/detailed_design_handoff.md"
+      - "samples/lifecycle_minimal/output/review_response_draft.md"
+    approval_gate: "artifact_reflection_approval"
+    review_state: "REVIEW_REQUIRED"
+    allowed_claims:
+      - "approval points may be listed"
+      - "risks may be described"
+      - "affected artifacts may be identified"
+    forbidden_claims:
+      - "approval is granted by default"
+      - "artifact reflection is allowed without approval"
+      - "human review is optional"
+    validation_checks:
+      - "all_source_ids_present"
+      - "approval_state_present"
+      - "no_default_approvals"
+      - "artifact_reflection_blocked"

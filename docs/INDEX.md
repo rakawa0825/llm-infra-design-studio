@@ -31,11 +31,14 @@ This index highlights the main entry points for first-time reviewers.
 
 - [Review-to-Patch Minimal Example](../samples/review_to_patch_minimal/README.md)
 - [Lifecycle Minimal Sample](../samples/lifecycle_minimal/README.md)
+- [Lifecycle Minimal Artifact Generation Plan](../samples/lifecycle_minimal/artifact_generation_plan.yaml)
 
 ## Artifact Templates
 
 - [Text Document Output Templates](artifacts/text_document_output_templates.md)
+- [Artifact Generation Contract](artifacts/artifact_generation_contract.md)
 - Template directory: `templates/artifacts/`
+- Contract template directory: `templates/contracts/`
 
 ## Core Models
 

@@ -1,0 +1,18 @@
+artifacts:
+  - artifact_id: "<artifact_id>"
+    artifact_type: "<artifact_type>"
+    lifecycle_phase: "<phase>"
+    template_path: "<template_path>"
+    output_path: "<output_path>"
+    input_sources:
+      - "<source_id>"
+    intermediate_dependencies:
+      - "<intermediate_dependency>"
+    approval_gate: "<approval_gate>"
+    review_state: "REVIEW_REQUIRED"
+    allowed_claims:
+      - "<allowed_claim>"
+    forbidden_claims:
+      - "<forbidden_claim>"
+    validation_checks:
+      - "<validation_check>"

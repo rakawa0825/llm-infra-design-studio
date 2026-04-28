@@ -42,6 +42,8 @@ artifacts:
       - "SRC-005"
     intermediate_dependencies:
       - "samples/lifecycle_minimal/intermediate/design_issue_log.yaml"
+      - "samples/lifecycle_minimal/input/existing_design_excerpt.md"
+      - "samples/lifecycle_minimal/input/review_comments.yaml"
       - "samples/lifecycle_minimal/intermediate/requirement_candidates.yaml"
       - "samples/lifecycle_minimal/intermediate/unresolved_items.yaml"
     approval_gate: "high_level_design_patch_approval"
@@ -72,6 +74,7 @@ artifacts:
       - "SRC-005"
     intermediate_dependencies:
       - "samples/lifecycle_minimal/intermediate/unresolved_items.yaml"
+      - "samples/lifecycle_minimal/input/vendor_note.md"
       - "samples/lifecycle_minimal/intermediate/missing_inputs.yaml"
       - "samples/lifecycle_minimal/intermediate/design_issue_log.yaml"
     approval_gate: "detailed_design_handoff_approval"

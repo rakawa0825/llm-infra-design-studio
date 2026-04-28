@@ -17,6 +17,10 @@ This index highlights the main entry points for first-time reviewers.
 - [v0.1 Scope](roadmap/v0_1_scope.md)
 - [Extension Model](roadmap/extension_model.md)
 
+## Synthetic Cases
+
+- [v0.1 Synthetic Case Design](cases/v0_1_synthetic_case_design.md)
+
 ## Positioning and Case Study
 
 - [Anonymous Infrastructure Design Review Case Study](case_studies/anonymous_infrastructure_design_review.md)

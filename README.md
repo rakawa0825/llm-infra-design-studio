@@ -127,6 +127,28 @@ python3 scripts/run_sample_workflow.py --check-only
 
 See [CLI Validation Runner](docs/cli_validation_runner.md) for what the checks verify and what they do not prove.
 
+## First-time reviewer path
+
+Start here:
+
+1. Framework overview: [docs/architecture/infrastructure_design_lifecycle_framework.md](docs/architecture/infrastructure_design_lifecycle_framework.md)
+2. v0.1 scope: [docs/roadmap/v0_1_scope.md](docs/roadmap/v0_1_scope.md)
+3. Synthetic case design: [docs/cases/v0_1_synthetic_case_design.md](docs/cases/v0_1_synthetic_case_design.md)
+4. Lifecycle minimal sample: [samples/lifecycle_minimal/README.md](samples/lifecycle_minimal/README.md)
+5. Reviewer quickstart: [docs/quickstart_for_reviewers.md](docs/quickstart_for_reviewers.md)
+6. Known limitations: [docs/known_limitations.md](docs/known_limitations.md)
+
+## Validation
+
+```bash
+python3 scripts/run_sample_workflow.py --check-only
+python3 scripts/validate_lifecycle_minimal.py
+python3 scripts/validate_artifact_generation_plan.py
+python3 scripts/check_sensitive_identifiers.py
+```
+
+Validation checks sample consistency, artifact generation plan consistency, approval-boundary discipline, and public-safe content. It does not prove real network design correctness or approve design language.
+
 For contract failure and review-required cases:
 
 ```bash

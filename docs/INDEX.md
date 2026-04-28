@@ -5,11 +5,14 @@ This index highlights the main entry points for first-time reviewers.
 ## Start Here
 
 - [Repository README](../README.md)
+- [Quickstart for Reviewers](quickstart_for_reviewers.md)
 - [Infrastructure Design Lifecycle Framework](architecture/infrastructure_design_lifecycle_framework.md)
 - [v0.1 Scope](roadmap/v0_1_scope.md)
 - [Extension Model](roadmap/extension_model.md)
 - [Private Preview Guide](private_preview_guide.md)
 - [Scenario Index](scenario_index.md)
+- [Known Limitations](known_limitations.md)
+- [Public Release Readiness Checklist](public_release_readiness_checklist.md)
 
 ## Lifecycle Framework
 

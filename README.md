@@ -2,18 +2,112 @@
 
 LLM Infra Design Studio is a Markdown-first workflow prototype for LLM-assisted infrastructure and network design review.
 
-It helps turn fragmented design evidence - meeting notes, existing design baselines, requirements, review comments, vendor-style answers, and unresolved issues - into structured review artifacts with source traceability and human approval boundaries.
+It helps engineers turn fragmented infrastructure project evidence into source-backed, reviewable, traceable, and human-approved design decisions. The repository is public-safe and uses synthetic examples only.
 
-This is not an automatic network design system.
+## What this is
 
-## 30-Second Overview
+- A workflow prototype for infrastructure design review.
+- A structured repository of agents, skills, workflows, templates, samples, evals, and validation scripts.
+- A source-backed review model for turning project evidence into reviewable design patches.
+- A human-in-the-loop design support system that preserves uncertainty, review states, and operational handoff points.
 
-- **Purpose:** support infrastructure design review, not replace engineers.
-- **Core workflow:** source evidence -> requirement and issue extraction -> design impact analysis -> review artifacts -> human approval.
-- **Network domains:** communication matrix, routing / SD-WAN, security / SSE boundary, monitoring / logging, and DR / failover.
-- **Safety boundary:** assumptions and unresolved items remain visible; LLM-ready outputs cannot approve design decisions.
+## What this is not
 
-## Quick Start
+- Not an autonomous infrastructure design system.
+- Not a production-ready network design tool.
+- Not a replacement for qualified engineers.
+- Not a repository for real customer data, private diagrams, meeting transcripts, or project files.
+- Not an LLM API integration, SaaS application, or production automation layer.
+
+## Why this exists
+
+Enterprise infrastructure design work is often scattered across meeting notes, review comments, vendor answers, existing design documents, technical references, unresolved issues, and human approval decisions.
+
+This project models how LLM/Codex-assisted workflows can organize that evidence into reviewable artifacts without hiding uncertainty or bypassing human judgment.
+
+## Core workflow
+
+```text
+Fragmented project evidence
+-> Source Registry
+-> Extraction
+-> Impact Analysis
+-> Artifact Map
+-> review_required / human approval
+-> Reviewable design patch
+-> Operational handoff
+```
+
+The workflow prepares design-review outputs. It does not approve final design decisions.
+
+## Key concepts
+
+- **Source Registry:** records evidence sources, source type, authority, freshness, owner role, privacy boundary, and related artifacts.
+- **Artifact Map:** records which design artifacts may be impacted by each source and what updates remain proposed, unresolved, or approval-gated.
+- **Source Context Card:** summarizes how one source may and may not be used in a workflow step.
+- **review_required:** the normal state for outputs that need human inspection before design reflection.
+- **Human Approval Boundary:** the line between AI-assisted structuring and human-owned decisions.
+- **Design Patch:** a proposed, source-linked change package for review, not an approved production update.
+- **Operational Handoff:** the transfer of review outcomes, assumptions, and unresolved items to operations or detailed design owners.
+- **Detailed Design Handoff:** items intentionally moved out of high-level review because they require lower-level engineering validation.
+
+## Example use case
+
+A large enterprise infrastructure design review has meeting notes, review comments, vendor reference material, existing design baselines, and unresolved routing or monitoring questions spread across multiple sources.
+
+The workflow can:
+
+- classify sources and preserve context,
+- extract facts, assumptions, unresolved items, and handoff items,
+- map source evidence to affected design artifacts,
+- identify communication matrix, routing, security boundary, monitoring, and DR/failover impacts,
+- prepare a reviewable design patch,
+- keep ambiguous items in `review_required` state until a human approves or rejects them.
+
+See [Review-to-Patch Minimal Example](samples/review_to_patch_minimal/README.md) for a small synthetic dataset that follows this path end to end.
+
+## Human approval boundary
+
+LLMs may structure information, surface contradictions, draft review questions, and prepare review artifacts.
+
+Humans must approve:
+
+- production-impacting design decisions,
+- scope commitments,
+- risk acceptance,
+- customer-facing language,
+- unresolved issue closure,
+- detailed design handoff,
+- artifact reflection,
+- publication or external sharing.
+
+## Repository structure
+
+- `agents/`: agent role definitions for lifecycle support.
+- `skills/`: Markdown-first skill definitions.
+- `workflows/`: process specifications.
+- `templates/`: reusable artifact templates.
+- `schemas/`: JSON contract documentation for future LLM-assisted workflow packages.
+- `samples/`: synthetic input and output examples.
+- `evals/`: evaluation cases, expected outputs, and failure fixtures.
+- `generated/`: committed example workflow scaffolds.
+- `scripts/`: validation and safety-check scripts.
+- `docs/`: reviewer guides, domain models, workflow specs, and career-safe summaries.
+- `reports/`: review and validation reports.
+
+## Current status
+
+The repository is in public-safe prototype shape using synthetic examples only.
+
+Current capabilities include:
+
+- meeting-to-design workflow modeling,
+- evidence-to-decision review,
+- network design domain review,
+- Source Registry and Artifact Map modeling,
+- LLM input/output contract validation,
+- contract failure and review-required fixtures,
+- one-command local validation.
 
 Run the main validation command:
 
@@ -27,84 +121,36 @@ For contract failure and review-required cases:
 python3 scripts/validate_llm_contracts.py --include-negative
 ```
 
-Passing validation means the synthetic samples, generated scaffolds, LLM contract samples, and failure fixtures meet the current local checks. It does not mean the repository is approved for publication or production use.
+Passing validation means the synthetic samples, generated scaffolds, contract samples, and failure fixtures meet the current local checks. It does not mean the repository is approved for production use.
 
-## Reviewer Entry Points
+## Roadmap
 
+Near-term work:
+
+- refine the minimal example dataset,
+- improve CLI validation runner documentation,
+- strengthen source-to-artifact traceability examples,
+- prepare concise GitHub Pages and article summaries.
+
+Not now:
+
+- real LLM API integration,
+- FastAPI or SaaS UI,
+- production network design automation,
+- real customer data,
+- vendor-specific configuration generation.
+
+## Positioning
+
+I am not trying to replace engineers with AI.
+
+I am building workflow structures that help engineers turn fragmented infrastructure information into reviewable, traceable, and human-approved decisions.
+
+Start here:
+
+- [Docs Index](docs/INDEX.md)
 - [Private Preview Guide](docs/private_preview_guide.md)
 - [Scenario Index](docs/scenario_index.md)
+- [Review-to-Patch Minimal Example](samples/review_to_patch_minimal/README.md)
 - [Network Design Domain Model](docs/network_design_domain_model.md)
-- [Scenario 003 Network Domain Review Packet](samples/output/scenario_003_network_domain_review_packet.md)
-- [CLI Validation Runner](scripts/run_sample_workflow.py)
-
-## What This Is
-
-- A public-safe workflow prototype for LLM-assisted infrastructure design review.
-- A reusable Markdown structure for agents, skills, workflows, templates, samples, evals, and validation scripts.
-- A synthetic demonstration of source-backed network-domain review artifacts.
-- A human-in-the-loop operating model for preserving uncertainty and approval boundaries.
-
-## What This Is Not
-
-- Not an automatic network design system.
-- Not a source of production-ready architecture decisions.
-- Not a replacement for qualified engineers.
-- Not a repository for real customer data, private diagrams, meeting transcripts, or project files.
-- Not an LLM API integration, SaaS application, or production automation layer.
-
-## Core Workflow
-
-```text
-Source Intake
--> Source Manifest
--> Requirement / Issue / Decision Extraction
--> Evidence-To-Decision Review
--> Network Domain Review
--> Artifact Update Proposal
--> Human Approval
--> Decision Storage
-```
-
-## Network Domains
-
-v0.9 adds a network design domain pack covering:
-
-- Communication Matrix
-- Routing / SD-WAN Impact
-- Security / SSE Boundary
-- Monitoring / Logging Requirement
-- DR / Failover Review
-
-The domain pack identifies network design impact areas. It does not approve or finalize network design decisions.
-
-## v1.1 Direction: Source Registry and Artifact Map
-
-Next planned work focuses on a Source Registry and Artifact Map. These define source-to-artifact traceability for future RAG/MCP-ready workflows without implementing RAG, MCP, or LLM API integration. Human approval remains required before artifact reflection.
-
-## Human Governance
-
-LLMs may structure information, surface contradictions, propose review questions, and draft review artifacts. Humans must approve design decisions, scope commitments, customer-facing statements, risk acceptance, unresolved issue closure, detailed design handoff, publication, and production-impacting actions.
-
-## Public-Safe Sample Policy
-
-All examples are synthetic. Fictional names include ExampleCorp, Northstar Manufacturing, Atlas Retail, Branch-A, Branch-B, Primary-DC, DR-DC, Cloud-Security-Service, and Monitoring-System. Use RFC documentation IP ranges only when IP examples are needed: `192.0.2.0/24`, `198.51.100.0/24`, and `203.0.113.0/24`.
-
-## Repository Structure
-
-- `agents/`: Agent role definitions for lifecycle support.
-- `skills/`: Markdown-first skill definitions.
-- `workflows/`: Step-by-step process files.
-- `templates/`: Reusable public-safe artifact templates.
-- `schemas/`: JSON contract documentation for future LLM-assisted workflow packages.
-- `samples/`: Synthetic input and output examples.
-- `evals/`: Evaluation cases, expected outputs, and failure fixtures.
-- `generated/`: Committed example workflow scaffolds.
-- `scripts/`: Minimal validation and safety-check scripts.
-- `docs/`: Reviewer guides, domain models, summaries, and talk-track documents.
-- `reports/`: Review and validation reports.
-
-## Current Status
-
-v1.0 private preview. Next planned work is tracked through local issue drafts and focuses on Source Registry and Artifact Map before any LLM API integration.
-
-See [ROADMAP.md](ROADMAP.md) for version history and planned next steps.
+- [Review-to-Patch Pipeline](docs/workflows/review_to_patch_pipeline.md)

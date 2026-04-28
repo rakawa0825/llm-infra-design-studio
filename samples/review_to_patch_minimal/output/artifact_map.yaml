@@ -1,0 +1,48 @@
+artifact_map:
+  - artifact_id: ART-COMM-MATRIX-001
+    artifact_name: communication_matrix
+    impacted_by:
+      sources:
+        - SRC-EXAMPLE-MEETING-001
+      review_items:
+        - ITEM-001
+        - ITEM-002
+    impact_type: proposed_flow_update
+    review_state: review_required
+    human_approval_required: true
+
+  - artifact_id: ART-SEC-BOUNDARY-001
+    artifact_name: security_boundary_review
+    impacted_by:
+      sources:
+        - SRC-EXAMPLE-MEETING-001
+        - SRC-EXAMPLE-VENDOR-001
+      review_items:
+        - ITEM-002
+        - ITEM-003
+    impact_type: inspection_scope_review
+    review_state: unresolved
+    human_approval_required: true
+
+  - artifact_id: ART-ROUTING-001
+    artifact_name: routing_impact_analysis
+    impacted_by:
+      sources:
+        - SRC-EXAMPLE-MEETING-001
+        - SRC-EXAMPLE-BASELINE-001
+      review_items:
+        - ITEM-004
+    impact_type: qos_routing_ambiguity
+    review_state: review_required
+    human_approval_required: true
+
+  - artifact_id: ART-OPS-HANDOFF-001
+    artifact_name: operational_handoff_notes
+    impacted_by:
+      sources:
+        - SRC-EXAMPLE-OPS-001
+      review_items:
+        - ITEM-005
+    impact_type: detailed_design_handoff
+    review_state: detailed_design_handoff
+    human_approval_required: true

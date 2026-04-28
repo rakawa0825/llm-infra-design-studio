@@ -1,0 +1,29 @@
+review_comments:
+  - comment_id: RC-001
+    comment_text: Branch-A internet traffic may need a new path through Cloud-Security-Service, but the inspection scope is not confirmed.
+    source_references:
+      - SRC-EXAMPLE-MEETING-001
+    target_domain: communication_matrix
+    initial_classification: proposed_change
+
+  - comment_id: RC-002
+    comment_text: The vendor lifecycle note mentions a future service behavior change, but it should not be treated as a design constraint without architecture approval.
+    source_references:
+      - SRC-EXAMPLE-VENDOR-001
+    target_domain: security_boundary
+    initial_classification: review_required
+
+  - comment_id: RC-003
+    comment_text: QoS and routing treatment for security-steered traffic is still ambiguous and should remain open.
+    source_references:
+      - SRC-EXAMPLE-MEETING-001
+      - SRC-EXAMPLE-BASELINE-001
+    target_domain: routing_sdwan
+    initial_classification: unresolved
+
+  - comment_id: RC-004
+    comment_text: Monitoring ownership and alert thresholds for the new flow should be handed off to detailed design and operations review.
+    source_references:
+      - SRC-EXAMPLE-OPS-001
+    target_domain: monitoring_logging
+    initial_classification: detailed_design_handoff

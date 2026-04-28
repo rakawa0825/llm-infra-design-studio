@@ -1,0 +1,22 @@
+patch_id: PATCH-REVIEW-TO-PATCH-001
+target_artifact: network_domain_review_packet
+target_section: communication_matrix_impact
+proposed_change: Add a proposed Branch-A to Cloud-Security-Service traffic flow as a review item.
+evidence_summary: Meeting evidence suggests a new branch-to-cloud security flow, but inspection scope, QoS/routing behavior, and operational monitoring details are not fully confirmed.
+source_references:
+  - SRC-EXAMPLE-MEETING-001
+  - SRC-EXAMPLE-VENDOR-001
+  - SRC-EXAMPLE-BASELINE-001
+  - SRC-EXAMPLE-OPS-001
+assumptions:
+  - The proposed flow may apply only to selected Branch-A internet traffic.
+  - The vendor lifecycle note may belong in operational notes rather than design constraints.
+unresolved_items:
+  - Inspection scope for Cloud-Security-Service remains unresolved.
+  - QoS and routing treatment remains review_required.
+detailed_design_handoff:
+  - Monitoring ownership and alert threshold details require operations and detailed design review.
+review_state: review_required
+human_approval_required: true
+do_not_reflect_yet: true
+next_action: Route the patch package to architecture, security boundary, routing, and operations reviewers.

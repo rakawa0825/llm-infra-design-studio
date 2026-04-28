@@ -1,0 +1,38 @@
+source_context_cards:
+  - source_id: SRC-EXAMPLE-MEETING-001
+    used_for:
+      - identify proposed branch-to-cloud security flow
+      - identify unresolved inspection scope
+      - generate review_required questions
+    not_used_for:
+      - approving final communication matrix updates
+      - confirming production routing behavior
+      - closing QoS ambiguity
+    notes: Meeting evidence is useful for intake and decomposition, but it is not final approval.
+
+  - source_id: SRC-EXAMPLE-VENDOR-001
+    used_for:
+      - flag lifecycle-related review consideration
+      - identify possible operational note
+    not_used_for:
+      - creating design constraints without human approval
+      - replacing architecture review
+    notes: Vendor-provided statements need reviewer interpretation before design reflection.
+
+  - source_id: SRC-EXAMPLE-BASELINE-001
+    used_for:
+      - compare current communication assumptions
+      - identify impacted routing sections
+    not_used_for:
+      - approving new traffic steering behavior
+      - resolving inspection scope
+    notes: Baseline is current for comparison but does not approve new changes.
+
+  - source_id: SRC-EXAMPLE-OPS-001
+    used_for:
+      - identify operations handoff items
+      - flag monitoring ownership review
+    not_used_for:
+      - finalizing alert thresholds
+      - approving operational readiness
+    notes: Operations notes should drive handoff and review tasks, not final design approval.

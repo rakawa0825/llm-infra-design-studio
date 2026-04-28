@@ -1,0 +1,53 @@
+sources:
+  - source_id: SRC-EXAMPLE-MEETING-001
+    title: Atlas Retail design review meeting excerpt
+    source_type: meeting_transcript_excerpt
+    owner: requirements_facilitation
+    authority_level: meeting_statement
+    freshness_status: current
+    confidentiality: synthetic
+    related_domain:
+      - communication_matrix
+      - security_boundary
+      - routing_sdwan
+    decision_status: review_required
+    human_review_required: true
+
+  - source_id: SRC-EXAMPLE-VENDOR-001
+    title: Cloud-Security-Service lifecycle reference note
+    source_type: vendor_answer
+    owner: vendor_management
+    authority_level: vendor_provided
+    freshness_status: needs_review
+    confidentiality: synthetic
+    related_domain:
+      - security_boundary
+      - operations
+    decision_status: review_required
+    human_review_required: true
+
+  - source_id: SRC-EXAMPLE-BASELINE-001
+    title: Atlas Retail existing network baseline summary
+    source_type: existing_design_baseline
+    owner: architecture_review
+    authority_level: internal_review
+    freshness_status: current
+    confidentiality: synthetic
+    related_domain:
+      - communication_matrix
+      - routing_sdwan
+    decision_status: confirmed
+    human_review_required: false
+
+  - source_id: SRC-EXAMPLE-OPS-001
+    title: Operations monitoring handoff note
+    source_type: operations_requirement
+    owner: operations_monitoring
+    authority_level: internal_review
+    freshness_status: current
+    confidentiality: synthetic
+    related_domain:
+      - monitoring_logging
+      - operational_handoff
+    decision_status: detailed_design_handoff
+    human_review_required: true

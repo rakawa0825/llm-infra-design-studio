@@ -1,0 +1,41 @@
+decomposed_review_items:
+  - item_id: ITEM-001
+    from_comment: RC-001
+    item_type: proposed_change
+    summary: Add a proposed Branch-A to Cloud-Security-Service traffic flow for review.
+    source_references:
+      - SRC-EXAMPLE-MEETING-001
+    review_state: review_required
+
+  - item_id: ITEM-002
+    from_comment: RC-001
+    item_type: unresolved
+    summary: Security inspection scope for the proposed flow is not confirmed.
+    source_references:
+      - SRC-EXAMPLE-MEETING-001
+    review_state: unresolved
+
+  - item_id: ITEM-003
+    from_comment: RC-002
+    item_type: assumption
+    summary: Vendor lifecycle note may affect operational wording, but should not become a design constraint without approval.
+    source_references:
+      - SRC-EXAMPLE-VENDOR-001
+    review_state: review_required
+
+  - item_id: ITEM-004
+    from_comment: RC-003
+    item_type: unresolved
+    summary: QoS and routing treatment for security-steered traffic remains ambiguous.
+    source_references:
+      - SRC-EXAMPLE-MEETING-001
+      - SRC-EXAMPLE-BASELINE-001
+    review_state: review_required
+
+  - item_id: ITEM-005
+    from_comment: RC-004
+    item_type: detailed_design_handoff
+    summary: Monitoring ownership and alert threshold details require detailed design and operations review.
+    source_references:
+      - SRC-EXAMPLE-OPS-001
+    review_state: detailed_design_handoff

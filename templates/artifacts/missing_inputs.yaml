@@ -1,0 +1,7 @@
+missing_inputs:
+  - missing_input_id: "<missing_input_id>"
+    summary: "<summary>"
+    needed_for: "<artifact_or_phase>"
+    blocking_phase: "<phase>"
+    recommended_next_action: "<next_action>"
+    status: "MISSING"

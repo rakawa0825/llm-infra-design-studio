@@ -1,0 +1,10 @@
+unresolved_items:
+  - item_id: "<unresolved_item_id>"
+    summary: "<summary>"
+    source_ids:
+      - "<source_id>"
+    blocking_reason: "<blocking_reason>"
+    owner_role: "<owner_role>"
+    target_resolution_phase: "<phase>"
+    approval_required: true
+    status: "UNRESOLVED"

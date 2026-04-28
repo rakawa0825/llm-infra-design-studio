@@ -32,6 +32,11 @@ This index highlights the main entry points for first-time reviewers.
 - [Review-to-Patch Minimal Example](../samples/review_to_patch_minimal/README.md)
 - [Lifecycle Minimal Sample](../samples/lifecycle_minimal/README.md)
 
+## Artifact Templates
+
+- [Text Document Output Templates](artifacts/text_document_output_templates.md)
+- Template directory: `templates/artifacts/`
+
 ## Core Models
 
 - [Source Registry Model](source_registry_model.md)

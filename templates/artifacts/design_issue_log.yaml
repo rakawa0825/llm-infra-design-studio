@@ -1,0 +1,10 @@
+design_issue_log:
+  - issue_id: "<design_issue_id>"
+    summary: "<summary>"
+    affected_artifact: "<artifact>"
+    affected_section: "<section>"
+    source_ids:
+      - "<source_id>"
+    classification: "<gap|conflict|handoff|review_response_required>"
+    recommended_handling: "<handling>"
+    approval_status: "REVIEW_REQUIRED"

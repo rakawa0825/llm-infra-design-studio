@@ -25,6 +25,16 @@ Enterprise infrastructure design work is often scattered across meeting notes, r
 
 This project models how LLM/Codex-assisted workflows can organize that evidence into reviewable artifacts without hiding uncertainty or bypassing human judgment.
 
+## Core focus
+
+This repository explores an LLM-assisted Infrastructure Design Lifecycle Framework.
+
+The goal is to turn scattered customer hearing notes, meeting transcripts, review comments, existing design documents, and vendor answers into text-based, reviewable, traceable, human-approved design artifacts such as requirement definitions, high-level design document patches, detailed-design handoffs, unresolved item lists, and approval checklists.
+
+This is not primarily a proposal-generation system. Proposal and presentation generation may be added later as optional adapters.
+
+Review-to-Patch is one downstream workflow inside the broader lifecycle framework.
+
 ## Core workflow
 
 ```text
@@ -151,6 +161,9 @@ I am building workflow structures that help engineers turn fragmented infrastruc
 Start here:
 
 - [Docs Index](docs/INDEX.md)
+- [Infrastructure Design Lifecycle Framework](docs/architecture/infrastructure_design_lifecycle_framework.md)
+- [v0.1 Scope](docs/roadmap/v0_1_scope.md)
+- [Extension Model](docs/roadmap/extension_model.md)
 - [Private Preview Guide](docs/private_preview_guide.md)
 - [Scenario Index](docs/scenario_index.md)
 - [Review-to-Patch Minimal Example](samples/review_to_patch_minimal/README.md)

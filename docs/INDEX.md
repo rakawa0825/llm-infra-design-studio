@@ -30,6 +30,7 @@ This index highlights the main entry points for first-time reviewers.
 ## Minimal Examples
 
 - [Review-to-Patch Minimal Example](../samples/review_to_patch_minimal/README.md)
+- [Lifecycle Minimal Sample](../samples/lifecycle_minimal/README.md)
 
 ## Core Models
 

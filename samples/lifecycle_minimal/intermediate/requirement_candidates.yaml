@@ -1,0 +1,34 @@
+requirement_candidates:
+  - requirement_id: REQ-CAND-001
+    summary: Branch internet-bound traffic should be evaluated for cloud security inspection.
+    source_ids:
+      - SRC-001
+      - SRC-002
+      - SRC-004
+    requirement_maturity: candidate
+    target_phase: requirement_definition
+    approval_status: approval_required
+    notes: Customer intent exists, but final inspection scope and approval owner are unresolved.
+
+  - requirement_id: REQ-CAND-002
+    summary: Exception traffic must be identified before final design language is written.
+    source_ids:
+      - SRC-001
+      - SRC-002
+      - SRC-004
+      - SRC-005
+    requirement_maturity: candidate
+    target_phase: requirement_clarification
+    approval_status: approval_required
+    notes: Exception traffic may include monitoring or management traffic, but classification is not approved.
+
+  - requirement_id: REQ-CAND-003
+    summary: Monitoring or management traffic handling requires validation before inclusion in the high-level design.
+    source_ids:
+      - SRC-001
+      - SRC-004
+      - SRC-005
+    requirement_maturity: candidate
+    target_phase: detailed_design_handoff
+    approval_status: approval_required
+    notes: This item should not be written as a final high-level design decision.

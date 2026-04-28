@@ -1,0 +1,18 @@
+missing_inputs:
+  - missing_input_id: MISS-001
+    summary: Approved traffic inspection scope is missing.
+    needed_for: requirement_definition_draft
+    blocking_phase: requirement_definition
+    recommended_next_action: Ask customer approver to confirm which branch traffic classes require cloud security inspection.
+
+  - missing_input_id: MISS-002
+    summary: Confirmed exception traffic list is missing.
+    needed_for: high_level_design_patch
+    blocking_phase: high_level_design
+    recommended_next_action: Ask security reviewer and operations reviewer to classify exception traffic.
+
+  - missing_input_id: MISS-003
+    summary: Detailed routing and failover behavior is missing.
+    needed_for: detailed_design_handoff
+    blocking_phase: detailed_design_handoff
+    recommended_next_action: Assign network architect to validate routing policy and failover behavior.

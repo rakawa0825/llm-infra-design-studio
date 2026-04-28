@@ -1,0 +1,55 @@
+evidence_registry:
+  - source_id: SRC-001
+    source_type: customer_hearing_note
+    title: Customer hearing note for branch traffic handling
+    available_at: 2026-01-15
+    authority_level: customer_intent
+    contains_customer_intent: true
+    contains_technical_behavior: false
+    contains_approved_decision: false
+    requires_human_review: true
+    public_safe_note: Synthetic hearing note; no real customer data.
+
+  - source_id: SRC-002
+    source_type: meeting_transcript_excerpt
+    title: Meeting transcript excerpt for inspection scope discussion
+    available_at: 2026-01-16
+    authority_level: meeting_context
+    contains_customer_intent: true
+    contains_technical_behavior: false
+    contains_approved_decision: false
+    requires_human_review: true
+    public_safe_note: Synthetic excerpt; not a real transcript.
+
+  - source_id: SRC-003
+    source_type: existing_design_excerpt
+    title: Existing design excerpt for legacy branch path
+    available_at: 2026-01-10
+    authority_level: baseline_context
+    contains_customer_intent: false
+    contains_technical_behavior: true
+    contains_approved_decision: false
+    requires_human_review: true
+    public_safe_note: Synthetic baseline; may be stale.
+
+  - source_id: SRC-004
+    source_type: review_comments
+    title: Review comments for branch traffic design clarification
+    available_at: 2026-01-17
+    authority_level: review_gap
+    contains_customer_intent: false
+    contains_technical_behavior: false
+    contains_approved_decision: false
+    requires_human_review: true
+    public_safe_note: Synthetic review comments.
+
+  - source_id: SRC-005
+    source_type: vendor_note
+    title: Vendor-style technical behavior note for cloud security service
+    available_at: 2026-01-18
+    authority_level: technical_reference
+    contains_customer_intent: false
+    contains_technical_behavior: true
+    contains_approved_decision: false
+    requires_human_review: true
+    public_safe_note: Synthetic vendor-style note; not a real vendor document.

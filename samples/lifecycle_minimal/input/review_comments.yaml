@@ -1,0 +1,36 @@
+review_comments:
+  - comment_id: RC-001
+    source: SRC-004
+    summary: Security inspection scope for branch internet-bound traffic is not defined.
+    affected_artifact: high_level_design_patch
+    affected_section: branch_traffic_handling
+    severity: high
+    review_status: REVIEW_REQUIRED
+    requires_human_review: true
+
+  - comment_id: RC-002
+    source: SRC-004
+    summary: Exception traffic handling is unclear and may affect monitoring or management traffic.
+    affected_artifact: requirement_definition_draft
+    affected_section: exception_traffic
+    severity: medium
+    review_status: REVIEW_REQUIRED
+    requires_human_review: true
+
+  - comment_id: RC-003
+    source: SRC-004
+    summary: Existing design excerpt describes a legacy traffic path that may conflict with the new inspection requirement.
+    affected_artifact: high_level_design_patch
+    affected_section: current_gap
+    severity: medium
+    review_status: REVIEW_REQUIRED
+    requires_human_review: true
+
+  - comment_id: RC-004
+    source: SRC-004
+    summary: Detailed routing policy, failover behavior, and monitoring traffic treatment need detailed-design handoff.
+    affected_artifact: detailed_design_handoff
+    affected_section: detailed_design_items
+    severity: medium
+    review_status: REVIEW_REQUIRED
+    requires_human_review: true

@@ -1,0 +1,35 @@
+unresolved_items:
+  - item_id: UNRES-001
+    summary: Exception traffic definition is unresolved.
+    source_ids:
+      - SRC-001
+      - SRC-002
+      - SRC-004
+      - SRC-005
+    blocking_reason: The team has not confirmed which traffic classes may bypass inspection.
+    owner_role: security_reviewer
+    target_resolution_phase: requirement_definition
+    approval_required: true
+
+  - item_id: UNRES-002
+    summary: Monitoring and management traffic handling is unresolved.
+    source_ids:
+      - SRC-001
+      - SRC-004
+      - SRC-005
+    blocking_reason: Operational impact and traffic classification require validation.
+    owner_role: operations_reviewer
+    target_resolution_phase: detailed_design_handoff
+    approval_required: true
+
+  - item_id: UNRES-003
+    summary: Failover and routing policy behavior is unresolved.
+    source_ids:
+      - SRC-002
+      - SRC-003
+      - SRC-004
+      - SRC-005
+    blocking_reason: Vendor-style behavior note does not define customer-approved routing policy.
+    owner_role: network_architect
+    target_resolution_phase: detailed_design_handoff
+    approval_required: true

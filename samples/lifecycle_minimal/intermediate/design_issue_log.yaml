@@ -1,0 +1,40 @@
+design_issue_log:
+  - issue_id: DI-001
+    summary: High-level design lacks a statement for branch internet-bound traffic inspection.
+    affected_artifact: high_level_design_patch
+    affected_section: branch_traffic_handling
+    source_ids:
+      - SRC-001
+      - SRC-004
+    classification: missing_high_level_design_statement
+    recommended_handling: Draft a REVIEW_REQUIRED section with source references and approval gate.
+
+  - issue_id: DI-002
+    summary: Existing design baseline may be stale because it only describes the legacy managed network path.
+    affected_artifact: high_level_design_patch
+    affected_section: current_gap
+    source_ids:
+      - SRC-003
+      - SRC-004
+    classification: stale_baseline_candidate
+    recommended_handling: Compare against newer hearing and review evidence before artifact reflection.
+
+  - issue_id: DI-003
+    summary: Exception traffic, monitoring traffic, and failover behavior need detailed-design handoff.
+    affected_artifact: detailed_design_handoff
+    affected_section: detailed_design_items
+    source_ids:
+      - SRC-001
+      - SRC-004
+      - SRC-005
+    classification: detailed_design_handoff_needed
+    recommended_handling: Separate from high-level design and assign owner roles.
+
+  - issue_id: DI-004
+    summary: Review response is required for inspection scope and exception traffic comments.
+    affected_artifact: review_response_draft
+    affected_section: review_comment_responses
+    source_ids:
+      - SRC-004
+    classification: review_response_required
+    recommended_handling: Prepare draft responses without marking comments closed.

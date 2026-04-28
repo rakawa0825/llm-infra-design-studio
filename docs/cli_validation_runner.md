@@ -2,62 +2,250 @@
 
 ## Purpose
 
-The v0.4 CLI validation runner makes the Markdown-first workflow prototype reproducible with a single local command.
+The CLI validation runner gives first-time reviewers a reproducible way to check the repository's Markdown-first workflow prototype.
 
-The CLI runner makes the Markdown-first workflow prototype reproducible without pretending to automate network design.
+It verifies that the repository structure, synthetic samples, eval cases, source registry artifacts, LLM contract fixtures, and public-safe boundaries are still coherent.
 
-## Why v0.4 Adds A CLI Runner
+The runner supports the project goal: source-backed, reviewable, traceable, and human-approved infrastructure design workflow outputs.
 
-v0.1 through v0.3 established the repository structure, meeting-to-design workflow slice, and evidence-to-decision loop. v0.4 adds a minimal executable layer so reviewers can verify that the repository still has required files, sample outputs, eval cases, validation scripts, and public-safe content.
+## Why validation matters
 
-v0.5 extends the runner coverage to include a second synthetic scenario so the checks are not limited to one sample case.
+LLM-assisted infrastructure design workflows can fail in subtle ways. A generated or drafted artifact may look polished while missing source references, hiding unresolved items, promoting assumptions into facts, or implying approval that humans have not granted.
 
-v0.6 extends the runner coverage to include the workflow scaffold generator and a committed evidence-to-decision scaffold.
+Validation matters because it helps detect structural drift before review artifacts are trusted. It checks that:
 
-## What The Runner Checks
+- source-backed workflow assets exist,
+- `review_required` and unresolved states remain visible,
+- contract failure cases are rejected,
+- sensitive identifiers are not present,
+- sample outputs still match expected repository behavior,
+- human approval boundaries remain explicit.
 
-- Required top-level files.
-- Required directories.
-- v0.1, v0.2, and v0.3 sample outputs.
-- Scenario 002 synthetic outputs.
-- Eval cases.
-- Workflow scaffold generator assets.
-- Committed generated scaffold files.
-- Existing validation scripts.
-- Working-file public-safe scan excluding `.git`.
+These checks make the repository more than a writing sample. They show evidence discipline, review-state handling, failure-mode coverage, and public-safe workflow hygiene.
 
-## What It Does Not Do
+## Validation commands
 
-- It does not generate design content.
-- It does not call an LLM.
-- It does not call external APIs.
-- It does not update design baselines.
-- It does not approve design decisions.
-- It does not publish or push anything.
-
-## How To Run It
+Recommended first command:
 
 ```bash
-python3 scripts/run_sample_workflow.py
 python3 scripts/run_sample_workflow.py --check-only
-python3 scripts/run_sample_workflow.py --write-report
-python3 scripts/run_sample_workflow.py --report-path reports/latest_cli_validation_run.md
 ```
 
-## Example Output
+Deeper validation:
+
+```bash
+python3 scripts/validate_llm_contracts.py --include-negative
+python3 scripts/validate_source_registry.py
+python3 scripts/check_sensitive_identifiers.py
+python3 scripts/validate_output_schema.py
+python3 scripts/check_unresolved_assertions.py
+python3 scripts/compare_expected_outputs.py
+git diff --check
+```
+
+## What each check verifies
+
+### `python3 scripts/run_sample_workflow.py --check-only`
+
+Checks repository-level readiness: required files, required directories, sample outputs, eval cases, source registry assets, network domain assets, generator assets, LLM contract assets, validation scripts, and public-safe scan.
+
+Why it matters: this is the one-command entry point for reviewers. It verifies that the repository is structurally coherent.
+
+Failure examples:
+
+- required sample output is missing,
+- eval case is missing,
+- validation script fails,
+- public-safe scan finds a risky identifier.
+
+### `python3 scripts/validate_llm_contracts.py --include-negative`
+
+Checks LLM input/output contract samples and negative fixtures.
+
+Why it matters: future LLM-assisted steps must not claim approval, omit human approval points, hide unresolved items, or promote assumptions into confirmed facts.
+
+Failure examples:
+
+- output status is `approved_by_human`,
+- human approval points are empty,
+- source references are missing,
+- design update wording implies approval,
+- unresolved item is closed without human approval.
+
+### `python3 scripts/validate_source_registry.py`
+
+Checks Source Registry and Artifact Map samples.
+
+Why it matters: review artifacts need traceability from source evidence to impacted artifacts. This is the basis for future RAG/MCP-ready workflows without implementing RAG or MCP yet.
+
+Failure examples:
+
+- required headings are missing,
+- source IDs are not represented in the artifact map,
+- human approval boundary is absent,
+- `approved_by_human` appears without a human-only note.
+
+### `python3 scripts/check_sensitive_identifiers.py`
+
+Checks for risky or private identifiers in repository content.
+
+Why it matters: all samples must remain synthetic and public-safe.
+
+Failure examples:
+
+- private customer or project identifier appears,
+- private local email appears,
+- sensitive organization name appears,
+- non-public reference leaks into samples.
+
+### `python3 scripts/validate_output_schema.py`
+
+Checks expected headings, columns, and sample output structure.
+
+Why it matters: workflow outputs should remain reviewable and consistent enough for humans to inspect.
+
+Failure examples:
+
+- required table column is missing,
+- required output heading is missing,
+- scenario output no longer follows the expected artifact structure.
+
+### `python3 scripts/check_unresolved_assertions.py`
+
+Checks that unresolved or review-required statements are not silently treated as complete.
+
+Why it matters: uncertainty must remain visible. Infrastructure design review should not convert open questions into final-looking decisions.
+
+Failure examples:
+
+- unresolved item appears resolved without approval context,
+- review-required item lacks human approval handling,
+- assumptions are worded like confirmed facts.
+
+### `python3 scripts/compare_expected_outputs.py`
+
+Checks eval cases against expected tokens and behavior.
+
+Why it matters: evals catch drift in the repository's intended examples and failure-mode coverage.
+
+Failure examples:
+
+- expected case token is missing,
+- new scenario output no longer demonstrates required approval boundary,
+- failure-mode report no longer includes the expected rejection behavior.
+
+### `git diff --check`
+
+Checks whitespace and patch formatting issues.
+
+Why it matters: documentation and sample files should be clean enough for review and commit.
+
+Failure examples:
+
+- trailing whitespace,
+- conflict markers,
+- malformed patch whitespace.
+
+## Recommended first-time reviewer flow
+
+1. Read [README](../README.md) for the project purpose and boundaries.
+2. Open [Review-to-Patch Minimal Example](../samples/review_to_patch_minimal/README.md) to inspect one small source-to-patch path.
+3. Run:
+
+   ```bash
+   python3 scripts/run_sample_workflow.py --check-only
+   ```
+
+4. For deeper validation, run:
+
+   ```bash
+   python3 scripts/validate_llm_contracts.py --include-negative
+   python3 scripts/validate_source_registry.py
+   python3 scripts/check_sensitive_identifiers.py
+   python3 scripts/validate_output_schema.py
+   python3 scripts/check_unresolved_assertions.py
+   python3 scripts/compare_expected_outputs.py
+   ```
+
+Passing checks means the current synthetic samples, contracts, fixtures, and expected outputs satisfy local repository validation rules.
+
+It does not prove production readiness or correctness for a real-world network environment.
+
+## Expected success output
+
+The primary runner should end with:
 
 ```text
 LLM Infra Design Studio - CLI Validation Runner
-Repository root: /path/to/llm-infra-design-studio
 Required files: passed
 Required directories: passed
 Sample outputs: passed
 Eval cases: passed
+Source registry assets: passed
+Network domain assets: passed
+Generator assets: passed
+LLM contract assets: passed
 Validation scripts: passed
 Public-safe scan: passed
 Overall result: passed
 ```
 
-## Future Evolution
+The exact list may expand as repository validation grows.
 
-The runner is intentionally small. It can later become the entry point for stricter schema checks, workflow-specific validations, CLI subcommands, API-backed case execution, or a SaaS review interface. The approval boundary should remain unchanged: humans approve design decisions.
+## Failure categories
+
+Validation failures usually fall into these categories:
+
+- missing required file or directory,
+- missing sample or eval artifact,
+- schema or heading mismatch,
+- missing source reference,
+- unresolved item handled incorrectly,
+- human approval boundary missing,
+- contract fixture accepted when it should be rejected,
+- public-safe scan failure,
+- expected-output drift,
+- patch formatting issue.
+
+When a check fails, the correct response is to inspect the source file, preserve uncertainty, and route ambiguous content to `review_required` rather than making final-looking design claims.
+
+## What validation does not prove
+
+Validation does not prove:
+
+- production readiness,
+- design correctness for a real customer network,
+- approval by a qualified engineer,
+- security certification,
+- deployment safety,
+- correctness of unsupported assumptions,
+- readiness to use with real customer data.
+
+Validation checks repository structure and workflow discipline. It is not a substitute for professional engineering review.
+
+## Relationship to human approval
+
+Validation can detect structural failures, missing source references, unresolved assertions, schema mismatches, sensitive identifiers, and expected-output drift.
+
+Only humans can approve:
+
+- final design decisions,
+- risk acceptance,
+- production-impacting changes,
+- unresolved issue closure,
+- customer-facing wording,
+- detailed design handoff,
+- artifact reflection.
+
+The validation runner supports the human approval boundary. It does not replace it.
+
+## Future improvements
+
+Potential improvements:
+
+- add validation for the Review-to-Patch minimal example files,
+- add richer source freshness checks,
+- add scenario-level report summaries,
+- add machine-readable validation output,
+- add offline mock generation after contract rules are stable,
+- keep any future LLM integration behind the same contract and approval checks.

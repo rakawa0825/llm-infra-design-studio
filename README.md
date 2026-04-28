@@ -115,6 +115,8 @@ Run the main validation command:
 python3 scripts/run_sample_workflow.py --check-only
 ```
 
+See [CLI Validation Runner](docs/cli_validation_runner.md) for what the checks verify and what they do not prove.
+
 For contract failure and review-required cases:
 
 ```bash

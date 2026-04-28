@@ -97,6 +97,7 @@ Humans must approve:
 - `skills/`: Markdown-first skill definitions.
 - `workflows/`: process specifications.
 - `templates/`: reusable artifact templates.
+- `templates/codex_instructions/`: reusable Codex instruction templates.
 - `schemas/`: JSON contract documentation for future LLM-assisted workflow packages.
 - `samples/`: synthetic input and output examples.
 - `evals/`: evaluation cases, expected outputs, and failure fixtures.
@@ -191,3 +192,4 @@ Start here:
 - [Review-to-Patch Minimal Example](samples/review_to_patch_minimal/README.md)
 - [Network Design Domain Model](docs/network_design_domain_model.md)
 - [Review-to-Patch Pipeline](docs/workflows/review_to_patch_pipeline.md)
+- [YouTube Transcript to Study Artifact Workflow](docs/workflows/youtube_transcript_to_study_artifact.md)

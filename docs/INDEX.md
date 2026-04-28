@@ -32,6 +32,7 @@ This index highlights the main entry points for first-time reviewers.
 
 - [Anonymous Infrastructure Design Review Case Study](case_studies/anonymous_infrastructure_design_review.md)
 - [Review-to-Patch Pipeline](workflows/review_to_patch_pipeline.md)
+- [YouTube Transcript to Study Artifact Workflow](workflows/youtube_transcript_to_study_artifact.md)
 - [Source Context Card](schemas/source_context_card.md)
 
 ## Minimal Examples
@@ -39,6 +40,7 @@ This index highlights the main entry points for first-time reviewers.
 - [Review-to-Patch Minimal Example](../samples/review_to_patch_minimal/README.md)
 - [Lifecycle Minimal Sample](../samples/lifecycle_minimal/README.md)
 - [Lifecycle Minimal Artifact Generation Plan](../samples/lifecycle_minimal/artifact_generation_plan.yaml)
+- [Riley Brown Codex 2026 Video Study](../examples/video_study/riley_codex_2026/README.md)
 
 ## Artifact Templates
 
@@ -46,6 +48,7 @@ This index highlights the main entry points for first-time reviewers.
 - [Artifact Generation Contract](artifacts/artifact_generation_contract.md)
 - Template directory: `templates/artifacts/`
 - Contract template directory: `templates/contracts/`
+- Codex instruction template directory: `templates/codex_instructions/`
 
 ## Core Models
 

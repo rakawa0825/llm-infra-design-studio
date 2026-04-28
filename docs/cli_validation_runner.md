@@ -36,6 +36,8 @@ Deeper validation:
 ```bash
 python3 scripts/validate_llm_contracts.py --include-negative
 python3 scripts/validate_source_registry.py
+python3 scripts/validate_lifecycle_minimal.py
+python3 scripts/validate_artifact_generation_plan.py
 python3 scripts/check_sensitive_identifiers.py
 python3 scripts/validate_output_schema.py
 python3 scripts/check_unresolved_assertions.py
@@ -84,6 +86,36 @@ Failure examples:
 - source IDs are not represented in the artifact map,
 - human approval boundary is absent,
 - `approved_by_human` appears without a human-only note.
+
+### `python3 scripts/validate_lifecycle_minimal.py`
+
+Checks the lifecycle minimal synthetic sample.
+
+Why it matters: the lifecycle sample demonstrates the v0.1 path from scattered evidence to requirement candidates, unresolved items, high-level design patch, detailed-design handoff, review response, and human approval checklist.
+
+Failure examples:
+
+- required lifecycle sample file is missing,
+- source IDs or requirement IDs drift,
+- unresolved items disappear from output artifacts,
+- approval boundary markers are missing,
+- detailed-design handoff is not preserved,
+- public-safe terms or IPv4-looking addresses appear.
+
+### `python3 scripts/validate_artifact_generation_plan.py`
+
+Checks the lifecycle minimal artifact generation plan.
+
+Why it matters: the plan connects intermediate lifecycle state to text-based document outputs through explicit template paths, output paths, source IDs, dependencies, approval gates, review states, allowed claims, forbidden claims, and validation checks.
+
+Failure examples:
+
+- artifact ID is missing,
+- template path or output path does not exist,
+- intermediate dependency is missing,
+- source ID is not part of the lifecycle sample,
+- review state is not `REVIEW_REQUIRED`,
+- allowed or forbidden claims are empty.
 
 ### `python3 scripts/check_sensitive_identifiers.py`
 
@@ -161,6 +193,8 @@ Failure examples:
    ```bash
    python3 scripts/validate_llm_contracts.py --include-negative
    python3 scripts/validate_source_registry.py
+   python3 scripts/validate_lifecycle_minimal.py
+   python3 scripts/validate_artifact_generation_plan.py
    python3 scripts/check_sensitive_identifiers.py
    python3 scripts/validate_output_schema.py
    python3 scripts/check_unresolved_assertions.py
@@ -200,6 +234,8 @@ Validation failures usually fall into these categories:
 - missing sample or eval artifact,
 - schema or heading mismatch,
 - missing source reference,
+- lifecycle sample ID drift,
+- artifact generation plan path drift,
 - unresolved item handled incorrectly,
 - human approval boundary missing,
 - contract fixture accepted when it should be rejected,

@@ -51,6 +51,7 @@ This index highlights the main entry points for first-time reviewers.
 ## Validation
 
 - [CLI Validation Runner](cli_validation_runner.md)
+- [Lifecycle Validation](validation/lifecycle_validation.md)
 - [Workflow Scaffold Generator](workflow_scaffold_generator.md)
 - [Contract Failure Modes](contract_failure_modes.md)
 - [Review Required Policy](review_required_policy.md)

@@ -154,6 +154,8 @@ VALIDATION_SCRIPTS = [
     "scripts/compare_expected_outputs.py",
     "scripts/validate_llm_contracts.py --include-negative",
     "scripts/validate_source_registry.py",
+    "scripts/validate_lifecycle_minimal.py",
+    "scripts/validate_artifact_generation_plan.py",
 ]
 
 TEXT_SUFFIXES = {".md", ".csv", ".py", ".txt", ".json", ".gitignore", ".yml", ".yaml", ".html", ".css"}

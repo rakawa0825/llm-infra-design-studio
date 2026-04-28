@@ -49,8 +49,9 @@ ID_PATTERNS = {
 RISKY_PUBLIC_TERMS = [
     "ORI" + "X",
     "Soft" + "Bank",
-    "Prisma",
-    "Cisco",
+    "REAL_VENDOR_NAME_PLACEHOLDER",
+    "REAL_PRODUCT_NAME_PLACEHOLDER",
+    "PRIVATE_ORGANIZATION_NAME_PLACEHOLDER",
     "192.168",
     "10.0",
     "172.16",

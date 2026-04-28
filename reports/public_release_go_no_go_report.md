@@ -28,7 +28,7 @@ The remaining condition is a human release decision on literal vendor/product na
 Commands run:
 
 ```bash
-grep -R "ORIX\|SoftBank\|SB\|Prisma\|Cisco" README.md docs samples templates scripts reports || true
+grep -R "<configured-private-company-and-vendor-markers>" README.md docs samples templates scripts reports || true
 grep -R "[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\|192\.168\|10\.0\|172\.16" README.md docs samples templates scripts reports || true
 ```
 
@@ -36,7 +36,7 @@ Findings:
 
 | Finding | Location | Classification | Required Action |
 | --- | --- | --- | --- |
-| `Prisma`, `Cisco` | `scripts/validate_lifecycle_minimal.py`, `scripts/validate_artifact_generation_plan.py` | Condition / acceptable if treated as validator denylist terms only | Human release owner should decide whether to keep literal denylist terms or replace them with generic vendor-specific placeholders before public release. |
+| Literal vendor/product denylist terms | `scripts/validate_lifecycle_minimal.py`, `scripts/validate_artifact_generation_plan.py` | Condition / acceptable if treated as validator denylist terms only | Human release owner should decide whether to keep literal denylist terms or replace them with generic vendor-specific placeholders before public release. |
 | `192.0.2.0/24`, `198.51.100.0/24`, `203.0.113.0/24` | `samples/input/sample_existing_design_excerpt.md`, `scripts/check_sensitive_identifiers.py` | Acceptable documentation examples | These are RFC documentation ranges and are explicitly handled by the sensitive identifier checker. |
 | `192.168`, `10.0`, `172.16` | validator scripts | Acceptable denylist patterns | These appear as blocked private-range patterns, not sample data. |
 
@@ -48,7 +48,7 @@ Commands run:
 
 ```bash
 git log --all --oneline
-git grep -n -E "ORIX|SoftBank|SB|Prisma|Cisco" $(git rev-list --all) -- README.md docs samples templates scripts reports || true
+git grep -n -E "<configured-private-company-and-vendor-markers>" $(git rev-list --all) -- README.md docs samples templates scripts reports || true
 git grep -n -E "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}|192\.168|10\.0|172\.16" $(git rev-list --all) -- README.md docs samples templates scripts reports || true
 ```
 
@@ -56,7 +56,7 @@ Findings:
 
 | Finding | History Scope | Classification | Required Action |
 | --- | --- | --- | --- |
-| `Prisma`, `Cisco` | Introduced in validator denylist scripts from lifecycle validation work onward | Condition / acceptable if release owner accepts explicit denylist terms | Consider replacing with generic placeholders if strict public-safe policy requires no literal vendor/product names anywhere. No confidential project data was found. |
+| Literal vendor/product denylist terms | Introduced in validator denylist scripts from lifecycle validation work onward | Condition / acceptable if release owner accepts explicit denylist terms | Consider replacing with generic placeholders if strict public-safe policy requires no literal vendor/product names anywhere. No confidential project data was found. |
 | RFC documentation IP ranges | Present across multiple commits in README and sample design excerpt history | Acceptable documentation examples | No history rewrite required if RFC examples are accepted. |
 | `192.168`, `10.0`, `172.16` | Present in validator scripts as blocked private-range terms | Acceptable denylist patterns | No action required unless release owner wants fully generic denylist wording. |
 
@@ -149,4 +149,3 @@ Conditions before public release:
 3. Repository visibility should be changed only after a final manual review of README, quickstart, known limitations, and this report.
 
 Do not make the repository public until those conditions are reviewed.
-

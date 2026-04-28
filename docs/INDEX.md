@@ -20,6 +20,10 @@ This index highlights the main entry points for first-time reviewers.
 - [v0.1 Scope](roadmap/v0_1_scope.md)
 - [Extension Model](roadmap/extension_model.md)
 
+## Future Extensions
+
+- [Diagram Generation Extension](extensions/diagram_generation_extension.md)
+
 ## Synthetic Cases
 
 - [v0.1 Synthetic Case Design](cases/v0_1_synthetic_case_design.md)

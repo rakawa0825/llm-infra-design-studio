@@ -58,6 +58,14 @@ Future technical extensions may include:
 
 These extensions require stricter validation and human approval controls because they may have direct production impact if misused.
 
+### Future diagram generation
+
+Diagram generation is future work and should be model-first, not image-first.
+
+Future logical and physical diagrams should be separate artifact types derived from structured design models with source references, unresolved items, approval status, and lifecycle phase preserved. Diagram output must remain approval-gated and should not imply production readiness.
+
+See [Diagram Generation Extension](../extensions/diagram_generation_extension.md).
+
 ## Extension rules
 
 Any extension should preserve the same baseline rules:

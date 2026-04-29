@@ -9,6 +9,8 @@
 - Real customer deployment: No
 - Public visibility: pending human action
 - OSS/license status: pending license decision if reuse/fork is intended
+- License policy: documented
+- Root LICENSE file: pending
 
 ## Completed Foundation Milestones
 
@@ -40,6 +42,7 @@
 - Public release readiness checklist
 - Public release Go / No-Go report
 - README public-release polish
+- License policy documented
 
 ## Completed Future Extension Notes
 
@@ -49,7 +52,7 @@
 ## Next: Public Preview Release
 
 - Final human review of README, quickstart, known limitations, and Go / No-Go report
-- Decide whether to add a LICENSE before public visibility
+- Decide whether to add a root LICENSE before presenting the repository as OSS-reusable
 - Change repository visibility to Public if approved
 - Pin repository on GitHub profile
 - Add repository link to GitHub Pages article

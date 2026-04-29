@@ -50,6 +50,8 @@ OSS/license status describes whether reuse, redistribution, or forking terms are
 
 Public visibility does not automatically mean the repository is licensed for open-source reuse.
 
+See [License Policy](license_policy.md) for the current no-license stance.
+
 ## Current Status
 
 ```text
@@ -101,4 +103,3 @@ Diagram / config generation research prototypes
 v1.0.0:
 Only when documentation, lifecycle samples, validation, contribution policy, and license are stable enough for broader reuse
 ```
-

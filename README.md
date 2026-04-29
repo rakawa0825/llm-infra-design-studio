@@ -165,6 +165,14 @@ python3 scripts/validate_llm_contracts.py --include-negative
 
 Passing validation means the synthetic samples, generated scaffolds, contract samples, and failure fixtures meet the current local checks. It does not mean the repository is approved for production use.
 
+## License status
+
+No open-source license has been selected yet.
+
+This repository is intended for public portfolio visibility and review. Reuse, redistribution, or derivative works are not granted until a license is added.
+
+See [License Policy](docs/release/license_policy.md).
+
 ## Roadmap
 
 Near-term work:

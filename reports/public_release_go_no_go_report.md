@@ -18,6 +18,13 @@ Version status after roadmap normalization:
 - Production status: Not production-ready
 - OSS/license status: pending license decision if reuse/fork is intended
 
+License policy status:
+
+- `docs/release/license_policy.md` exists.
+- No root `LICENSE`, `LICENSE.md`, or `COPYING` file is present.
+- Public portfolio visibility is distinct from open-source reuse permission.
+- Reuse, redistribution, or derivative works are not granted until a license is added.
+
 The previous condition about literal vendor/product names in validator denylist strings has been normalized to generic public-safety markers in the current tree. RFC documentation IP ranges remain acceptable documentation examples.
 
 ## 2. Validation Results
@@ -133,7 +140,7 @@ Validation limitations are also explicit: validators check structure and consist
 | Validation readiness | complete | Required validation commands pass and do not require external services or LLM API keys. |
 | Known limitations | complete | Limitations are visible and accurate. |
 | Versioning clarity | complete | Current status is `v0.1 Lifecycle Prototype` / `Public Release Candidate`, not `v1.0`. |
-| OSS/license readiness | condition for OSS reuse | No LICENSE file is present. Public portfolio visibility can proceed if approved, but OSS reuse/fork terms remain undecided. |
+| OSS/license readiness | condition for OSS reuse | License policy is documented. No root LICENSE file is present. Public portfolio visibility can proceed if approved, but OSS reuse/fork terms remain undecided. |
 | Go / No-Go policy | complete | Checklist includes explicit GO and NO-GO criteria. |
 
 ## 8. Remaining Risks
@@ -156,6 +163,8 @@ The repository passes validation, has a clear first-time reviewer path, preserve
 Condition for OSS reuse:
 
 A license decision is required before presenting the repository as an open-source reusable project.
+
+`docs/release/license_policy.md` documents the current no-license stance.
 
 Release procedure before changing visibility:
 

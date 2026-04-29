@@ -1,6 +1,6 @@
 # LLM Infra Design Studio
 
-LLM Infra Design Studio is a Markdown-first workflow prototype for LLM-assisted infrastructure and network design review.
+LLM Infra Design Studio is a Markdown-first prototype for turning fragmented infrastructure project evidence into reviewable, traceable, human-approved design artifacts across the infrastructure design lifecycle.
 
 It helps engineers turn fragmented infrastructure project evidence into source-backed, reviewable, traceable, and human-approved design decisions. The repository is public-safe and uses synthetic examples only.
 
@@ -162,10 +162,11 @@ Passing validation means the synthetic samples, generated scaffolds, contract sa
 
 Near-term work:
 
-- refine the minimal example dataset,
-- improve CLI validation runner documentation,
-- strengthen source-to-artifact traceability examples,
-- prepare concise GitHub Pages and article summaries.
+- finalize public release readiness,
+- expand customer hearing to requirement definition examples,
+- strengthen requirement-to-basic-design document generation,
+- add replay-style validation patterns for time-sliced project evidence,
+- improve lifecycle-oriented reviewer documentation.
 
 Not now:
 
@@ -173,7 +174,9 @@ Not now:
 - FastAPI or SaaS UI,
 - production network design automation,
 - real customer data,
-- vendor-specific configuration generation.
+- vendor-specific configuration generation,
+- Word / Excel / PowerPoint rendering,
+- diagram generation.
 
 ## Positioning
 
@@ -192,4 +195,7 @@ Start here:
 - [Review-to-Patch Minimal Example](samples/review_to_patch_minimal/README.md)
 - [Network Design Domain Model](docs/network_design_domain_model.md)
 - [Review-to-Patch Pipeline](docs/workflows/review_to_patch_pipeline.md)
+
+Supporting workflow:
+
 - [YouTube Transcript to Study Artifact Workflow](docs/workflows/youtube_transcript_to_study_artifact.md)

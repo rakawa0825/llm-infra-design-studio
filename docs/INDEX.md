@@ -24,6 +24,10 @@ This index highlights the main entry points for first-time reviewers.
 - [License Policy](release/license_policy.md)
 - [Extension Model](roadmap/extension_model.md)
 
+## Integration Boundaries
+
+- [Private Meeting System Adapter Boundary](integration/private_meeting_system_adapter_boundary.md)
+
 ## Future Extensions
 
 - [Diagram Generation Extension](extensions/diagram_generation_extension.md)

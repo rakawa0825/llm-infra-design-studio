@@ -43,6 +43,7 @@
 - Public release Go / No-Go report
 - README public-release polish
 - License policy documented
+- Private meeting system adapter boundary documented
 
 ## Completed Future Extension Notes
 
@@ -51,7 +52,7 @@
 
 ## Next: Public Preview Release
 
-- Final human review of README, quickstart, known limitations, and Go / No-Go report
+- Final human review of README, quickstart, known limitations, private meeting system adapter boundary, and Go / No-Go report
 - Decide whether to add a root LICENSE before presenting the repository as OSS-reusable
 - Change repository visibility to Public if approved
 - Pin repository on GitHub profile
@@ -62,6 +63,10 @@
 ### v0.2 Customer Hearing to Requirement Definition
 
 - richer customer hearing sample
+- source manifest and source role model
+- current / previous evidence classification
+- candidate / resolved / final stage separation
+- coverage gap validation concept
 - requirement clarification outputs
 - requirement maturity model
 - missing-input detection

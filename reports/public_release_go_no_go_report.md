@@ -6,7 +6,7 @@
 - Branch: `main`
 - Commit hash: `8093fda`
 - Working tree before report creation: clean
-- Overall recommendation: `GO FOR PUBLIC PORTFOLIO VISIBILITY`
+- Overall recommendation: `GO FOR PUBLIC PORTFOLIO VISIBILITY AFTER FINAL HUMAN REVIEW`
 
 The repository is close to public-release ready as a public-safe workflow prototype. Validation passes, reviewer entry points are visible, known limitations are explicit, and the documentation does not present the repository as production-ready or autonomous.
 
@@ -26,6 +26,13 @@ License policy status:
 - Reuse, redistribution, or derivative works are not granted until a license is added.
 
 The previous condition about literal vendor/product names in validator denylist strings has been normalized to generic public-safety markers in the current tree. RFC documentation IP ranges remain acceptable documentation examples.
+
+Private meeting system boundary status:
+
+- A private operational meeting/transcript runner informed the public framework boundary.
+- `docs/integration/private_meeting_system_adapter_boundary.md` documents the public-safe abstraction boundary.
+- The private runner is not included in this repository.
+- Private implementation details, operational artifacts, transcripts, hostnames, paths, prompts, and customer-specific materials must remain private.
 
 ## 2. Validation Results
 
@@ -141,6 +148,7 @@ Validation limitations are also explicit: validators check structure and consist
 | Known limitations | complete | Limitations are visible and accurate. |
 | Versioning clarity | complete | Current status is `v0.1 Lifecycle Prototype` / `Public Release Candidate`, not `v1.0`. |
 | OSS/license readiness | condition for OSS reuse | License policy is documented. No root LICENSE file is present. Public portfolio visibility can proceed if approved, but OSS reuse/fork terms remain undecided. |
+| Private meeting system boundary | complete | Public-safe adapter boundary is documented. Private runner artifacts remain out of scope. |
 | Go / No-Go policy | complete | Checklist includes explicit GO and NO-GO criteria. |
 
 ## 8. Remaining Risks
@@ -151,14 +159,15 @@ Validation limitations are also explicit: validators check structure and consist
 - Synthetic sample realism is intentionally limited to v0.1.
 - Public expectation risk remains: readers may overinterpret document-generation templates unless README and known limitations remain prominent.
 - OSS reuse/fork readiness remains pending until a license decision is made.
+- Private operational meeting system behavior is represented only as sanitized boundary concepts; any concrete private implementation remains out of scope.
 
 ## 9. Recommendation
 
-Recommendation: `GO FOR PUBLIC PORTFOLIO VISIBILITY`
+Recommendation: `GO FOR PUBLIC PORTFOLIO VISIBILITY AFTER FINAL HUMAN REVIEW`
 
 Reason:
 
-The repository passes validation, has a clear first-time reviewer path, preserves human approval boundaries, and does not expose private project data in the targeted scans. The current tree has been normalized to avoid literal vendor/product denylist noise. It is suitable to move toward public portfolio visibility as a workflow prototype, not as a product.
+The repository passes validation, has a clear first-time reviewer path, preserves human approval boundaries, documents the private meeting system adapter boundary, and does not expose private project data in the targeted scans. The current tree has been normalized to avoid literal vendor/product denylist noise. It is suitable to move toward public portfolio visibility as a workflow prototype, not as a product, after final human review.
 
 Condition for OSS reuse:
 

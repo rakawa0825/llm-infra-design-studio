@@ -135,6 +135,14 @@ python3 scripts/run_sample_workflow.py --check-only
 
 See [CLI Validation Runner](docs/cli_validation_runner.md) for what the checks verify and what they do not prove.
 
+## Demo walkthrough
+
+For a quick before/after view, see:
+
+[Demo Walkthrough](docs/demo_walkthrough.md)
+
+It shows how five scattered synthetic inputs become requirement candidates, unresolved items, a high-level design / basic design patch, detailed-design handoff, review response draft, and human approval checklist.
+
 ## First-time reviewer path
 
 Start here:

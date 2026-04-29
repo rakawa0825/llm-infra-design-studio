@@ -16,6 +16,10 @@ This index highlights the main entry points for first-time reviewers.
 - [Known Limitations](known_limitations.md)
 - [Public Release Readiness Checklist](public_release_readiness_checklist.md)
 
+## Demo
+
+- [Demo Walkthrough](demo_walkthrough.md)
+
 ## Lifecycle Framework
 
 - [Infrastructure Design Lifecycle Framework](architecture/infrastructure_design_lifecycle_framework.md)

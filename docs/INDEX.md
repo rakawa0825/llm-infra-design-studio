@@ -24,6 +24,12 @@ This index highlights the main entry points for first-time reviewers.
 
 - [Diagram Generation Extension](extensions/diagram_generation_extension.md)
 
+## Supporting Workflows
+
+- [YouTube Transcript to Study Artifact Workflow](workflows/youtube_transcript_to_study_artifact.md)
+- [YouTube VTT Analysis Instruction Template](../templates/codex_instructions/youtube_vtt_analysis.md)
+- [Example: Riley Brown Codex Full Course 2026](../examples/video_study/riley_codex_2026/README.md)
+
 ## Synthetic Cases
 
 - [v0.1 Synthetic Case Design](cases/v0_1_synthetic_case_design.md)

@@ -2,182 +2,168 @@
 
 ## Purpose
 
-This workflow converts YouTube subtitle or VTT materials into structured internal study artifacts without committing full transcripts, full translations, or copyrighted source material to the repository.
+This workflow converts external video learning materials into structured, reviewable study artifacts.
 
-The goal is to preserve reusable process knowledge:
+It is intended for:
 
-- how to extract and clean subtitle inputs,
-- how to segment long-form learning material,
-- how to summarize and extract concepts,
-- how to map lessons into the Field-to-Artifact Pipeline,
-- how to keep human review and redistribution boundaries explicit.
+- learning support,
+- workflow pattern extraction,
+- practical transfer into local engineering workflows,
+- OpenAI readiness preparation,
+- portfolio-safe study notes.
 
-日本語メモ: 動画そのものの全文翻訳ではなく、学習・業務転用のための構造化メモを作るための手順である。
+The purpose is not to mirror a video transcript, publish a full translation, or redistribute copyrighted source material. The reusable asset is the processing method.
 
-## When to Use
+## Positioning
 
-Use this workflow when a video, talk, course, or webinar contains material that may inform infrastructure design operations, LLM-assisted workflows, agentic tooling, or portfolio-ready process design.
+This is not part of the v0.1 infrastructure design document generation core.
 
-Do not use this workflow to create a public mirror of a transcript or a full public translation.
+It is a supporting workflow for external learning material:
+
+```text
+YouTube / external course / lecture / technical explanation
+-> structured study artifact
+-> workflow pattern extraction
+-> portfolio / readiness note
+```
+
+The core framework remains focused on customer hearing notes, meeting transcripts, review comments, existing design documents, vendor answers, requirement definition, high-level design patches, detailed-design handoff, and human approval checks.
+
+This workflow demonstrates a lightweight Field-to-Artifact pattern. It can help convert external learning resources into reusable knowledge assets without making those sources part of the core design lifecycle.
 
 ## Inputs
 
-Typical inputs:
+- YouTube URL
+- VTT subtitle file
+- optional manual notes
+- optional audio file
+- optional domain context
 
-- YouTube URL or video ID,
-- downloaded `.vtt` subtitle file,
-- optional audio file for manual review,
-- target workflow or domain context,
-- output directory for local-only processing,
-- intended output language,
-- human review criteria.
-
-Each input should be treated as source material. If the source is not redistributable, keep it outside the public repository.
+Each source should be treated as external learning material. If the material is not redistributable, keep the source file and full derived transcript outside this public repository.
 
 ## Tools
 
-Suggested tools:
+- `yt-dlp`
+- Codex
+- ChatGPT
+- Markdown
+- Git
 
-- `yt-dlp` for subtitle and optional audio extraction,
-- Codex for cleaning, segmentation, summarization, concept extraction, and workflow mapping,
-- Markdown for reviewable outputs,
-- `git diff --check` before committing reusable docs or templates.
+## Basic Commands
 
-## Basic yt-dlp Commands
+Create a local working directory outside the public repository:
+
+```bash
+mkdir -p ~/Downloads/video_study
+cd ~/Downloads/video_study
+```
 
 List available subtitles:
 
 ```bash
-yt-dlp --list-subs "VIDEO_URL"
+yt-dlp --list-subs "YOUTUBE_URL"
 ```
 
-Download English subtitles without the video:
+Download English auto-subtitles without the video:
 
 ```bash
-yt-dlp --skip-download --write-auto-subs --sub-lang en --sub-format vtt "VIDEO_URL"
+yt-dlp --write-auto-subs --sub-lang en --skip-download "YOUTUBE_URL"
 ```
 
-Download manually provided subtitles when available:
+If subtitles are unavailable or too low quality, extract audio for local manual review:
 
 ```bash
-yt-dlp --skip-download --write-subs --sub-lang en --sub-format vtt "VIDEO_URL"
+yt-dlp -x --audio-format mp3 "YOUTUBE_URL"
 ```
 
-## Subtitle Extraction Flow
+Do not commit downloaded VTT files, audio files, full transcripts, or full translations.
 
-1. Create a local working directory outside the public repository.
-2. Download the `.vtt` file with `yt-dlp`.
-3. Preserve the original `.vtt` unchanged.
-4. Clean subtitle artifacts such as `WEBVTT`, inline timestamp tags, duplicate auto-caption fragments, and empty lines.
-5. Produce a local timestamped transcript and a local plain transcript.
-6. Segment the transcript into reviewable time blocks, commonly 10 to 15 minutes.
-7. Use the segmented material only as internal source context for summaries and workflow extraction.
+## Processing Steps
 
-## Optional Audio Extraction Flow
+1. Extract the subtitle file.
+2. Preserve the original VTT unchanged.
+3. Clean the transcript while preserving useful timestamps.
+4. Split the transcript into 10 to 15 minute segments.
+5. Summarize each segment.
+6. Extract key concepts.
+7. Extract practical usage patterns.
+8. Map concepts to a target workflow.
+9. Create OpenAI readiness notes.
+10. Perform human review.
 
-Audio may be useful when auto-caption quality is low or proper nouns are uncertain.
+## Expected Outputs
 
-```bash
-yt-dlp -x --audio-format mp3 "VIDEO_URL"
-```
+Local-only outputs may include:
 
-Use audio only for manual verification. Do not commit audio files to the repository.
+- cleaned transcript
+- segment files
+- segment summaries
+- key concept glossary
+- usage patterns
+- workflow mapping
+- OpenAI readiness notes
+- final report
+- processing log
 
-## Codex Processing Flow
+Repository-safe outputs may include:
 
-Recommended Codex stages:
+- workflow document
+- Codex instruction template
+- short example README
+- output type list
+- safety rules
+- documentation index links
 
-1. Copy the original VTT into a local-only `00_original/` folder.
-2. Generate cleaned transcript files in a local-only `10_cleaned/` folder.
-3. Generate 10 to 15 minute segment files in a local-only `20_segments/` folder.
-4. Create segment summaries, preferably concise and practical rather than sentence-by-sentence translation.
-5. Extract key concepts and define how each concept is used in the source.
-6. Extract reusable usage patterns.
-7. Map the concepts to the target workflow.
-8. Create readiness or application notes when relevant.
-9. Create a processing log that records parsing issues, difficult sections, and recommended manual review points.
+## Quality Rules
 
-## Human Review Gate
+- Do not publish a full transcript.
+- Do not publish a full translation.
+- Do not include long verbatim excerpts.
+- Separate transcript facts from inference.
+- Preserve timestamps for important claims.
+- Keep a human review gate before external reuse.
+- Do not claim official endorsement without a source.
+- Do not present generated analysis as if it were source text.
+- Mark assumptions clearly.
 
-Human review is required before any source-derived claim is reused externally.
+## Publication Boundary
 
-Reviewers should check:
+Public repositories should contain the repeatable processing method, not the copyrighted source material.
 
-- whether the claim is explicitly present in the source,
-- whether the claim is an inference,
-- whether the timestamp is available,
-- whether the summary overstates the source,
-- whether source material can be redistributed,
-- whether the output is safe for a public repository.
+Do include:
 
-Mark uncertain or inferred items as `review_required` or `inference`.
+- reusable workflow documentation,
+- Codex instruction templates,
+- source-safe example metadata,
+- generated artifact type lists,
+- publication and safety rules.
 
-## Output Artifact Types
+Do not include:
 
-Local-only artifacts may include:
+- YouTube full transcripts,
+- full translations,
+- downloaded VTT files,
+- downloaded audio files,
+- long excerpts from copyrighted material,
+- source-derived claims without review,
+- OpenAI endorsement claims without explicit sourcing.
 
-- original VTT copy,
-- cleaned timestamped transcript,
-- cleaned plain transcript,
-- segmented transcript files,
-- Japanese or English segment summaries,
-- key concept glossary,
-- usage pattern notes,
-- workflow mapping tables,
-- application or readiness notes,
-- processing logs.
+## Relationship to Infrastructure Design Lifecycle Framework
 
-Repository-safe artifacts may include:
-
-- generic workflow documentation,
-- reusable Codex instruction templates,
-- short case README files,
-- source-safe lessons learned,
-- public-safe process diagrams or tables.
-
-Do not commit full transcript files, full translated transcripts, downloaded audio, or source-derived long excerpts.
-
-## Copyright and Redistribution Cautions
-
-This workflow is designed for internal study and process extraction. It is not a license to republish copyrighted subtitle text.
-
-Public repository rules:
-
-- Do not commit full transcripts.
-- Do not commit full translations.
-- Do not include long source excerpts.
-- Keep examples short and transformative.
-- Preserve source title and URL for attribution when appropriate.
-- Separate what the source says from what the workflow infers.
-
-## Relationship to Field-to-Artifact Pipeline
-
-This workflow is a lightweight example of the Field-to-Artifact Pipeline.
+This workflow is a reusable pattern for converting unstructured external learning material into structured artifacts.
 
 ```text
-Raw source material
--> Source intake
--> Cleaning and segmentation
--> Concept extraction
--> Workflow mapping
--> Human review gate
--> Repository-safe reusable artifact
+Unstructured source material
+-> source intake
+-> transcript / note normalization
+-> segmentation
+-> concept extraction
+-> workflow mapping
+-> readiness notes
+-> human review
+-> repository-safe artifact
 ```
 
-The same pattern applies to infrastructure inputs such as field notes, photos, screenshots, meeting transcripts, vendor answers, and existing design documents.
+It supports learning and readiness work, while the core Infrastructure Design Lifecycle Framework remains focused on customer hearing, requirement definition, design document updates, detailed-design handoff, and approval checks.
 
-## Relationship to LLM-Assisted Infrastructure Design Lifecycle Framework
-
-The workflow supports the lifecycle framework by showing how unstructured source material becomes reviewable and traceable process knowledge.
-
-Infrastructure design equivalents:
-
-- VTT source file -> meeting transcript or field note source,
-- cleaned transcript -> normalized evidence text,
-- segment summary -> source context card,
-- concept glossary -> domain vocabulary extraction,
-- workflow mapping -> artifact map candidate,
-- processing log -> review and audit trail,
-- human review gate -> approval boundary before external reuse.
-
-The workflow does not approve design decisions. It prepares structured learning artifacts that humans can evaluate, adapt, or reject.
+The same pattern can inform infrastructure workflows, but this workflow does not approve design decisions and does not create core v0.1 design artifacts by itself.

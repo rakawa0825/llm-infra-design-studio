@@ -1,44 +1,38 @@
-# Codex Instruction: YouTube VTT Analysis
+# YouTube VTT Analysis Instruction Template
 
-## 0. Objective
+## Variables
 
-Process the extracted YouTube subtitle file for:
+- VIDEO_TITLE:
+- VIDEO_URL:
+- VIDEO_ID:
+- INPUT_VTT_FILE:
+- PRIMARY_OUTPUT_LANGUAGE:
+- TARGET_WORKFLOW:
+- DOMAIN_CONTEXT:
+- OUTPUT_DIR:
 
-- Video title: `VIDEO_TITLE`
-- Video URL: `VIDEO_URL`
-- Video ID: `VIDEO_ID`
+## Objective
 
-The goal is not to create a public full translation or a public transcript mirror.
+Convert a YouTube or external video VTT file into structured study artifacts for learning, workflow pattern extraction, and readiness notes.
 
-The goal is to create internal study materials for understanding the source, extracting reusable concepts, and mapping those concepts to:
+The goal is not to create a public transcript mirror, full translation, or redistributed version of the source content.
 
-`TARGET_WORKFLOW`
+## Processing Requirements
 
-Primary output language:
+1. Preserve the original VTT file.
+2. Create a cleaned transcript with timestamps.
+3. Create a plain transcript for internal processing.
+4. Split the transcript into 10 to 15 minute segments.
+5. Produce segment summaries.
+6. Extract key concepts.
+7. Extract tool and workflow usage patterns.
+8. Map findings to `TARGET_WORKFLOW`.
+9. Produce readiness notes.
+10. Produce a final report and processing log.
 
-`PRIMARY_OUTPUT_LANGUAGE`
+## Output Directory Structure
 
-Domain context:
-
-`DOMAIN_CONTEXT`
-
-Keep important English technical terms where useful.
-
-## 1. Input
-
-Input VTT file:
-
-`INPUT_VTT_FILE`
-
-If the exact filename differs, detect the relevant `.vtt` file in the current working directory.
-
-Do not modify the original `.vtt` file.
-
-## 2. Required Output Directory
-
-Create this directory structure under:
-
-`OUTPUT_DIR`
+Create this structure under `OUTPUT_DIR`:
 
 ```text
 OUTPUT_DIR/
@@ -48,21 +42,26 @@ OUTPUT_DIR/
   30_summaries/
   40_concepts/
   50_workflow_mapping/
-  60_readiness/
+  60_readiness_notes/
   90_reports/
 ```
 
-Copy the original `.vtt` into:
+Copy the original VTT into:
 
 ```text
 OUTPUT_DIR/00_original/
 ```
 
-## 3. Processing Rules
+Do not modify the original VTT file.
 
-### 3.1 VTT Cleaning
+## VTT Cleaning
 
-Create a clean transcript from the VTT file.
+Create:
+
+```text
+OUTPUT_DIR/10_cleaned/transcript_cleaned_with_timestamps.md
+OUTPUT_DIR/10_cleaned/transcript_cleaned_plain.txt
+```
 
 Remove:
 
@@ -82,14 +81,7 @@ Preserve:
 - technical terms,
 - uncertainty where the transcript appears unreliable.
 
-Output:
-
-```text
-OUTPUT_DIR/10_cleaned/transcript_cleaned_with_timestamps.md
-OUTPUT_DIR/10_cleaned/transcript_cleaned_plain.txt
-```
-
-The timestamped Markdown should use this format:
+Use this timestamped Markdown format:
 
 ```md
 ## 00:00:00 - 00:01:00
@@ -99,7 +91,7 @@ Transcript text...
 
 The plain text file should not include timestamps.
 
-### 3.2 Segmenting
+## Segmenting
 
 Split the transcript into approximately 10 to 15 minute segments.
 
@@ -110,12 +102,12 @@ OUTPUT_DIR/20_segments/segment_00_00-10.md
 OUTPUT_DIR/20_segments/segment_01_10-20.md
 ```
 
-Each segment file must include:
+Each segment file should include:
 
 ```md
 # Segment NN: HH:MM:SS - HH:MM:SS
 
-## English Transcript
+## Transcript
 
 ...
 
@@ -125,15 +117,15 @@ Each segment file must include:
 - Possible topic:
 ```
 
-### 3.3 Segment Summaries
+## Segment Summaries
 
-For each segment, create a concise summary in `PRIMARY_OUTPUT_LANGUAGE`.
-
-Output:
+Create:
 
 ```text
 OUTPUT_DIR/30_summaries/segment_summaries.md
 ```
+
+Summarize in `PRIMARY_OUTPUT_LANGUAGE`.
 
 Use this format:
 
@@ -161,11 +153,9 @@ Use this format:
 
 Do not translate every sentence. Summarize accurately and practically.
 
-### 3.4 Key Concept Extraction
+## Key Concepts
 
-Extract key concepts from the video.
-
-Output:
+Create:
 
 ```text
 OUTPUT_DIR/40_concepts/key_concepts_glossary.md
@@ -178,9 +168,9 @@ Use this format:
 ```md
 ## Concept Name
 
-### Use in Source
+### Source Basis
 
-...
+Explicit transcript fact or clearly marked inference.
 
 ### Meaning
 
@@ -195,11 +185,9 @@ Use this format:
 ...
 ```
 
-### 3.5 Usage Pattern Extraction
+## Usage Patterns
 
-Extract practical usage patterns from the source.
-
-Output:
+Create:
 
 ```text
 OUTPUT_DIR/40_concepts/usage_patterns.md
@@ -229,15 +217,13 @@ Use this format:
 ...
 ```
 
-Focus on reusable patterns, not entertainment value.
+Focus on reusable workflow patterns, not entertainment value or promotional language.
 
-### 3.6 Mapping to Target Workflow
+## Workflow Mapping
 
-Map the source concepts to:
+Map source concepts to `TARGET_WORKFLOW`.
 
-`TARGET_WORKFLOW`
-
-Output:
+Create:
 
 ```text
 OUTPUT_DIR/50_workflow_mapping/workflow_mapping.md
@@ -253,16 +239,14 @@ Use this table:
 | ... | ... | ... | ... | ... |
 ```
 
-Include a short proposed architecture or processing sequence if relevant.
+Include a short proposed processing sequence if relevant.
 
-### 3.7 Readiness or Application Notes
+## Readiness Notes
 
-If relevant, create notes for portfolio, job application, internal enablement, or implementation readiness.
-
-Output:
+Create:
 
 ```text
-OUTPUT_DIR/60_readiness/readiness_notes.md
+OUTPUT_DIR/60_readiness_notes/readiness_notes.md
 ```
 
 Separate:
@@ -270,9 +254,12 @@ Separate:
 - what the source says,
 - what is inferred,
 - what can be applied,
-- what must not be overclaimed.
+- what must not be overclaimed,
+- how the learning artifact can support OpenAI readiness or portfolio preparation.
 
-### 3.8 Final Report
+Do not claim official OpenAI endorsement unless explicitly sourced.
+
+## Final Report
 
 Create a concise final report in `PRIMARY_OUTPUT_LANGUAGE`.
 
@@ -295,14 +282,14 @@ Required sections:
 
 ## 4. Connection to TARGET_WORKFLOW
 
-## 5. Human Review and Approval Boundary
+## 5. Human Review and Publication Boundary
 
 ## 6. Risks and Overclaim Boundaries
 
 ## 7. Recommended Next Steps
 ```
 
-### 3.9 Processing Log
+## Processing Log
 
 Create:
 
@@ -319,22 +306,23 @@ The processing log should include:
 - inferred concepts,
 - recommended manual review points.
 
-## 4. Quality Requirements
+## Safety Rules
 
-- Do not hallucinate content not present in the transcript.
-- If a concept is inferred, label it as `inference` or `推論`.
+- Do not publish a full transcript.
+- Do not include copyrighted long excerpts.
+- Do not publish a full translation.
+- Do not overclaim official endorsement.
+- Keep generated analysis separate from source transcript.
+- Mark assumptions clearly.
 - Preserve timestamps for important claims where possible.
-- Do not create a full public translation of the entire video.
-- Do not prepare the output as a public transcript substitute.
-- Focus on internal study, workflow extraction, and practical application.
-- Keep summaries concise and operational.
-- Use clear judgments such as `YES`, `NO`, `conditional YES`, or `unknown` where useful.
+- Keep full source-derived material local unless rights allow redistribution.
 
-## 5. Acceptance Criteria
+## Acceptance Criteria
 
-The task is complete when these files exist:
+The task is complete when these files exist locally:
 
 ```text
+OUTPUT_DIR/00_original/
 OUTPUT_DIR/10_cleaned/transcript_cleaned_with_timestamps.md
 OUTPUT_DIR/10_cleaned/transcript_cleaned_plain.txt
 OUTPUT_DIR/20_segments/*.md
@@ -342,9 +330,9 @@ OUTPUT_DIR/30_summaries/segment_summaries.md
 OUTPUT_DIR/40_concepts/key_concepts_glossary.md
 OUTPUT_DIR/40_concepts/usage_patterns.md
 OUTPUT_DIR/50_workflow_mapping/workflow_mapping.md
-OUTPUT_DIR/60_readiness/readiness_notes.md
+OUTPUT_DIR/60_readiness_notes/readiness_notes.md
 OUTPUT_DIR/90_reports/final_report.md
 OUTPUT_DIR/90_reports/processing_log.md
 ```
 
-Before copying anything into a public repository, create only repository-safe derivatives such as generic workflow docs, reusable templates, and short case notes.
+Before copying anything into a public repository, keep only repository-safe derivatives such as generic workflow docs, reusable templates, metadata, and short case notes.

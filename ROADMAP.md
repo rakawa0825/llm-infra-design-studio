@@ -1,70 +1,114 @@
 # Roadmap
 
-## v0.1 Markdown-First Prototype
+## Current Status
 
-- Define public-safe repository structure.
-- Create synthetic ExampleCorp scenario.
-- Provide templates for source, requirement, delta, and approval artifacts.
-- Add minimal runnable validation scripts.
+- Functional scope: `v0.1 Lifecycle Prototype`
+- Repository release status: `Public Release Candidate`
+- Suggested release label: `v0.1.0-rc.1`
+- Production readiness: No
+- Real customer deployment: No
+- Public visibility: pending human action
+- OSS/license status: pending license decision if reuse/fork is intended
 
-## v0.2 Meeting-To-Design Workflow Slice
+## Completed Foundation Milestones
 
-- Add operating model and meeting-to-design workflow.
-- Add PM/PL-style project control, requirements facilitation, and issue / decision separation.
-- Add synthetic design review meeting and matching outputs.
+- Markdown-first repository structure
+- Synthetic examples
+- Source Registry / Artifact Map models
+- Review-to-Patch workflow
+- CLI validation runner
+- Sensitive identifier checks
+- LLM contract validation
+- Network design domain pack
 
-## v0.3 Evidence-To-Decision Loop
+## Completed Lifecycle Framework Milestones
 
-- Add source-backed evidence reconciliation.
-- Add official source comparison, baseline comparison, decision packet, information gap request, and design reflection request.
-- Preserve human approval boundaries before artifact reflection.
+- Infrastructure Design Lifecycle Framework baseline
+- v0.1 synthetic case design
+- lifecycle minimal sample
+- lifecycle minimal validator
+- text-based artifact templates
+- artifact generation contract
+- artifact generation plan
+- artifact generation plan validator
+- reviewer validation path
 
-## v0.4 CLI Validation Runner
+## Completed Public Release Readiness Milestones
 
-- Add `scripts/run_sample_workflow.py`.
-- Validate repository structure, samples, evals, validation scripts, and public-safety checks in one command.
+- Quickstart for reviewers
+- Known limitations
+- Public release readiness checklist
+- Public release Go / No-Go report
+- README public-release polish
 
-## v0.5 Multiple Synthetic Scenarios
+## Completed Future Extension Notes
 
-- Add Northstar Manufacturing as a second synthetic scenario.
-- Demonstrate operations monitoring, DR failover alerting, and communication matrix impact.
+- Diagram generation extension concept
+- YouTube transcript to study artifact supporting workflow
 
-## v0.6 Minimal Workflow Scaffold Generator
+## Next: Public Preview Release
 
-- Add `scripts/generate_workflow_scaffold.py`.
-- Generate placeholder artifact sets for `meeting-to-design` and `evidence-to-decision`.
+- Final human review of README, quickstart, known limitations, and Go / No-Go report
+- Decide whether to add a LICENSE before public visibility
+- Change repository visibility to Public if approved
+- Pin repository on GitHub profile
+- Add repository link to GitHub Pages article
 
-## v0.7 LLM-Ready Contract Layer
+## Future Development
 
-- Define JSON input and output contracts for future LLM-assisted workflow steps.
-- Add contract validator and sample input/output packages.
+### v0.2 Customer Hearing to Requirement Definition
 
-## v0.8 Contract Failure And Review-Required Cases
+- richer customer hearing sample
+- requirement clarification outputs
+- requirement maturity model
+- missing-input detection
 
-- Add valid review-required and needs-more-information fixtures.
-- Add invalid fixtures for generated approval, missing sources, empty approval points, assumption promotion, approved update language, and unresolved item closure.
+### v0.3 Requirement Definition to Basic Design
 
-## v0.9 Network Design Domain Pack
+- basic design section generation
+- affected-section mapping
+- requirement-to-design traceability
 
-- Add concrete network review domains:
-  - Communication Matrix
-  - Routing / SD-WAN Impact
-  - Security / SSE Boundary
-  - Monitoring / Logging Requirement
-  - DR / Failover Review
-- Add Atlas Retail scenario and network-domain review outputs.
+### v0.4 Detailed Design Handoff Expansion
 
-## v1.0 Private Preview
+- parameter decision candidates
+- detailed-design owner mapping
+- handoff validation
 
-- Shorten README for external reviewers.
-- Add private preview guide.
-- Add scenario index.
-- Keep validation commands stable.
-- Do not add API, FastAPI, SaaS UI, or LLM integration.
+### v0.5 Replay Validation
 
-## Future Public Template
+- time-sliced evidence replay
+- available_at / created_at handling
+- future-information contamination checks
 
-- Publish stable documentation.
-- Add contribution guidelines.
-- Provide multiple synthetic infrastructure scenarios.
-- Decide license before public release.
+### v0.6 Test / Rollout / Operations Handover
+
+- test plan candidates
+- rollout plan candidates
+- operations handover draft
+
+### v0.7 Format Adapter Experiments
+
+- Word adapter research
+- Excel adapter research
+- PowerPoint adapter research
+- company-specific template mapping
+
+### v0.8 Diagram / Config Research
+
+- structured design model
+- logical diagram candidate
+- physical diagram candidate
+- config generation research
+- stricter validation and approval gates
+
+### v1.0 Stable Reuse Candidate
+
+v1.0 should not be used until:
+
+- multiple synthetic scenarios exist,
+- lifecycle documentation is stable,
+- validation coverage is broader,
+- contribution policy exists,
+- license decision is made,
+- public expectations are controlled.

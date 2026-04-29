@@ -8,6 +8,7 @@ This index highlights the main entry points for first-time reviewers.
 - [Quickstart for Reviewers](quickstart_for_reviewers.md)
 - [Infrastructure Design Lifecycle Framework](architecture/infrastructure_design_lifecycle_framework.md)
 - [v0.1 Scope](roadmap/v0_1_scope.md)
+- [Versioning Policy](release/versioning_policy.md)
 - [Extension Model](roadmap/extension_model.md)
 - [Private Preview Guide](private_preview_guide.md)
 - [Scenario Index](scenario_index.md)
@@ -18,6 +19,7 @@ This index highlights the main entry points for first-time reviewers.
 
 - [Infrastructure Design Lifecycle Framework](architecture/infrastructure_design_lifecycle_framework.md)
 - [v0.1 Scope](roadmap/v0_1_scope.md)
+- [Versioning Policy](release/versioning_policy.md)
 - [Extension Model](roadmap/extension_model.md)
 
 ## Future Extensions

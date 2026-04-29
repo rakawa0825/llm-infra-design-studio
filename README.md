@@ -108,6 +108,13 @@ Humans must approve:
 
 ## Current status
 
+- Functional scope: `v0.1 Lifecycle Prototype`
+- Repository release status: `Public Release Candidate`
+- Suggested release label: `v0.1.0-rc.1`
+- Production readiness: No
+- Real customer data: No
+- OSS/license status: pending license decision
+
 The repository is in public-safe prototype shape using synthetic examples only.
 
 Current capabilities include:

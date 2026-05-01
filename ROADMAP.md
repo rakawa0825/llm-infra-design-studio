@@ -60,7 +60,19 @@
 
 ## Future Development
 
-### v0.2 Customer Hearing to Requirement Definition
+### v0.2 Markdown-first ID-driven Git-backed Workspace Direction
+
+Direction note: [v0.2 Markdown-first ID-driven Git-backed Workspace Direction](docs/roadmap/v0_2_markdown_id_git_workspace.md)
+
+- Markdown-first design workspace
+- ID-driven traceability across lifecycle artifacts
+- Git-backed review flow
+- artifact-first intermediate outputs
+- human-in-the-loop approval gates
+- adapter-later extension model
+- deterministic runner concepts without immediate LLM integration
+
+Candidate lifecycle focus areas within this direction:
 
 - richer customer hearing sample
 - source manifest and source role model

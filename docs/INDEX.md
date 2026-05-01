@@ -24,6 +24,7 @@ This index highlights the main entry points for first-time reviewers.
 
 - [Infrastructure Design Lifecycle Framework](architecture/infrastructure_design_lifecycle_framework.md)
 - [v0.1 Scope](roadmap/v0_1_scope.md)
+- [v0.2 Markdown-first ID-driven Git-backed Workspace Direction](roadmap/v0_2_markdown_id_git_workspace.md)
 - [Versioning Policy](release/versioning_policy.md)
 - [License Policy](release/license_policy.md)
 - [Extension Model](roadmap/extension_model.md)

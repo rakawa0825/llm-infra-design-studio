@@ -8,6 +8,8 @@ The intent is to make reviewable design work persistent, traceable, and diff-fri
 
 This document describes future direction only. It does not define implemented capability.
 
+For a more specific public-safe traceability direction under this workspace model, see [v0.2 Traceability Direction](v0_2_traceability_direction.md).
+
 ## Positioning
 
 v0.1 defines the lifecycle framework and the synthetic artifact flow:

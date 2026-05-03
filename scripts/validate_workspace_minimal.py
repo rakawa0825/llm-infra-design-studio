@@ -10,6 +10,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SAMPLE_ROOT = ROOT / "samples" / "workspace_minimal"
+TRACE_MAP = SAMPLE_ROOT / "trace_map.md"
+FULL_TRACE_CHAIN = "SRC-001 -> REQ-001 -> DS-001 -> RV-001 -> PD-001 -> DR-001 -> DL-001 -> HO-001 -> VR-001"
 
 VALID_PREFIXES = {"SRC", "REQ", "DS", "RV", "PD", "DR", "DL", "HO", "VR"}
 REQUIRED_METADATA_FIELDS = {"id", "type", "status", "human_approval", "public_safety"}
@@ -24,6 +26,18 @@ RELATIONSHIP_FIELDS = {
     "creates_handoff",
     "validates",
     "checked_ids",
+}
+VISIBLE_OPEN_STATUSES = {"open", "deferred", "pending"}
+KNOWN_STATUSES = {
+    "synthetic",
+    "needs_review",
+    "draft",
+    "open",
+    "drafted",
+    "requested_changes",
+    "deferred",
+    "pending",
+    "pass_with_open_items",
 }
 ID_RE = re.compile(r"^(SRC|REQ|DS|RV|PD|DR|DL|HO|VR)-([0-9]{3})$")
 YAML_BLOCK_RE = re.compile(r"```yaml\n(.*?)\n```", re.DOTALL)
@@ -96,6 +110,29 @@ def values(metadata: dict[str, object], key: str) -> list[str]:
     return []
 
 
+def prefix_of(item_id: str) -> str:
+    return item_id.split("-", 1)[0] if "-" in item_id else ""
+
+
+def references_for(metadata: dict[str, object], fields: tuple[str, ...]) -> list[str]:
+    refs: list[str] = []
+    for field in fields:
+        refs.extend(values(metadata, field))
+    return refs
+
+
+def has_reference_with_prefix(
+    metadata: dict[str, object],
+    fields: tuple[str, ...],
+    allowed_prefixes: set[str],
+    known_ids: set[str],
+) -> bool:
+    return any(
+        referenced_id in known_ids and prefix_of(referenced_id) in allowed_prefixes
+        for referenced_id in references_for(metadata, fields)
+    )
+
+
 def validate_id_format(item_id: str, file_path: Path, failures: list[str]) -> None:
     match = ID_RE.match(item_id)
     if not match:
@@ -133,6 +170,12 @@ def validate_metadata(file_path: Path, metadata: dict[str, object], failures: li
         )
 
 
+def validate_status(file_path: Path, metadata: dict[str, object], warnings: list[str]) -> None:
+    status = scalar(metadata, "status")
+    if status and status not in KNOWN_STATUSES:
+        warnings.append(f"{rel(file_path)}: status is not in the current known set: {status}")
+
+
 def validate_relationships(
     file_path: Path,
     metadata: dict[str, object],
@@ -155,8 +198,83 @@ def validate_relationships(
                 )
 
 
+def validate_relationship_meaning(
+    file_path: Path,
+    metadata: dict[str, object],
+    known_ids: set[str],
+    failures: list[str],
+) -> None:
+    item_id = scalar(metadata, "id")
+    item_prefix = prefix_of(item_id)
+    location = rel(file_path)
+
+    if item_prefix == "REQ":
+        if scalar(metadata, "source_mode") == "human_entered":
+            return
+        if not has_reference_with_prefix(metadata, ("derived_from",), {"SRC"}, known_ids):
+            failures.append(f"{location}: REQ item must reference SRC evidence or source_mode: human_entered")
+
+    if item_prefix == "RV":
+        if not has_reference_with_prefix(metadata, ("targets",), {"REQ", "DS"}, known_ids):
+            failures.append(f"{location}: RV item must target at least one REQ or DS")
+
+    if item_prefix == "PD":
+        if not has_reference_with_prefix(metadata, ("addresses",), {"RV"}, known_ids):
+            failures.append(f"{location}: PD item must address at least one RV")
+        if not has_reference_with_prefix(metadata, ("targets",), {"DS"}, known_ids):
+            failures.append(f"{location}: PD item must target at least one DS")
+
+    if item_prefix == "DR":
+        if not has_reference_with_prefix(metadata, ("reviews",), {"PD"}, known_ids):
+            failures.append(f"{location}: DR item must review at least one PD")
+
+    if item_prefix == "DL":
+        if not has_reference_with_prefix(
+            metadata,
+            ("decides", "related", "addresses", "reviews", "targets"),
+            {"DR", "PD", "RV", "REQ"},
+            known_ids,
+        ):
+            failures.append(f"{location}: DL item must decide or reference at least one DR, PD, RV, or REQ")
+
+    if item_prefix == "HO":
+        if not has_reference_with_prefix(metadata, ("created_by", "related"), {"DL", "RV", "REQ"}, known_ids):
+            failures.append(f"{location}: HO item must link back to at least one DL, RV, or REQ")
+
+    if item_prefix == "VR":
+        if not references_for(metadata, ("validates", "checked_ids")):
+            failures.append(f"{location}: VR item must list checked IDs through validates or checked_ids")
+
+
+def validate_trace_map(
+    metadata_by_file: dict[Path, dict[str, object]],
+    failures: list[str],
+    warnings: list[str],
+) -> None:
+    if not TRACE_MAP.is_file():
+        failures.append(f"missing trace map: {rel(TRACE_MAP)}")
+        return
+
+    trace_text = read_text(TRACE_MAP)
+    if FULL_TRACE_CHAIN not in trace_text:
+        failures.append(f"{rel(TRACE_MAP)}: missing full trace chain: {FULL_TRACE_CHAIN}")
+
+    for heading in ["Unresolved Item Visibility", "Approval Status", "Validation Status"]:
+        if heading not in trace_text:
+            warnings.append(f"{rel(TRACE_MAP)}: missing non-critical section heading: {heading}")
+
+    for file_path, metadata in sorted(metadata_by_file.items()):
+        status = scalar(metadata, "status")
+        item_id = scalar(metadata, "id")
+        if status in VISIBLE_OPEN_STATUSES and item_id not in trace_text:
+            failures.append(
+                f"{rel(TRACE_MAP)}: {item_id} has status {status} but is not visible in trace_map.md"
+            )
+
+
 def main() -> int:
     failures: list[str] = []
+    warnings: list[str] = []
     markdown_files = iter_markdown_files()
 
     if not SAMPLE_ROOT.is_dir():
@@ -179,6 +297,7 @@ def main() -> int:
         id_to_files.setdefault(item_id, []).append(file_path)
         metadata_by_file[file_path] = metadata
         validate_metadata(file_path, metadata, failures)
+        validate_status(file_path, metadata, warnings)
 
     for item_id, files in sorted(id_to_files.items()):
         if item_id and len(files) > 1:
@@ -188,15 +307,24 @@ def main() -> int:
     known_ids = {item_id for item_id in id_to_files if ID_RE.match(item_id)}
     for file_path, metadata in sorted(metadata_by_file.items()):
         validate_relationships(file_path, metadata, known_ids, failures)
+        validate_relationship_meaning(file_path, metadata, known_ids, failures)
+
+    validate_trace_map(metadata_by_file, failures, warnings)
 
     if failures:
         print("Workspace minimal validation: FAIL")
         print(f"Workspace: {rel(SAMPLE_ROOT)}")
         print(f"Markdown files checked: {len(markdown_files)}")
         print(f"ID-bearing files checked: {len(id_bearing_files)}")
+        print(f"Warnings: {len(warnings)}")
+        print(f"Failures: {len(failures)}")
         print("Failures:")
         for failure in failures:
             print(f"- {failure}")
+        if warnings:
+            print("Warnings:")
+            for warning in warnings:
+                print(f"- {warning}")
         return 1
 
     print("Workspace minimal validation: PASS")
@@ -204,6 +332,11 @@ def main() -> int:
     print(f"Markdown files checked: {len(markdown_files)}")
     print(f"ID-bearing files checked: {len(id_bearing_files)}")
     print(f"IDs found: {len(id_to_files)}")
+    print(f"Warnings: {len(warnings)}")
+    if warnings:
+        print("Warnings:")
+        for warning in warnings:
+            print(f"- {warning}")
     return 0
 
 

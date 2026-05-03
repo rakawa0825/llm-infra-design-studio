@@ -69,7 +69,7 @@ Example interpretation:
 - `HO-001`: a downstream handoff item,
 - `VR-001`: a validation result that records what was checked.
 
-This chain is illustrative only. No v0.2 sample workspace is implemented by this note.
+This chain is illustrated in the Markdown-only synthetic sample at [Workspace Minimal Traceability Sample](../../samples/workspace_minimal/README.md). The sample is not an implementation, runner, validator, or production workflow.
 
 ## Minimal Workspace Concept
 
@@ -92,7 +92,7 @@ workspace_minimal/
   validation_results/
 ```
 
-This structure is a proposed direction only. It is not currently implemented in this repository.
+This structure is represented as a Markdown-only synthetic sample at `samples/workspace_minimal/`. The sample is for review of traceability shape only; it does not implement automated workflow behavior.
 
 The intended workspace properties are:
 
@@ -151,7 +151,6 @@ This direction does not include:
 - no production deployment,
 - no autonomous design approval,
 - no real customer data,
-- no sample workspace files in this note,
 - no validator scripts in this note,
 - no OSS/license change.
 

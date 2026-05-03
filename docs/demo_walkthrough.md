@@ -123,6 +123,18 @@ python3 scripts/check_sensitive_identifiers.py
 
 Validation does not prove real network design correctness or approve design language.
 
+## Additional v0.2 Traceability Sample
+
+For a Markdown-only traceability prototype slice, see [Workspace Minimal Traceability Sample](../samples/workspace_minimal/README.md).
+
+It shows a synthetic ID chain from source evidence to validation result record and can be checked with:
+
+```bash
+python3 scripts/validate_workspace_minimal.py
+```
+
+This sample is not a production workflow and does not include an automated approval system.
+
 ## Private Meeting System Boundary
 
 This public repository does not include the private operational meeting system.
@@ -136,4 +148,3 @@ See: [`docs/integration/private_meeting_system_adapter_boundary.md`](integration
 The useful question is not whether this is a finished product.
 
 The useful question is whether the workflow preserves evidence, uncertainty, lifecycle phase, and human approval boundaries while preparing reviewable infrastructure design artifacts.
-

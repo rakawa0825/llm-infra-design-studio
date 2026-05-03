@@ -156,6 +156,7 @@ VALIDATION_SCRIPTS = [
     "scripts/validate_source_registry.py",
     "scripts/validate_lifecycle_minimal.py",
     "scripts/validate_artifact_generation_plan.py",
+    "scripts/validate_workspace_minimal.py",
 ]
 
 TEXT_SUFFIXES = {".md", ".csv", ".py", ".txt", ".json", ".gitignore", ".yml", ".yaml", ".html", ".css"}

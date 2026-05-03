@@ -143,6 +143,8 @@ For a quick before/after view, see:
 
 It shows how five scattered synthetic inputs become requirement candidates, unresolved items, a high-level design / basic design patch, detailed-design handoff, review response draft, and human approval checklist.
 
+For the v0.2 traceability prototype slice, see [Workspace Minimal Traceability Sample](samples/workspace_minimal/README.md) and [Workspace Minimal Validation](docs/validation/workspace_minimal_validation.md).
+
 ## First-time reviewer path
 
 Start here:
@@ -160,6 +162,7 @@ Start here:
 python3 scripts/run_sample_workflow.py --check-only
 python3 scripts/validate_lifecycle_minimal.py
 python3 scripts/validate_artifact_generation_plan.py
+python3 scripts/validate_workspace_minimal.py
 python3 scripts/check_sensitive_identifiers.py
 ```
 

@@ -127,7 +127,9 @@ Validation does not prove real network design correctness or approve design lang
 
 For a Markdown-only traceability prototype slice, see [Workspace Minimal Traceability Sample](../samples/workspace_minimal/README.md).
 
-It shows a synthetic ID chain from source evidence to validation result record and can be checked with:
+It shows a synthetic ID chain from source evidence to validation result record. The validator scope and limits are documented in [Workspace Minimal Validation](validation/workspace_minimal_validation.md).
+
+Run:
 
 ```bash
 python3 scripts/validate_workspace_minimal.py

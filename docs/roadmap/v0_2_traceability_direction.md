@@ -118,6 +118,8 @@ Future validation may include:
 
 Future validators should support review readiness. They should not approve design decisions, close unresolved issues, or replace qualified engineering judgment.
 
+The current limited validator for the Markdown-only sample is documented in [Workspace Minimal Validation](../validation/workspace_minimal_validation.md).
+
 ## Public Safety Boundary
 
 Any future public v0.2 traceability sample must use synthetic examples only.

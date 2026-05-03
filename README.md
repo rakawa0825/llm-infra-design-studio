@@ -153,8 +153,10 @@ Start here:
 2. v0.1 scope: [docs/roadmap/v0_1_scope.md](docs/roadmap/v0_1_scope.md)
 3. Synthetic case design: [docs/cases/v0_1_synthetic_case_design.md](docs/cases/v0_1_synthetic_case_design.md)
 4. Lifecycle minimal sample: [samples/lifecycle_minimal/README.md](samples/lifecycle_minimal/README.md)
-5. Reviewer quickstart: [docs/quickstart_for_reviewers.md](docs/quickstart_for_reviewers.md)
-6. Known limitations: [docs/known_limitations.md](docs/known_limitations.md)
+5. v0.2 traceability sample: [samples/workspace_minimal/README.md](samples/workspace_minimal/README.md)
+6. Workspace minimal validation: [docs/validation/workspace_minimal_validation.md](docs/validation/workspace_minimal_validation.md)
+7. Reviewer quickstart: [docs/quickstart_for_reviewers.md](docs/quickstart_for_reviewers.md)
+8. Known limitations: [docs/known_limitations.md](docs/known_limitations.md)
 
 ## Validation
 
